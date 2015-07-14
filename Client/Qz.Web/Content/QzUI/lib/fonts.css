@@ -1,0 +1,75 @@
+﻿/**
+    QzUI.css.lib.fonts.css 
+    @Author By ZPC 
+    @Date 2015-4-16 11:02:34 
+    @Version 1.0 
+*/
+
+@font-face { 
+    font-family: 'QzICON'; 
+    src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg'); 
+}
+
+[class*=icon-] {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
+}
+
+/* ICON 首页图标 */
+.icon-person, .icon-search, .icon-wash, .icon-fav, .icon-search-1, .icon-wash-1, .icon-fav-1, .icon-setting { font-size: 70px; }
+.icon-fav:before { content: "\f08a"; } 
+.icon-fav-1:before { content: "\f004"; } 
+.icon-person:before { content: "\f0c0"; } 
+.icon-search:before { content: "\f083"; } 
+.icon-search-1:before { content: "\f030"; } 
+.icon-setting:before { content: "\F085"; } 
+.icon-wash:before { content: "\f0c0"; } 
+.icon-wash-1:before { content: "\f030"; } 
+
+/* ICON 房子( 首页 ) 返回 关闭 */
+.icon-txt{position:absolute;left:23px;top: 14px;}
+.icon-return{font-size:19px;position:absolute;left:5px;top: 12px;}
+.icon-home:before {content:"\f015";}
+.icon-return:before{content:"\f0a8";}
+.icon-home,.icon-close{font-size:22px;position:absolute;right:5px;top: 10px;color:white;filter: alpha(opacity=1);opacity: 1;}
+.icon-close:before{content:"\F057";}
+.icon-query:hover ,.icon-close:hover {filter: alpha(opacity=50);opacity: 0.5;}
+.icon-query{font-size:16px;color:#149b70;}
+.icon-query:before{content:"\f002";}
+
+/* TOP 置顶 */
+.icon-top {font-size:38px;color:#149b70;}
+.icon-top:before {content:"\f0aa";}
+.icon-tel{font-size:30px;color:#fff;position: absolute;left: 10px;top: 2px;}
+.icon-call{color: #149b70; font-size: 20px; position: absolute; right: 5px; top: 5px;}
+.icon-call:before,.icon-tel:before{content:"\f095";}
+.icon-wifi {color:#ccc;font-size:150px;-moz-transform:rotate(-45deg); -ms-transform:rotate(-45deg); -o-transform:rotate(-45deg); -webkit-transform:rotate(-45deg); transform:rotate(-45deg);padding:10px 0;}
+.icon-wifi:before{content:"\f09e"}
+.icon-null {font-size:18px;color:#ccc;}
+/*.icon-null:before{content:"\f115"}*/
+.icon-null:before{content:"\f07c"}
+.icon-picture{color:#ccc;}
+.icon-picture:before{content:"\f03e"}
+.icon-reload {}
+.icon-reload:before{content:"\f021"}
+.icon-menu{color: #fff; position: absolute; font-size: 20px; top: 10px;right: 35px; }
+.icon-menu:before{content:"\f0c9"}
+
+.icon-down:before{content:"\f0d7"}
+.icon-sort:before{content:"\f0dc"}
+.icon-filter:before{content:"\f0b0"}
+.icon-down,.icon-sort,.icon-filter{color: #808080;font-size:16px;padding-left:5px;}
+
+.icon-success,.icon-del {color: #149b70;font-size: 20px;position: absolute;right: 5px;}
+.icon-del:before{content:"\f014"}
+.icon-success:before{content:"\f00c"}
+
+.icon-fail{color: #fff; font-size: 2em; position: absolute; right: 5%; top: 5%; padding: 2px 5px; border-radius: 5px; background:rgba(20,155,119,.7); }
+.icon-fail:before{content:"\f119"}
+

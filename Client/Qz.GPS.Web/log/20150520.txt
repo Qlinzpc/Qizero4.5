@@ -1,0 +1,79 @@
+2015/5/20 12:28:10 [Error] Qz.GPS.Web.Controllers.UserController msg: 密文不得为空
+
+2015/5/20 12:29:21 [Error] Qz.GPS.Web.Controllers.UserController msg: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+
+2015/5/20 12:29:44 [Error] Qz.GPS.Web.Controllers.UserController msg: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+
+2015/5/20 12:30:53 [Error] Qz.GPS.Web.Controllers.UserController msg: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+
+2015/5/20 12:31:47 [Error] Qz.GPS.Web.Controllers.UserController msg: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+
+2015/5/20 12:44:50 [Error] Qz.GPS.Web.Controllers.UserController msg: 未将对象引用设置到对象的实例。
+
+2015/5/20 12:49:54 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: 未将对象引用设置到对象的实例。
+
+2015/5/20 13:57:56 [Error] Qz.GPS.Web.Controllers.HomeController http://localhost:1595/ msg: 未能加载文件或程序集“Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+
+2015/5/20 14:08:23 [Debug] {
+  "Id": 2,
+  "CompanyId": 100,
+  "DepartmentId": 1001,
+  "InnerUser": 0,
+  "Code": "10002",
+  "Account": "Qz",
+  "Password": "bzYTVwkFQB8=",
+  "Secretkey": "58d3a852-dc86-45a7-a776-a0e7fee08c9d",
+  "UserName": "Qz",
+  "Spell": "qz",
+  "Gender": "男",
+  "Birthday": "1993-07-17",
+  "Mobile": "15012940312",
+  "Telephone": "",
+  "OpenId": 0,
+  "LoginCount": 4,
+  "FirstVisit": "2015-05-20 01:46:24",
+  "PreviousVisit": "2015-05-20 01:57:56",
+  "LastVisit": "2015-05-20 02:08:22",
+  "Online": 1,
+  "Enabled": 0,
+  "SortCode": 0,
+  "IsDelete": 0,
+  "CreateUserId": 1,
+  "CreateUserName": "张鹏程",
+  "CreateDate": "2015-05-19 11:08:11"
+}
+
+2015/5/20 14:10:25 [Error] Qz.GPS.Web.Controllers.HomeController http://localhost:1595/ msg: Self referencing loop detected with type 'System.Data.Entity.DynamicProxies.User_A5CE1E42D9F7CA94F8924FFF9AC9A8578A16E59C984A068CD3B453D4741F7DDA'. Path 'Company.Users'.
+
+2015/5/20 16:07:11 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/20 16:56:48 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: 未将对象引用设置到对象的实例。
+
+2015/5/20 16:56:53 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: An error occurred while starting a transaction on the provider connection. See the inner exception for details.
+
+2015/5/20 16:56:54 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: EntityMemberChanged or EntityComplexMemberChanged was called without first calling EntityMemberChanging or EntityComplexMemberChanging on the same change tracker with the same property name. For information about properly reporting changes, see the Entity Framework documentation. 
+
+2015/5/20 16:56:54 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: An error was reported while committing a database transaction but it could not be determined whether the transaction succeeded or failed on the database server. See the inner exception and http://go.microsoft.com/fwlink/?LinkId=313468 for more information.
+
+2015/5/20 17:17:11 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/20 17:17:12 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/20 17:17:13 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/20 17:17:15 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/20 17:17:21 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: An error occurred while starting a transaction on the provider connection. See the inner exception for details.
+
+2015/5/20 17:17:21 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The underlying provider failed on Open.
+
+2015/5/20 17:17:25 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The changes to the database were committed successfully, but an error occurred while updating the object context. The ObjectContext might be in an inconsistent state. Inner exception message: AcceptChanges cannot continue because the object's EntityKey value is null or is not a temporary key. This can happen when the EntityKey property is modified while the object is in an added state.
+
+2015/5/20 17:17:25 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The property 'Id' is part of the object's key information and cannot be modified. 
+
+2015/5/20 17:17:27 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The property 'Id' is part of the object's key information and cannot be modified. 
+
+2015/5/20 17:17:27 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: An error occurred while updating the entries. See the inner exception for details.
+
+2015/5/20 17:17:27 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The property 'Id' is part of the object's key information and cannot be modified. 
+

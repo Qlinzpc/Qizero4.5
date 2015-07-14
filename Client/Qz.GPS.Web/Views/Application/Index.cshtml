@@ -1,0 +1,209 @@
+﻿@{
+    ViewBag.Title = "系统应用";
+    Layout = null;
+}
+@{
+    int i = 0;
+    string className = "";
+}
+
+<style>
+    #@ViewBag.PageId {
+        width: 100%;
+        height: 200px;
+        box-sizing: border-box;
+    }
+</style>
+
+<div id="@ViewBag.PageId">
+    <h3>数据响应时间: @Model.Times</h3>
+
+    @* 工具栏 Toolbar *@
+    @Html.Partial("_ToolbarPartial")
+
+    <table class="tbl">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>系统名称</th>
+                <th>描述</th>
+                <th>创建人</th>
+                <th>创建时间</th>
+            </tr>
+        </thead>
+        <tbody class="tbl-oper">
+            @if (Model.Data.Count <= 0)
+            {
+                <tr>
+                    <td colspan="11" style="text-align:center;color:#aaa;font-weight:400;">@Qz.Common.QConst.SYS_DATA_NULL</td>
+                </tr>
+            }
+            @foreach (var item in Model.Data)
+            {
+                className = i % 2 == 0 ? "even" : "odd";
+                i++;
+                <tr class="@className" data-id="@item.Id">
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Remark</td>
+                    <td>@item.CreateUserName</td>
+                    <td>@item.CreateDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+
+    (function (o) {
+
+        /**
+             * Page 类
+            */
+        function Page() {
+            // Page 继承 PageBase 属性 ( prototype )
+            Page.fExtends(o.PageBase);
+        }
+
+        /**
+         * Page 属性
+        */
+        Page.prototype = {
+            dialog: null
+        };
+
+        /**
+         * 初始化 方法
+        */
+        Page.prototype.init = function () {
+            var _this = this;
+
+            // 初始化 PageBase 类之前 
+            this.id = '@ViewBag.PageId';
+            this.name = '@ViewBag.Title';
+
+            // 初始化 PageBase 类, 若初始化失败, 则 return 
+            if (!this.initbase()) { return false; }
+
+            // 属性
+            this.dialog = new o.Dialog();
+            // public 属性 
+            o.gps[this.id]['dialog'] = this.dialog;
+
+            // 按钮 
+            _button.call(this, this);
+            // 表格 
+            _table.call(this, this);
+
+            return true;
+        };
+
+        /**
+         * 按钮
+        */
+        function _button(_this) {
+            // 新增
+            this.btns.add = function () {
+                if (!_this.btns.dom.exists('add')) return;
+
+                common.ajax({
+                    url: '/Application/Edit',
+                    type: 'html',
+                    callback: function (rs) {
+
+                        _this.dialog.window({ id: 'window-app-add', content: rs.html, title: '新增{0}'.format( _this.name ), drag: true });
+                    }
+                });
+            };
+            // 删除
+            this.btns.remove = function () {
+                if (!_this.btns.dom.exists('remove')) return;
+
+                if (!_this.tbl.select.row || _this.tbl.select.row.Id <= 0) {
+                    common.tip('请先选中操作行 ...');
+                    return;
+                }
+
+            };
+            // 编辑
+            this.btns.edit = function () {
+                if (!_this.btns.dom.exists('edit')) return;
+
+                if (!_this.tbl.select.row || _this.tbl.select.row.Id <= 0) {
+                    common.tip('请先选中操作行 ...');
+                    return;
+                }
+
+                common.ajax({
+                    url: '/Application/Edit',
+                    data: { id: _this.tbl.select.row.Id },
+                    type: 'html',
+                    callback: function (rs) {
+
+                        _this.dialog.window({ id: 'window-app-edit', content: rs.html, title: '编辑{0}'.format(_this.name), drag: true });
+                    }
+                });
+
+            };
+            // 刷新
+            this.btns.reload = function () {
+                if (!_this.btns.dom.exists('reload')) return;
+                o.gps.tab.reload(o.gps.tab.current);
+
+            };
+            // 保存
+            this.btns.save = function () {
+                if (!_this.btns.dom.exists('save')) return;
+
+            };
+            // 查询
+            this.btns.search = function () {
+                if (!_this.btns.dom.exists('search')) return;
+
+            };
+            // 授权
+            this.btns.CC = function () {
+                if (!_this.btns.dom.exists('CC')) return;
+
+            };
+        };
+
+        /**
+         * 表格
+        */
+        function _table(_this) {
+
+            // 行点击事件
+            $api.addEvt($api.domAll(_this.tbl.dom, 'tbody tr'), 'click', function () {
+
+                var _active = $api.dom(_this.tbl.dom, 'tr.active');
+                console.log(_active);
+
+                $api.rmCls(_active, 'active');
+
+                _this.tbl.select.row = {};
+                _this.tbl.select.row.Id = $api.data(this, 'id');
+
+                if (!_this.tbl.select.row.Id) {
+                    common.tip('行 Id 为空, 未初始化或未绑定 data-id !', 5 * 1000);
+                    return false;
+                }
+
+                if (_active && compare(_this.tbl.select.row.Id, $api.data(_active, 'id'))) {
+                    _this.tbl.select.row = null;
+                    return false;
+                }
+
+                $api.addCls(this, 'active');
+            });
+        };
+
+        var _app = new Page();
+
+        _app.init();
+
+    })(window);
+
+</script>

@@ -1,0 +1,138 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GPS 登录</title>
+
+    <link href="~/Module/QzUI/common/css/common.css" rel="stylesheet" />
+    <link href="~/Module/QzUI/common/css/fonts.css" rel="stylesheet" />
+    <link href="~/Module/QzUI/common/css/animate.css" rel="stylesheet" />
+
+    <style>
+        html{ background:#333; } .page-container { margin: 88px auto; width: 400px; padding: 50px 0; height: 200px; -moz-box-shadow: 0 -5px 0 0 #ff6a00; -webkit-box-shadow: 0 -5px 0 0 #ff6a00; box-shadow: 0 -5px 0 0 #ff6a00; }  h1 { padding-bottom: 10px; }  
+        #form div{border-bottom: 1px solid #149b70; display:inline-block;}
+        input{border:0;margin:0;padding: 5px 0 5px 3px;color:#149b70;font-family:'微软雅黑';}
+        .icon{color:#149b70;}
+        .icon-go { font-size: 25px; } .icon-go:before { content: "\f0a9"; }  
+        .icon-user,.icon-password{ font-size: 18px; } 
+        .icon-user:before{ content:"\f007"; } .icon-password:before{ content:"\f13e"; }  
+        .icon-close{ padding:0 5px; color:#ccc; } .icon-close:hover { -moz-transition: 0.8s; -o-transition: 0.8s; -webkit-transition: 0.8s; transition: 0.8s; color: #333; }  .icon-close:before{ content:"\f057"; }  
+        .msg{padding: 10px 0 5px 0;color: #333;} .msg span{box-shadow: 0 0 5px 0 red; border-radius: 5px; padding: 5px 0 5px 10px;} 
+    </style>
+
+</head>
+<body>
+
+    <div class="page-container">
+        <h1 class="tac">GPS 登录(Login)</h1>
+        <form id="form" action="" method="post" class="pos-r">
+            <div>
+                <i class="icon icon-user"></i><input type="text" name="Account" id="userName" required data-required-msg="用户名不能为空 !" placeholder="请输入您的用户名！">
+            </div>
+            <div>
+                <i class="icon icon-password"></i><input type="password" name="Password" id="password" required data-required-msg="密码不能为空 !" placeholder="请输入您的密码！"><i class="icon icon-go" id="btnLogin"></i>
+            </div>
+        </form>
+        <div class="msg animated"></div>
+    </div>
+
+    <script src="~/Module/QzUI/base/js/base.js"></script>
+    <script src="~/Module/QzUI/common/js/common.js"></script>
+    <script src="~/Module/QzUI/lib/Form/js/form.js"></script>
+
+    <script>
+
+        var msg = new function () {
+
+            var _ishide = 0,
+                _ = $api.dom(".msg");
+
+            this.show = function (_msg) {
+                if (!_msg) return this;
+
+                $api.html(_, '<span>' + _msg + '<i class="icon-close" onclick="msg.hide()"></i></span>');
+                $api.show(_);
+
+                return this;
+            };
+
+            this.hide = function () {
+                if (_ishide == 1) return;
+                $api.addCls(_, 'fadeOut');
+
+                var timer = setTimeout(function () {
+                    _ishide = 0;
+                    $api.rmCls(_, 'fadeOut');
+                    $api.hide(_);
+
+                    clearTimeout(timer);
+                }, 1000);
+
+                _ishide = 1;
+            };
+
+            return this;
+        };
+
+        common.load.complete(function () {
+
+            common.loadJC('/Module/QzUI/lib/Ajax/js/ajax.js');
+
+            $api.dom('#userName').focus();
+
+            var _login = $api.dom("#btnLogin"),
+               form = new Form({ id: '#form' });
+
+            $api.addEvt($api.domAll("#password, #userName"), 'keyup', function (e) {
+
+                var event = e || envet;
+
+                if (e.keyCode == 13) {
+                    _login.click();
+                    return;
+                }
+
+                msg.hide();
+            });
+
+
+            $api.addEvt(_login, 'click', function () {
+
+                if (form.validate(function (_msg) {
+
+                    if (!_msg) return;
+
+                    msg.show(_msg);
+                })) {
+                    var data = form.serialize();
+
+                    form.submit({
+                        url: "/User/Login",
+                        data: eval('(' + data + ')'),
+                        callback: function (rs) {
+
+                            common.tip(rs.Times);
+
+                            if (rs.Status != 0) {
+
+                                msg.show(rs.Message);
+                                return;
+                            }
+
+                            window.location.href = "/";
+                        }
+                    });
+                };
+
+            });
+        });
+
+    </script>
+
+</body>
+</html>

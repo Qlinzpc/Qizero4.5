@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "用户管理";
+    Layout = null;
+}
+
+@{
+    int i = 0;
+    string className = "", online= "", enable = "";
+}
+
+<div id="@ViewBag.PageId">
+    <h3>数据响应时间: @Model.Times</h3>
+    @* 工具栏 Toolbar *@
+    @Html.Partial("_ToolbarPartial")
+
+    <table class="tbl">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>用户名</th>
+                <th>公司</th>
+                <th>部门</th>
+                <th>性别</th>
+                <th>出生日期</th>
+                <th>手机号码</th>
+                <th>登录次数</th>
+                <th>首次登录时间</th>
+                <th>上次登录时间</th>
+                <th>最后一次登录时间</th>
+                <th>是否在线</th>
+                <th>是否可用</th>
+                <th>备注</th>
+                <th>创建人</th>
+                <th>创建时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Data.Count <= 0)
+            {
+                <tr>
+                    <td colspan="16" style="text-align:center;color:#aaa;font-weight:400;">@Qz.Common.QConst.SYS_DATA_NULL</td>
+                </tr>
+            }
+            @foreach (var item in Model.Data)
+            {
+                className = i % 2 == 0 ? "even" : "odd";
+                i++;
+                <tr class="@className">
+                    <td>@item.Id</td>
+                    <td>@item.UserName</td>
+                    <td></td>
+                    <td></td>
+                    <td>@item.Gender</td>
+                    <td>@item.Birthday</td>
+                    <td>@item.Mobile</td>
+                    <td>@item.LoginCount</td>
+                    <td>@item.FirstVisit</td>
+                    <td>@item.PreviousVisit</td>
+                    <td>@item.LastVisit</td>
+                    <td>@if (item.Online == 1) { online = "在线"; } else { online = "离线"; } @online</td>
+                    <td>@if (item.Enabled == 0) { enable = "启用"; } else { enable = "禁用"; } @enable</td>
+                    <td>@item.Remark</td>
+                    <td>@item.CreateUserName</td>
+                    <td>@item.CreateDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

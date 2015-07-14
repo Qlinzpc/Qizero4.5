@@ -1,0 +1,6 @@
+2015/6/8 11:53:08 [Error] Qz.GPS.Web.Controllers.ApplicationController http://localhost:1595/Application?v=1433735587212 msg: 无法将类型“Qz.Core.Entity.Response<object>”隐式转换为“System.Collections.IEnumerable”。存在一个显式转换(是否缺少强制转换?)
+
+2015/6/8 17:20:39 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login?v=1433755236837 msg: The specified cast from a materialized 'System.DateTime' type to the 'System.String' type is not valid.
+
+2015/6/8 18:10:24 [Error] Qz.GPS.Web.Controllers.ApplicationController http://localhost:1595/Application?v=1433757996648 msg: 无法对 null 引用执行运行时绑定
+

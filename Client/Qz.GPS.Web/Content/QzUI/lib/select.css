@@ -1,0 +1,27 @@
+﻿.ui-select{
+
+}
+.ui-select li {
+    cursor: pointer;
+    padding: 4px 0 4px 13px;
+    position: relative;
+    width: 100%;
+}
+
+.select{
+    background: #149b70;
+    color: #fff;
+}
+
+.icon-select{
+    padding-right: 3px;
+}
+.icon-select:before{
+    content: "\F00C";
+}
+
+.scroll{
+    width: 100%;
+    height: 230px;
+    overflow: scroll;
+}

@@ -1,0 +1,45 @@
+﻿.btn {
+    font-size: 13px;
+    color: white;
+    border: 0 none;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right:5px;
+}
+
+    .btn:hover {
+        text-decoration: underline;
+    }
+
+.btn-unclick {
+    background-color: #999;
+    cursor: default;
+    border: 1px solid #999;
+}
+
+.btn-unclick:hover{
+        text-decoration: none !important;
+}
+
+.btn-a {
+    background-color: #50B4E6;
+    border: 1px solid #50B4E6;
+}
+
+.btn-b {
+    background-color: #1FAC75;
+    border: 1px solid #1FAC75;
+}
+
+.btn-c {
+    background-color: #FA8919;
+    border: 1px solid #FA8919;
+}
+
+.btn-w {
+    background-color: #F0F0F0;
+    color: #333;
+    border: 1px solid #ccc;
+}

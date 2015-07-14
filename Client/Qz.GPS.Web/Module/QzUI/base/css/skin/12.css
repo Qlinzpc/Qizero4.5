@@ -1,0 +1,29 @@
+﻿.skin, .menu .active, .tree .active, .tbl-oper tr.active, .page-header, .page-footer, .btn-b, .context-menu li:not([class=disabled]):hover, .box-header {
+  background: #C6487E !important;
+  color: #fff !important; }
+
+.box-header {
+  border-bottom: 1px solid #C6487E; }
+
+.box, .btn-b, input[type=text]:focus, textarea:focus {
+  border: 1px solid #C6487E !important; }
+
+.context-menu li:not([class=disabled]):hover .icon, .tab .icon-tab-close:hover, .icon-sys-menu, .tree .icon-cbox-check, .tree .icon-cbox-square {
+  color: #C6487E !important; }
+
+.tbl-oper tr.active .icon, .menu ul .active > i, .tree ul .active > i {
+  color: #fff !important; }
+
+.dropdown-menu > :before {
+  border-bottom-color: #C6487E !important; }
+
+::-webkit-scrollbar-thumb,.loading > div{
+    background-color: #C6487E !important;
+}
+
+.menu ul > li:hover {
+  background-color: #eee; }
+
+.menu ul i, .tree ul i {
+  color: #bbb; }
+

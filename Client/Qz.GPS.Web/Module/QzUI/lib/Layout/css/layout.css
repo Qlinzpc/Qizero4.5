@@ -1,0 +1,131 @@
+﻿.page-container {
+}
+
+.page-header, .page-footer {
+    width: 100%;
+}
+
+.page-header {
+    height: 60px;
+}
+
+.page-footer {
+    height: 30px;
+    line-height: 30px;
+}
+
+.page-header .logo {
+    float: left;
+    width: 50%;
+    height: 100%;
+    line-height: 60px;
+    padding-left: 50px;
+}
+
+.page-header .header-menu {
+    float: right;
+    width: 49%;
+    text-align: right;
+}
+
+.header-menu ul {
+    height: 60px;
+    padding-right: 50px;
+}
+
+.header-menu li {
+    display: inline-block;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    margin-right: 8px;
+}
+
+    .header-menu li:hover {
+        opacity: 0.8;
+        border: 1px solid #fff;
+    }
+
+.page-taskbar {
+    background: #f5f5f5;
+    overflow: hidden;
+    height: 38px;
+    line-height: 38px;
+}
+
+.page-content {
+    height: 571px;
+}
+
+.page-nav {
+    width: 180px;
+    height: 100%;
+    border-right: 1px solid #dcdcdc;
+    float: left;
+    background-color: #F2F2F2;
+    z-index: 100;
+}
+
+.page-main {
+    position: relative;
+    margin: 0 auto;
+    overflow: scroll;
+    height: 100%;
+}
+
+.page-tab {
+    float: left;
+}
+
+.icon-nav, .icon-user {
+    color: #bbb;
+    padding: 0 5px;
+}
+
+    .icon-nav:before {
+        content: "\f0ae";
+    }
+
+    .icon-user::before {
+        content: "\f007";
+    }
+
+.header-menu .icon {
+    font-size: 28px !important;
+}
+
+.icon-sql:before {
+    content: "\f044";
+}
+
+.icon-system:before {
+    content: "\f109";
+}
+
+.icon-theme:before{
+    content: "\f0f1";
+}
+
+.icon-skin:before {
+    content:"\f0e3";
+}
+
+.icon-pc:before {
+    content: "\f0f0";
+}
+
+.icon-exit:before {
+    content: "\f0a4";
+}
+
+.icon-logo{
+    padding: 0 5px;
+    color: #E0A658;
+}
+
+.icon-logo:before{
+    content:"\f06e";
+}

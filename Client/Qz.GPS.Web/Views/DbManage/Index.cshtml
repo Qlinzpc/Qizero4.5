@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "数据库管理";
+    Layout = null;
+}
+
+@{
+    int i = 0;
+    string className = "", enable = "";
+}
+
+<div id="@ViewBag.PageId">
+    <h3>数据响应时间: @Model.Times</h3>
+    @* 工具栏 Toolbar *@
+    @Html.Partial("_ToolbarPartial")
+
+    <table class="tbl">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>服务器名称</th>
+                <th>数据库名称</th>
+                <th>执行</th>
+                <th>执行方式</th>
+                <th>开始时间</th>
+                <th>备份路径</th>
+                <th>备注</th>
+                <th>是否启用</th>
+                <th>创建人</th>
+                <th>创建时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Data.Count <= 0)
+            {
+                <tr>
+                    <td colspan="11" style="text-align:center;color:#aaa;font-weight:400;">@Qz.Common.QConst.SYS_DATA_NULL</td>
+                </tr>
+            }
+            @foreach (var item in Model.Data)
+            {
+                className = i % 2 == 0 ? "even" : "odd";
+                i++;
+                <tr class="@className">
+                    <td>@item.Id</td>
+                    <td>@item.ServerName</td>
+                    <td>@item.DbName</td>
+                    <td>@item.JobName</td>
+                    <td>@item.Mode</td>
+                    <td>@item.StartTime</td>
+                    <td>@item.FilePath</td>
+                    <td>@item.Remark</td>
+                    <td>@if (item.Enabled == 0) { enable = "启用"; } else { enable = "禁用"; } @enable</td>
+                    <td>@item.CreateUserName</td>
+                    <td>@item.CreateDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

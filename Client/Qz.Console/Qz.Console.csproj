@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7526FFC3-C6A0-4216-A46F-31CCFE530F37}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Qz.Console</RootNamespace>
+    <AssemblyName>Qz.Console</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\..\packages\FluentValidation.5.6.2.0\lib\Net45\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Application.cs" />
+    <Compile Include="Models\Button.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\DataCode.cs" />
+    <Compile Include="Models\DataCodeType.cs" />
+    <Compile Include="Models\DbBackup.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\DepartmentRole.cs" />
+    <Compile Include="Models\GeneralPermissionsSystemContext.cs" />
+    <Compile Include="Models\LoginLog.cs" />
+    <Compile Include="Models\Mapping\ApplicationMap.cs" />
+    <Compile Include="Models\Mapping\ButtonMap.cs" />
+    <Compile Include="Models\Mapping\CompanyMap.cs" />
+    <Compile Include="Models\Mapping\DataCodeMap.cs" />
+    <Compile Include="Models\Mapping\DataCodeTypeMap.cs" />
+    <Compile Include="Models\Mapping\DbBackupMap.cs" />
+    <Compile Include="Models\Mapping\DepartmentMap.cs" />
+    <Compile Include="Models\Mapping\DepartmentRoleMap.cs" />
+    <Compile Include="Models\Mapping\LoginLogMap.cs" />
+    <Compile Include="Models\Mapping\ModuleButtonMapMap.cs" />
+    <Compile Include="Models\Mapping\ModuleMap.cs" />
+    <Compile Include="Models\Mapping\PermissionMap.cs" />
+    <Compile Include="Models\Mapping\RoleMap.cs" />
+    <Compile Include="Models\Mapping\RoleModuleButtonMapMap.cs" />
+    <Compile Include="Models\Mapping\RoleModuleColumnMapMap.cs" />
+    <Compile Include="Models\Mapping\RoleModuleMapMap.cs" />
+    <Compile Include="Models\Mapping\RolePermissionMap.cs" />
+    <Compile Include="Models\Mapping\sysdiagramMap.cs" />
+    <Compile Include="Models\Mapping\SysLogMap.cs" />
+    <Compile Include="Models\Mapping\UserMap.cs" />
+    <Compile Include="Models\Mapping\UserPermissionMap.cs" />
+    <Compile Include="Models\Mapping\UserRoleMap.cs" />
+    <Compile Include="Models\Mapping\UserSettingMap.cs" />
+    <Compile Include="Models\Module.cs" />
+    <Compile Include="Models\ModuleButtonMap.cs" />
+    <Compile Include="Models\Permission.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\RoleModuleButtonMap.cs" />
+    <Compile Include="Models\RoleModuleColumnMap.cs" />
+    <Compile Include="Models\RoleModuleMap.cs" />
+    <Compile Include="Models\RolePermission.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\SysLog.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserPermission.cs" />
+    <Compile Include="Models\UserRole.cs" />
+    <Compile Include="Models\UserSetting.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validation\Extends\ValidatorExtensions.cs" />
+    <Compile Include="Validation\UserValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Qz.Common\Qz.Common.csproj">
+      <Project>{4603d45b-1d33-45ca-af56-60cce3697495}</Project>
+      <Name>Qz.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

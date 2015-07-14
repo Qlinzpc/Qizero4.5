@@ -1,0 +1,48 @@
+2015/5/21 10:05:40 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:05:41 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:05:42 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:05:43 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:05:44 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:05:45 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:05:46 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:05:47 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:05:47 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:05:47 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:05:47 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:05:47 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:06:02 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:06:02 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:06:02 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:06:02 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:06:02 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:06:14 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/5/21 10:06:31 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The underlying provider failed on Open.
+
+2015/5/21 10:06:33 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The changes to the database were committed successfully, but an error occurred while updating the object context. The ObjectContext might be in an inconsistent state. Inner exception message: AcceptChanges cannot continue because the object's EntityKey value is null or is not a temporary key. This can happen when the EntityKey property is modified while the object is in an added state.
+
+2015/5/21 10:06:34 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The property 'Id' is part of the object's key information and cannot be modified. 
+
+2015/5/21 10:06:34 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The property 'Id' is part of the object's key information and cannot be modified. 
+
+2015/5/21 10:58:57 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: 已添加了具有相同键的项。
+
+2015/5/21 17:04:25 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+

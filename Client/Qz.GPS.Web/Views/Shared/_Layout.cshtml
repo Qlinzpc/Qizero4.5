@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @RenderSection("CssHeader", required: false)
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+
+    @RenderSection("ScriptsHeader", required: false)
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,18 @@
+﻿/**
+    QzUI.css.base.css 
+    @Author By ZPC 
+    @Date 2015-4-16 11:29:02 
+    @Version 1.0 
+*/
+html,body{font-family:\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,Arial,sans-serif;font-size:15px;-webkit-touch-callout:none;-moz-text-size-adjust:none; -ms-text-size-adjust:none; -webkit-text-size-adjust:none; text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0);-moz-user-select:none; -ms-user-select:none; -webkit-user-select:none; user-select:none;background-color:#fff}
+html,body,header,section,footer,div,ul,ol,li,img,a,span,em,del,legend,center,strong,var,fieldset,form,label,dl,dt,dd,cite,input,hr,time,mark,code,figcaption,figure,textarea,h1,h2,h3,h4,h5,h6,p{margin:0;border:0;padding:0;font-style:normal;}
+nav,article,aside,details,main,header,footer,section,fieldset,figcaption,figure{display:block}
+img,a,button,em,del,strong,var,label,cite,small,time,mark,code,textarea{display:inline-block}
+header,section,footer{position:relative}
+ol,ul{list-style:none}
+input,button,textarea{border:0;margin:0;padding:0;font-size:1em;line-height:1em;background-color:rgba(0,0,0,0)}
+span{display:inline-block}
+a:active,a:hover{outline:0}
+a,a:visited{text-decoration:none}
+label{-ms-word-wrap:break-word; word-wrap:break-word;-ms-word-break:break-all; word-break:break-all}
+table{border-collapse:collapse;border-spacing:0}

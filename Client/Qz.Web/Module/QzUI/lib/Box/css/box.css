@@ -1,0 +1,74 @@
+﻿.box {
+    border: 1px solid #149b70;
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    top: 15%;
+    background: #fff;
+    display: none;
+    z-index: 120;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.box-header{
+    height: 26px;
+    line-height: 25px;
+    width: 100%;
+    background: #149b70;
+    padding: 1px 0;
+    border-bottom: 1px solid #149b70;
+    position: relative;
+    display: none;
+    color:#fff;
+    -webkit-user-select:none;
+}
+.box-header > div{
+    display:inline-block;
+}
+.box-header div:first-child{
+    width:88%;
+}
+.box-header div:last-child{
+    width:12%;
+    text-align: right;
+    box-sizing: border-box;
+    padding-right: 5px;
+}
+
+.box-title{
+    font-weight: bold;
+}
+
+.icon-box-close{
+    filter: alpha(opacity=20);
+    opacity: 0.2;
+    cursor: pointer;
+    font-size:16px;
+}
+.icon-box-close:hover{
+    opacity:1;
+    filter: alpha(opacity=100);
+}
+.icon-box-close:before{
+    content:"\f057";
+}
+
+.box-body{
+    min-height: 45px;
+    height: auto;
+}
+.box-footer{
+    min-height: 35px;
+    /*border-top: 1px dotted #ccc;*/
+    display: none;
+}
+
+.icon-win{
+    color: #fff;
+    padding: 0 5px 0 2px;
+}
+.icon-win:before{
+    content: "\f17a";
+}

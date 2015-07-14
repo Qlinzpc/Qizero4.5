@@ -1,0 +1,199 @@
+﻿@{
+    ViewBag.Title = "切换主题";
+    ViewBag.PageId = "qizero-theme";
+    Layout = null;
+}
+
+<div id="@ViewBag.PageId">
+
+    <style>
+        #@ViewBag.PageId {
+            width: 500px;
+            padding: 0 0 0 15px;
+        }
+
+            #@ViewBag.PageId .group {
+                border: 1px solid #dfdfdf;
+                min-height: 70px;
+                float: left;
+                width: 150px;
+                margin: 0 10px 10px 0;
+                border-radius: 5px;
+                padding: 5px 8px;
+                cursor: pointer;
+                position:relative;
+            }
+
+            #@ViewBag.PageId .disabled{
+                cursor: default;
+            }
+
+            #@ViewBag.PageId .check{
+                position:absolute;
+                bottom: 2px;
+                right: 5px;
+            }
+
+    </style>
+
+    <div style="padding-bottom:10px;">
+        系统加载模式:
+        <input type="radio" name="model" checked />单页应用
+        <input type="radio" name="model" /> iframe 应用
+    </div>
+
+    <div class="theme-container"></div>
+
+    <div style="text-align: right;padding-right: 10px;">
+        <div class="btn btn-b" data-func="apply">应 用</div>
+    </div>
+
+    <script>
+
+        (function (o) {
+
+            /**
+             * Page 类
+            */
+            function Page() {
+                // Page 继承 PageBase 属性 ( prototype )
+                Page.fExtends(o.PageBase);
+            }
+
+            /**
+             * Page 属性
+            */
+            Page.prototype = {
+                data: '@Qz.Common.QJsonConvert.Serialize(ViewBag.Data)',
+                theme: {
+                    dom: null,
+                    check: {
+                        html: '<div class="check animated rotateInDownLeft"><i class="icon icon-check"></i></div>',
+                        dom: null
+                    },
+                    arr: [
+                        { name: '左右树形版', value: 'tree', active: 'active-border' },
+                        { name: 'win7 版', value: 'win7' },
+                        { name: 'win8 版', value: 'win8' },
+                        { name: 'win10 版', value: 'win10' },
+                        { name: 'win 快捷菜单版', value: 'win_quick_menu' },
+                        { name: '更多风格正拼命开发, 期待您的使用', value: '', disabled: 'disabled' }
+                    ]
+                }
+            };
+
+            /**
+             * 初始化 方法
+            */
+            Page.prototype.init = function () {
+                var _this = this,
+                    _theme_html = [];
+
+                // 初始化 PageBase 类之前
+                this.id = '@ViewBag.PageId';
+                this.name = '@ViewBag.Title';
+
+                // 初始化 PageBase 类, 若初始化失败, 则 return
+                if (!this.initbase()) { return false; }
+
+                // 属性 
+                this.theme.arr.forEach(function (_) {
+                    if (_.active) {
+                        _.check = _this.theme.check.html;
+                        _.active = ' ' + _.active;
+                    }
+
+                    if (_.disabled) {
+                        _.disabled = ' ' + _.disabled;
+                    }
+                    
+                    _.check = _.check || '';
+                    _.active = _.active || '';
+                    _.disabled = _.disabled || '';
+
+                    _theme_html.push('<div class="group{active}{disabled}" data-theme="{value}"><p>{name}</p><div></div>{check}</div>'.format(_));
+                });
+
+                $api.append($api.dom(this.dom, '.theme-container'), _theme_html.join(''));
+
+                this.theme.dom = $api.domAll(this.dom, '.group');
+
+                if (this.data) {
+                    this.data = $api.parse(this.data.replace(/\&quot;/g, '"'));
+
+                }
+
+                // 主题 
+                _theme.call(this, this);
+                // 按钮 
+                _button.call(this, this);
+
+                return true;
+            };
+
+            function _theme(_)
+            {
+                var _old_active = null,
+                    _old_check_dom = null;
+
+                $api.addEvt(_.theme.dom, 'click', function () {
+
+                    if ($api.data(this, 'theme')) {
+                        $api.trigger(_.theme[$api.data(this, 'theme')]);
+
+                        common.tip($api.data(this, 'theme'));
+
+                        // 移除 之前激活 active , 选中 check 
+                        _old_active = $api.dom(_.dom, '.active-border');
+                        $api.rmCls(_old_active, 'active-border');
+                        _old_check_dom = $api.dom(_old_active, '.check');
+                        $api.remove(_old_check_dom);
+
+                        // 添加 激活 active , 选中 check 
+                        $api.addCls(this, 'active-border');
+                        $api.append(this, _.theme.check.html);
+
+                        _old_active = null;
+                        _old_check_dom = null;
+                    }
+                });
+
+                _.theme.tree = function () {
+
+                };
+                _.theme.win7 = function () {
+
+                };
+                _.theme.win8 = function () {
+
+                };
+                _.theme.win10 = function () {
+
+                };
+                _.theme.win_quick_menu = function () {
+
+                };
+
+            }
+
+            function _button(_) {
+                $api.addEvt($api.domAll(_.dom, '.btn[data-func]'), 'click', function () {
+                    if (/unclick/.test(this.className)) return;
+
+                    $api.trigger(_.btns[$api.data(this, 'func')]);
+                });
+
+                _.btns.apply = function () {
+                    common.tip('apply');
+                };
+            }
+
+            var _page = new Page();
+
+            _page.init();
+
+        })(window);
+
+    </script>
+
+</div>

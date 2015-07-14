@@ -1,0 +1,331 @@
+﻿@model Qz.GPS.ViewModel.Button
+@{
+    ViewBag.Title = "List";
+    Layout = null;
+}
+<div id="@ViewBag.PageId">
+
+    <style>
+        #@ViewBag.PageId{
+            width:500px;
+            height: 350px;
+        }
+        #@ViewBag.PageId .icon{
+
+        }
+        #@ViewBag.PageId .icon-au-del{}
+        #@ViewBag.PageId .icon-au-del:before{content:"\f057";}
+        #@ViewBag.PageId .icon-au-add{}
+        #@ViewBag.PageId .icon-au-add:before{content:"\f058";}
+        #@ViewBag.PageId .icon-au-del,#@ViewBag.PageId .icon-au-add{
+            padding-left: 5px;
+            transition: 1s;color: #149b70 !important;
+        }
+        #@ViewBag.PageId .btn{
+            margin-bottom: 5px;
+        }
+    </style>
+
+    <div id="@ViewBag.PageId">
+
+        <div class="pos-r">
+            <p class="hd-title">已授权按钮</p>
+            <div class="authorized"></div>
+
+            <div class="tools-right-btn">
+                <div class="btn btn-b" data-id="btn-au-check" data-func="auCheck">全选</div>
+                <div class="btn btn-unclick" data-id="btn-au-save" data-func="auSave">保存</div>
+            </div>
+        </div>
+        <br />
+        <div class="pos-r">
+            <p class="hd-title">未授权按钮</p>
+            <div class="unauthorized"></div>
+
+            <div class="tools-right-btn">
+                <div class="btn btn-b" data-id="btn-un-check" data-func="unCheck">全选</div>
+                <div class="btn btn-unclick" data-id="btn-un-save" data-func="unSave">保存</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        (function (o) {
+
+            var pageId = '@ViewBag.PageId',
+                _page = $api.dom('#' + pageId),
+                _authorized = $api.dom('#{0} .authorized'.format(pageId)),
+                _unauthorized = $api.dom('#{0} .unauthorized'.format(pageId)),
+                _btnAuCheck = $api.dom('#{0} .btn[data-id="btn-au-check"]'.format(pageId)),
+                _btnAuSave = $api.dom('#{0} .btn[data-id="btn-au-save"]'.format(pageId)),
+                _btnUnCheck = $api.dom('#{0} .btn[data-id="btn-un-check"]'.format(pageId)),
+                _btnUnSave = $api.dom('#{0} .btn[data-id="btn-un-save"]'.format(pageId)),
+                _buttonsData = $api.parse('@Qz.Common.QJsonConvert.Serialize(ViewBag.Buttons.Data)'.replace(/\&quot;/g, '"')),
+                _saveAction = '@ViewBag.Action',
+                _roleId = '@ViewBag.Role',
+                _moduleId = '@ViewBag.Module',
+                _auDel = '<i class="icon icon-au-del"></i>',
+                _auAdd = '<i class="icon icon-au-add"></i>',
+                // 已选中已授权按钮
+                _auCheckBtns = [],
+                _auCheckIds = [],
+                // 已选中未授权按钮
+                _unCheckBtns = [],
+                _unCheckIds = [],
+
+                buttons = {
+                    // 加载 
+                    load: function () {
+                        // 获得已授权按钮 
+                        buttons.authorized.btns = store.get('authorized-button');
+                        // 复制 copy 按钮数据集 
+                        buttons.unauthorized.btns = _buttonsData.slice();
+
+                        if (buttons.authorized.btns && $api.isArray(buttons.authorized.btns)) {
+                            // 移除已授权的 
+                            buttons.authorized.btns.forEach(function (_) {
+                                buttons.unauthorized.btns.remove(_);
+                            });
+                        }
+
+                        // 绑定数据 
+                        this.authorized.bind(buttons.authorized.btns);
+                        this.unauthorized.bind(buttons.unauthorized.btns);
+
+                        // 绑定事件 
+                        this.bind.event();
+                    },
+                    // 绑定 
+                    bind: {
+                        // 事件 
+                        event: function () {
+
+                            var btns = {},
+
+                            _check = function (target, type, arr) {
+
+                            }
+
+                            ;
+
+                            $api.addEvt($api.domAll(_page, '.btn[data-func]'), 'click', function () {
+                                if (/unclick/.test(this.className)) return;
+                                $api.trigger(btns[$api.data(this, 'func')]);
+                            });
+
+                            btns.auCheck = function () {
+
+                            };
+                            btns.auSave = function () {
+                                dialog.confirm({ content: '确定保存该操作吗 ?' }, function (r) {
+                                    if (r) {
+
+                                        common.ajax({
+                                            url: '/{0}/Remove'.format(_saveAction),
+                                            data: { roleId: _roleId, moduleId: _moduleId, buttonIds: _auCheckIds },
+                                            callback: function (rs) {
+
+                                                if (rs.Status != 0) {
+                                                    common.tip(rs.Message);
+                                                    return;
+                                                }
+
+                                                // 重新加载 
+                                                buttons.authorized.reload();
+
+                                                common.tip('保存成功 ....');
+                                            }
+                                        });
+
+                                    }
+                                });
+                            };
+                            btns.unCheck = function () {
+
+                            };
+                            btns.unSave = function () {
+                                dialog.confirm({ content: '确定保存该操作吗 ?' }, function (r) {
+                                    if (r) {
+
+                                        common.ajax({
+                                            url: '/{0}/Add'.format(_saveAction),
+                                            data: { roleId: _roleId, moduleId: _moduleId, buttonIds: _unCheckIds },
+                                            callback: function (rs) {
+
+                                                if (rs.Status != 0) {
+                                                    common.tip(rs.Message);
+                                                    return;
+                                                }
+
+                                                // 重新加载 
+                                                buttons.unauthorized.reload();
+
+                                                common.tip('保存成功 ....');
+                                            }
+                                        });
+
+                                    }
+                                });
+
+                            };
+                        },
+                        data: function (data, target) {
+
+                            if (data && $api.isArray(data)) {
+                                var _html = [];
+
+                                data.forEach(function (_) {
+                                    _html.push('<div data-id="{Id}" data-value="{Value}" class="btn btn-w"><i class="icon {Icon}"></i>{Name}</div>'.format(_));
+                                });
+
+                                $api.html(target, _html.join(''));
+                            }
+                        }
+                    },
+                    authorized: {
+                        btns:[],
+                        // 绑定数据
+                        bind: function (data) {
+
+                            buttons.bind.data(data, _authorized);
+                            buttons.authorized.event();
+                        },
+                        event: function () {
+                            var _del = null,
+                                _id = 0,
+                                _data = {};
+
+                            // 已授权按钮点击 ( click ) 事件
+                            $api.addEvt($api.domAll(_authorized, '.btn'), 'click', function () {
+                                // 获得 id  
+                                _id = $api.data(this, 'id');
+                                // 获得选中标识 
+                                _del = $api.dom(this, '.icon-au-del');
+
+                                _data = {
+                                    Id: parseInt(_id),
+                                    Name: $api.text(this),
+                                    Value: $api.data(this,'value'),
+                                    Icon: $api.dom(this, 'i[class*=icon]').className.split(' ')[1]
+                                };
+
+                                console.log('已授权按钮点击 ( click ) 事件');
+                                // 已点击 
+                                if (_del) {
+                                    // 移除已选中已授权按钮
+                                    _auCheckBtns.remove(_data);
+                                    _auCheckIds.remove(_id);
+                                    // 移除标识 
+                                    $api.remove(_del);
+                                    _del = null;
+                                } else {
+                                    // 追加标识 
+                                    $api.append(this, _auDel);
+                                    // 添加已选中已授权按钮
+                                    _auCheckBtns.push(_data);
+                                    _auCheckIds.push(_id);
+                                }
+
+                                if (_auCheckBtns.length > 0) {
+                                    $api.addRmCls(_btnAuSave, 'btn-unclick', 'btn-b');
+                                } else {
+                                    $api.addRmCls(_btnAuSave, 'btn-b', 'btn-unclick');
+                                }
+
+                            });
+                        },
+                        reload: function () {
+
+                            _auCheckBtns.forEach(function (_) {
+                                buttons.authorized.btns.remove(_);
+                                buttons.unauthorized.btns.push(_);
+                            });
+
+                            store.set('authorized-button', buttons.authorized.btns);
+                            // 绑定数据 
+                            buttons.authorized.bind(buttons.authorized.btns);
+                            buttons.unauthorized.bind(buttons.unauthorized.btns);
+
+                            _auCheckBtns = [];
+                            $api.addRmCls(_btnAuSave, 'btn-b', 'btn-unclick');
+
+                        }
+                    },
+                    unauthorized: {
+                        btns: [],
+                        // 绑定数据
+                        bind: function (data) {
+
+                            buttons.bind.data(data, _unauthorized);
+                            buttons.unauthorized.event();
+                        },
+                        event: function () {
+                            var _add = null,
+                                _id = 0,
+                                _data = {};
+
+                            // 未授权按钮点击 ( click ) 事件
+                            $api.addEvt( $api.domAll(_unauthorized, '.btn') , 'click', function () {
+                                // 获得 id  
+                                _id = $api.data(this, 'id');
+                                // 获得选中标识 
+                                _add = $api.dom(this, '.icon-au-add');
+
+                                _data = {
+                                    Id: parseInt(_id),
+                                    Name: $api.text(this),
+                                    Value: $api.data(this, 'value'),
+                                    Icon: $api.dom(this, 'i[class*=icon]').className.split(' ')[1]
+                                };
+
+                                console.log('未授权按钮点击 ( click ) 事件');
+                                // 已点击 
+                                if (_add) {
+                                    // 移除已选中未授权按钮
+                                    _unCheckBtns.remove(_data);
+                                    _unCheckIds.remove(_id);
+                                    // 移除标识 
+                                    $api.remove(_add);
+                                    _add = null;
+                                }
+                                else {
+                                    // 追加标识 
+                                    $api.append(this, _auAdd);
+                                    // 添加已选中未授权按钮
+                                    _unCheckBtns.push(_data);
+                                    _unCheckIds.push(_id);
+                                }
+
+                                if (_unCheckBtns.length > 0) {
+                                    $api.addRmCls(_btnUnSave, 'btn-unclick', 'btn-b');
+                                } else {
+                                    $api.addRmCls(_btnUnSave, 'btn-b', 'btn-unclick');
+                                }
+                            });
+                        },
+                        reload: function () {
+
+                            _unCheckBtns.forEach(function (_) {
+                                buttons.authorized.btns.push(_);
+                                buttons.unauthorized.btns.remove(_);
+                            });
+
+                            store.set('authorized-button', buttons.authorized.btns);
+                            // 绑定数据 
+                            buttons.unauthorized.bind(buttons.unauthorized.btns);
+                            buttons.authorized.bind(buttons.authorized.btns);
+
+                            _unCheckBtns = [];
+                            $api.addRmCls(_btnUnSave, 'btn-b', 'btn-unclick');
+                        }
+                    }
+                };
+
+            // 加载
+            buttons.load();
+
+        })(window);
+    </script>
+
+</div>

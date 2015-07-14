@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Qz.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{739c30e0-194b-4846-9f29-d2d41e22ec79}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Qz.Database</RootNamespace>
+    <AssemblyName>Qz.Database</AssemblyName>
+    <ModelCollation>2052,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Chinese_PRC_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Script" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Projects.sql" />
+    <Build Include="dbo\Tables\OrderS.sql" />
+    <Build Include="dbo\Tables\ProjectDetails.sql" />
+    <Build Include="dbo\Tables\Housing.sql" />
+    <Build Include="dbo\Tables\Buildings.sql" />
+    <Build Include="dbo\Tables\Houses.sql" />
+    <Build Include="dbo\Tables\HouseDetails.sql" />
+    <Build Include="dbo\Tables\ZLDCEstateLog.sql" />
+    <Build Include="dbo\Tables\Test.sql" />
+    <Build Include="dbo\Tables\MyLog.sql" />
+    <Build Include="dbo\Tables\DevLog.sql" />
+    <Build Include="dbo\Tables\NLog_Error.sql" />
+    <Build Include="dbo\Tables\ZLDCEstateLog_150120.sql" />
+    <Build Include="dbo\Tables\楼盘.sql" />
+    <Build Include="dbo\Tables\T.sql" />
+    <Build Include="dbo\Tables\n_customer.sql" />
+    <Build Include="dbo\Tables\n_customer_follow.sql" />
+    <Build Include="dbo\Tables\n_customer_import.sql" />
+    <Build Include="dbo\Tables\n_customer_import_excel.sql" />
+    <Build Include="dbo\Tables\n_customer_wash.sql" />
+    <Build Include="dbo\Tables\n_customer_wash_record.sql" />
+    <Build Include="dbo\Tables\n_customer_wash_tag_total.sql" />
+    <Build Include="dbo\Tables\Customer.sql" />
+    <Build Include="dbo\Views\v_n_customer_wash_record.sql" />
+    <Build Include="Security\Qlin.sql" />
+    <Build Include="Security\Qlin_1.sql" />
+    <Build Include="dbo\Stored Procedures\p_n_customer_wash_data.sql" />
+    <Build Include="dbo\Stored Procedures\p_n_customer_wash_finish.sql" />
+    <Build Include="dbo\Stored Procedures\p_n_customer_wash_record_list.sql" />
+    <Build Include="dbo\Stored Procedures\testprintmessage.sql" />
+    <Build Include="dbo\Stored Procedures\addcolumn.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Qz.Database.refactorlog" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,42 @@
+﻿
+		Architecture ( 架构 )
+
+0. Solution Items
+	a. Document 
+	
+1. Client ( 客户端 ) 
+	a. Web 
+	b. Mobile 
+	c. WinForm 
+	d. WebModel 
+	
+2. Hosting Service ( 主机服务,托管服务,提供托管服务 )  
+	a. WCF Service 
+	b. WebAPI Service 
+	c. Service Adapter
+	
+3. Domain ( 领域 )
+	a. Models 
+	b. Repository 
+	c. UnitOfWorks 
+
+4. Infrastructure ( 基础设施;基础建设 )
+	a. Common 
+	b. Logging 
+	c. Caching 
+
+5. Database ( 数据库脚本 )
+
+6. Tests ( 测试 ) 
+	
+7. ReferenceLibs ( 外部引用 ) 
+
+8. Tools ( 简单的工具，方便开发，测试以及部署 )
+
+2015‎年‎5‎月‎12‎日 ‏‎14:10:37
+
+参考: http://www.cnblogs.com/KnightsWarrior/p/ACL.html
+
+http://www.cnblogs.com/lori/p/3345590.html
+http://git.oschina.net/anycmd/anycmd
+

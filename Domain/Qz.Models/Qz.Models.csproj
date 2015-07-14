@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{400B1C07-1C0B-476F-9597-6A4CFDD83935}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Qz.Models</RootNamespace>
+    <AssemblyName>Qz.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GPS.Models\Application.cs" />
+    <Compile Include="GPS.Models\Button.cs" />
+    <Compile Include="GPS.Models\Company.cs" />
+    <Compile Include="GPS.Models\DataCode.cs" />
+    <Compile Include="GPS.Models\DataCodeType.cs" />
+    <Compile Include="GPS.Models\DbBackup.cs" />
+    <Compile Include="GPS.Models\Department.cs" />
+    <Compile Include="GPS.Models\DepartmentRole.cs" />
+    <Compile Include="GPS.Models\GPSContext.cs" />
+    <Compile Include="GPS.Models\LoginLog.cs" />
+    <Compile Include="GPS.Models\Mapping\ApplicationMap.cs" />
+    <Compile Include="GPS.Models\Mapping\ButtonMap.cs" />
+    <Compile Include="GPS.Models\Mapping\CompanyMap.cs" />
+    <Compile Include="GPS.Models\Mapping\DataCodeMap.cs" />
+    <Compile Include="GPS.Models\Mapping\DataCodeTypeMap.cs" />
+    <Compile Include="GPS.Models\Mapping\DbBackupMap.cs" />
+    <Compile Include="GPS.Models\Mapping\DepartmentMap.cs" />
+    <Compile Include="GPS.Models\Mapping\DepartmentRoleMap.cs" />
+    <Compile Include="GPS.Models\Mapping\LoginLogMap.cs" />
+    <Compile Include="GPS.Models\Mapping\ModuleButtonMapMap.cs" />
+    <Compile Include="GPS.Models\Mapping\ModuleMap.cs" />
+    <Compile Include="GPS.Models\Mapping\PermissionMap.cs" />
+    <Compile Include="GPS.Models\Mapping\RoleMap.cs" />
+    <Compile Include="GPS.Models\Mapping\RoleModuleButtonMapMap.cs" />
+    <Compile Include="GPS.Models\Mapping\RoleModuleColumnMapMap.cs" />
+    <Compile Include="GPS.Models\Mapping\RoleModuleMapMap.cs" />
+    <Compile Include="GPS.Models\Mapping\RolePermissionMap.cs" />
+    <Compile Include="GPS.Models\Mapping\SysLogMap.cs" />
+    <Compile Include="GPS.Models\Mapping\UserMap.cs" />
+    <Compile Include="GPS.Models\Mapping\UserPermissionMap.cs" />
+    <Compile Include="GPS.Models\Mapping\UserRoleMap.cs" />
+    <Compile Include="GPS.Models\Mapping\UserSettingMap.cs" />
+    <Compile Include="GPS.Models\Module.cs" />
+    <Compile Include="GPS.Models\ModuleButtonMap.cs" />
+    <Compile Include="GPS.Models\Permission.cs" />
+    <Compile Include="GPS.Models\Role.cs" />
+    <Compile Include="GPS.Models\RoleModuleButtonMap.cs" />
+    <Compile Include="GPS.Models\RoleModuleColumnMap.cs" />
+    <Compile Include="GPS.Models\RoleModuleMap.cs" />
+    <Compile Include="GPS.Models\RolePermission.cs" />
+    <Compile Include="GPS.Models\SysLog.cs" />
+    <Compile Include="GPS.Models\User.cs" />
+    <Compile Include="GPS.Models\UserPermission.cs" />
+    <Compile Include="GPS.Models\UserRole.cs" />
+    <Compile Include="GPS.Models\UserSetting.cs" />
+    <Compile Include="Models\Building.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\House.cs" />
+    <Compile Include="Models\HouseDetail.cs" />
+    <Compile Include="Models\Housing.cs" />
+    <Compile Include="Models\Mapping\BuildingMap.cs" />
+    <Compile Include="Models\Mapping\CustomerMap.cs" />
+    <Compile Include="Models\Mapping\HouseDetailMap.cs" />
+    <Compile Include="Models\Mapping\HouseMap.cs" />
+    <Compile Include="Models\Mapping\HousingMap.cs" />
+    <Compile Include="Models\Mapping\NLog_ErrorMap.cs" />
+    <Compile Include="Models\Mapping\n_customerMap.cs" />
+    <Compile Include="Models\Mapping\n_customer_followMap.cs" />
+    <Compile Include="Models\Mapping\n_customer_importMap.cs" />
+    <Compile Include="Models\Mapping\n_customer_import_excelMap.cs" />
+    <Compile Include="Models\Mapping\n_customer_washMap.cs" />
+    <Compile Include="Models\Mapping\n_customer_wash_recordMap.cs" />
+    <Compile Include="Models\Mapping\n_customer_wash_tag_totalMap.cs" />
+    <Compile Include="Models\Mapping\OrderMap.cs" />
+    <Compile Include="Models\Mapping\ProjectDetailMap.cs" />
+    <Compile Include="Models\Mapping\ProjectMap.cs" />
+    <Compile Include="Models\Mapping\TestMap.cs" />
+    <Compile Include="Models\Mapping\TMap.cs" />
+    <Compile Include="Models\Mapping\v_n_customer_wash_recordMap.cs" />
+    <Compile Include="Models\NLog_Error.cs" />
+    <Compile Include="Models\n_customer.cs" />
+    <Compile Include="Models\n_customer_follow.cs" />
+    <Compile Include="Models\n_customer_import.cs" />
+    <Compile Include="Models\n_customer_import_excel.cs" />
+    <Compile Include="Models\n_customer_wash.cs" />
+    <Compile Include="Models\n_customer_wash_record.cs" />
+    <Compile Include="Models\n_customer_wash_tag_total.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\ProjectDetail.cs" />
+    <Compile Include="Models\QlinContext.cs" />
+    <Compile Include="Models\T.cs" />
+    <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\v_n_customer_wash_record.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Qz.Common\Qz.Common.csproj">
+      <Project>{4603d45b-1d33-45ca-af56-60cce3697495}</Project>
+      <Name>Qz.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

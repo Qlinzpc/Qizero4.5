@@ -1,0 +1,196 @@
+﻿@{
+    ViewBag.Title = "切换皮肤";
+    ViewBag.PageId = "qizero-skin";
+    Layout = null;
+}
+
+<div id="@ViewBag.PageId">
+
+    <style>
+        #@ViewBag.PageId {
+            width: 500px;
+            padding: 0 0 0 15px;
+        }
+
+            #@ViewBag.PageId .group {
+                border: 1px solid #dfdfdf;
+                min-height: 65px;
+                float: left;
+                width: 70px;
+                margin: 0 10px 10px 0;
+                border-radius: 5px;
+                padding: 5px 8px;
+                cursor: pointer;
+                position: relative;
+            }
+
+            #@ViewBag.PageId .disabled {
+                cursor: default;
+            }
+
+            #@ViewBag.PageId .active {
+                box-shadow: 0 0 7px 0 #ddd;
+            }
+
+            #@ViewBag.PageId .check {
+                position: absolute;
+                bottom: 2px;
+                right: 5px;
+            }
+            #@ViewBag.PageId .icon-check{
+                color:#fff !important;
+            }
+    </style>
+
+
+    <div class="skin-container"></div>
+
+    <div style="text-align: right;padding-right: 10px;">
+        <div class="btn btn-b" data-func="apply">应 用</div>
+    </div>
+
+    <script>
+
+        (function (o) {
+
+            /**
+             * Page 类
+            */
+            function Page() {
+                // Page 继承 PageBase 属性 ( prototype )
+                Page.fExtends(o.PageBase);
+            }
+
+            /**
+             * Page 属性
+            */
+            Page.prototype = {
+                data: '@Qz.Common.QJsonConvert.Serialize(ViewBag.Data)',
+                skin: {
+                    dom: null,
+                    check: {
+                        html: '<div class="check animated rotateInDownLeft"><i class="icon icon-check"></i></div>',
+                        dom: null
+                    },
+                    arr: [
+                        { name: '1', color: '#149b70', active: 'active' },
+                        { name: '2', color: '#4A5B79' },
+                        { name: '3', color: '#2e3e4e' },
+                        { name: '4', color: '#1e71b1' },
+                        { name: '5', color: '#B1181B' },
+                        { name: '6', color: '#34495e' },
+
+                        { name: '7', color: ' #ffb848"' },
+                        { name: '8', color: '#852b99' },
+                        { name: '9"', color: '#623f18"' },
+                        { name: '10', color: '#f5f5f5' },
+                        { name: '11', color: '#7F8C8D' },
+                        { name: '12', color: '#C6487E' },
+
+                        { name: '13', color: '#27AE60' },
+                        { name: '14', color: '#DC6601' },
+                        { name: '15', color: '#5D83A3' },
+                        { name: '16', color: '#F2664A' },
+                        { name: '17', color: '#B99A56' },
+                        { name: '18', color: '#4C88C0' }
+                    ]
+                }
+            };
+
+            /**
+             * 初始化 方法
+            */
+            Page.prototype.init = function () {
+                var _this = this,
+                    _skin_html = [];
+
+                // 初始化 PageBase 类之前
+                this.id = '@ViewBag.PageId';
+                this.name = '@ViewBag.Title';
+
+                // 初始化 PageBase 类, 若初始化失败, 则 return
+                if (!this.initbase()) { return false; }
+
+                // 属性
+                this.skin.arr.forEach(function (_) {
+                    if (_.active) {
+                        _.check = _this.skin.check.html;
+                        _.active = ' ' + _.active;
+                    }
+
+                    _.active = _.active || '';
+                    _.check = _.check || '';
+
+                    _skin_html.push('<div class="group{active}" data-skin="{name}" style="background:{color};"><div></div>{check}</div>'.format(_));
+
+                });
+
+                $api.append($api.dom(this.dom, '.skin-container'), _skin_html.join(''));
+
+                this.skin.dom = $api.domAll(this.dom, '.group');
+
+                if (this.data) {
+                    this.data = $api.parse(this.data.replace(/\&quot;/g, '"'));
+                }
+
+                // 主题
+                _skin.call(this, this);
+                // 按钮
+                _button.call(this, this);
+
+                return true;
+            };
+
+            function _skin(_) {
+                var _old_active = null,
+                    _old_check_dom = null,
+                    _skin_link = $api.dom('link[href*="/skin/"]') ,
+                    _skin_link_href = _skin_link.href.split('skin/')[0];
+
+                $api.addEvt(_.skin.dom, 'click', function () {
+
+                    if ($api.data(this, 'skin')) {
+                        $api.trigger(_.skin[$api.data(this, 'skin')]);
+
+                        console.log($api.data(this, 'skin'));
+
+                        // 移除 之前激活 active , 选中 check
+                        _old_active = $api.dom(_.dom, '.active');
+                        $api.rmCls(_old_active, 'active');
+                        _old_check_dom = $api.dom(_old_active, '.check');
+                        $api.remove(_old_check_dom);
+
+                        // 添加 激活 active , 选中 check
+                        $api.addCls(this, 'active');
+                        $api.append(this, _.skin.check.html);
+
+                        _old_active = null;
+                        _old_check_dom = null;
+
+                        _skin_link.href = _skin_link_href + "skin/{0}.css".format($api.data(this, 'skin'));
+                    }
+                });
+
+            }
+
+            function _button(_) {
+                $api.addEvt($api.domAll(_.dom, '.btn[data-func]'), 'click', function () {
+                    if (/unclick/.test(this.className)) return;
+
+                    $api.trigger(_.btns[$api.data(this, 'func')]);
+                });
+
+                _.btns.apply = function () {
+                    common.tip('apply');
+                };
+            }
+
+            var _page = new Page();
+
+            _page.init();
+
+        })(window);
+
+    </script>
+
+</div>

@@ -1,0 +1,44 @@
+﻿.dialog-content {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    overflow: hidden;
+    background: #fff;
+    margin: 0 auto;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px 8px;
+    vertical-align: top;
+}
+
+.dialog-footer {
+    height: 30px;
+    line-height: 30px;
+    background: #fff;
+    width: 100%;
+    margin: 0 auto;
+    border-top: 0px solid #149b70;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 8px;
+    text-align: right;
+}
+
+.btn-a {
+    height: 25px;
+    line-height: 25px;
+    padding: 0 5px;
+    cursor: pointer;
+    background:#149b70;
+    color:#fff;
+    border-radius:5px;
+}
+.btn-a:hover{
+    text-decoration: underline;
+}
+
+[class*=btn]{
+    margin-right: 7px;
+}

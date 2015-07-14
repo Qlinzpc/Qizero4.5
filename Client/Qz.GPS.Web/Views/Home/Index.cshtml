@@ -1,0 +1,374 @@
+﻿@{Layout = null;}<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Qizero</title>
+    @System.Web.Optimization.Styles.Render("~/Qz/css")
+
+</head>
+<body>
+
+    @* 页面容器 *@
+    <div class="page-container" id="page">
+
+        @* 页面头部 *@
+        <div class="page-header">
+            <div class="logo">
+                <h2><i class="icon icon-logo"></i>Qizero GPS ( 通用权限系统 ) </h2>
+            </div>
+            <div class="header-menu">
+                <ul>
+                    <li data-type="sql">
+                        <p>
+                            <i class="icon icon-sql"></i>
+                        </p>
+                        <p>SQL跟踪</p>
+                    </li>
+                    <li data-type="theme">
+                        <p>
+                            <i class="icon icon-theme"></i>
+                        </p>
+                        <p>切换主题</p>
+                    </li>
+                    <li data-type="skin">
+                        <p>
+                            <i class="icon icon-skin"></i>
+                        </p>
+                        <p>切换皮肤</p>
+                    </li>
+                    <li data-type="system">
+                        <p>
+                            <i class="icon icon-system"></i>
+                        </p>
+                        <p>系统切换</p>
+                    </li>
+                    <li data-type="pc">
+                        <p>
+                            <i class="icon icon-pc"></i>
+                        </p>
+                        <p>个人中心</p>
+                    </li>
+                    <li data-type="exit">
+                        <p>
+                            <i class="icon icon-exit"></i>
+                        </p>
+                        <p>安全退出</p>
+                    </li>
+                </ul>
+
+                <div class="dropdown-menu animated fadeIn"></div>
+            </div>
+        </div>
+
+        @* 页面任务栏 *@
+        <div class="page-taskbar">
+
+            @* 页面选项卡 *@
+            <div class="page-tab"></div>
+        </div>
+
+        @* 页面内容 *@
+        <div class="page-content">
+
+            @* 页面导航 *@
+            <div class="page-nav"></div>
+            @* 页面主内容 *@
+            <div class="page-main"></div>
+
+        </div>
+
+        @* 页面底部 *@
+        <div class="page-footer">
+            <div class="tac">©2015 Qizero</div>
+        </div>
+
+    </div>
+
+    @System.Web.Optimization.Scripts.Render("~/Qz/jQuery")
+    @System.Web.Optimization.Scripts.Render("~/Qz/js")
+    <script>
+
+        (function (o) {
+            common.load.complete(function () {
+
+                init();
+            });
+
+            o.gps = {};
+
+            var init = function () {
+                // 布局
+                o.gps.home = new Layout({
+                    id: ".page-container",
+                    initCallback: function (_p) {
+                    }
+                });
+
+                var _module = $api.parse('@ViewBag.Module'.replace(/\&quot;/g, '"'));
+                // 根据id 获得对应 Module
+                function _modules(value) {
+                    var arr = [];
+
+                    _module.forEach(function (_) {
+                        if (_.ParentId == value) arr.push(_);
+                    });
+
+                    return arr;
+                };
+
+                if (o.gps.home) {
+
+                    o.gps.home.init();
+
+                    // 菜单
+                    o.gps.menu = new Menu({
+                        id: 'menu',
+                        show: true,
+                        data: _modules(0),
+                        parent: o.gps.home.nav().get(0),
+                        page: o.gps.home,
+                        title: {
+                            txt: '@Qz.GPS.Web.Core.SessionUser.Data.UserName {0}'.format('(@Qz.GPS.Web.Core.SessionUser.Data.RoleName)'),
+                            icon: 'icon-user',
+                            dom: o.gps.home.taskbar().get(0)
+                        },
+                        setting: {
+                            multiple: true
+                        },
+                        toggle: {
+                            click: function () {
+                                var _nav = $api.dom('.page-nav');
+
+                                if ($api.data(_nav, 'show') == '1') {
+                                    $api.show(_nav);
+                                    $api.data(_nav, 'show', '0');
+                                    return;
+                                }
+
+                                $api.hide(_nav);
+                                $api.data(_nav, 'show', '1');
+                            }
+                        },
+                        callback: function (e) { },
+                        initCallback: function (e) {
+
+                            // 选项卡
+                            o.gps.tab = new Tab({
+                                id: 'tab',
+                                parent: o.gps.home.tab().get(0),
+                                page: o.gps.home,
+                                initCallback: function () {
+                                },
+
+                                // 选项卡移除 回调函数
+                                removeCallback: function (_container) {
+                                    // 销毁 释放已移除对象
+                                    o.gps[_container.children[0].id] = null;
+                                    // 移除对象属性
+                                    delete o.gps[_container.children[0].id];
+                                }
+                            });
+                        },
+                        createCallback: function (e) { },
+                        shrinkCallback: function (e, t) { },
+                        spreadCallback: function (e, t) {
+                            // 展开
+                            if (!$api.data(t, 'bind')) e.bind(t, _modules($api.data(t, 'id')));
+
+                        },
+                        selectCallback: function (e, t) {
+                            var _html = t.html(),
+                                _url = t.data('url'),
+                                _type = 'ajax',
+                                _content = { url: _url, data: '' };
+
+                            if (_url == '/') {
+                                _type = 'content';
+                                _content = _html;
+                            }
+
+                            o.gps.tab.add(_html, _content, _type);
+                        }
+                    });
+
+                    var headerMenu = {
+                        init: function () {
+                            var _this = this;
+
+                            _this.dom = $api.dom('.header-menu');
+                            _this.dropdown.dom = $api.dom(_this.dom, '.dropdown-menu');
+
+                            $api.addEvt($api.domAll(_this.dom, 'li[data-type]'), 'click', function () {
+
+                                $api.trigger(_this[$api.data(this, 'type')], null, this);
+                            });
+
+                        },
+                        dom: null,
+                        dropdown: {
+                            dom: null,
+                            box: null,
+                            show: function () {
+                                $api.show(headerMenu.dropdown.dom);
+                            },
+                            hide: function () {
+                                $api.hide(headerMenu.dropdown.dom);
+                                headerMenu.dropdown.box = null;
+                            }
+                        },
+                        skinwin: null,
+                        themewin: null,
+                        sqlwin: null
+                    };
+
+                    headerMenu.init();
+
+                    o.gps.header = { menu: headerMenu };
+                    o.gps.footer = {};
+
+                    /**
+                     * 头部菜单
+                    */
+                    // sql 
+                    headerMenu['sql'] = function () {
+                        common.tip('sql ... ');
+
+                        new Dialog().window({
+                            id: 'window-sql',
+                            content: '<h3>sql </h3>',
+                            title: 'sql ',
+                            drag: true
+                        });
+
+                    };
+                    // 切换主题 
+                    headerMenu['theme'] = function () {
+                        common.tip('theme ... ');
+
+                        common.ajax({
+                            url: '/Qizero/Theme',
+                            type: 'html',
+                            callback: function (rs) {
+
+                                new Dialog().window({
+                                    id: 'window-theme',
+                                    content: rs.html,
+                                    title: '切换主题',
+                                    drag: true
+                                });
+
+                            }
+                        });
+                    };
+                    // 切换皮肤
+                    headerMenu['skin'] = function () {
+                        common.tip('skin ... ');
+
+                        common.ajax({
+                            url: '/Qizero/Skin',
+                            type: 'html',
+                            callback: function (rs) {
+
+                                new Dialog().window({
+                                    id: 'window-skin',
+                                    content: rs.html,
+                                    title: '切换皮肤',
+                                    drag: true,
+                                    mask: false
+                                });
+
+                            }
+                        });
+                    };
+                    // 系统切换
+                    headerMenu['system'] = function () {
+                        if (headerMenu.dropdown.box) {
+                            headerMenu.dropdown.box.open();
+                            return;
+                        }
+                        var pos = $api.offset(this);
+
+                        headerMenu.dropdown.box = new Box({
+                            id: 'box-system',
+                            title: '系统切换',
+                            show: true,
+                            overlay: true,
+                            icon: 'icon-system',
+                            mask: false,
+                            parent: headerMenu.dropdown.dom,
+                            closeCallback: function () {
+                                headerMenu.dropdown.hide();
+                            }
+                        });
+
+                        $api.css(headerMenu.dropdown.dom, 'left: {0}px;z-index: {1}'.format(pos.l + pos.w - headerMenu.dropdown.dom.clientWidth - 11, o.Index));
+                    };
+                    // 个人中心
+                    headerMenu['pc'] = function () {
+
+                        if (headerMenu.dropdown.box) {
+                            headerMenu.dropdown.box.open();
+                            return;
+                        }
+                        var pos = $api.offset(this);
+
+                        headerMenu.dropdown.box = new Box({
+                            id: 'box-pc',
+                            title: '个人中心设置',
+                            icon: 'icon-pc',
+                            show: true,
+                            overlay: true,
+                            mask: false,
+                            parent: headerMenu.dropdown.dom,
+                            closeCallback: function () {
+                                headerMenu.dropdown.hide();
+                            }
+                        });
+
+                        $api.css(headerMenu.dropdown.dom, 'left: {0}px;z-index: {1}'.format(pos.l + pos.w - headerMenu.dropdown.dom.clientWidth - 11, o.Index));
+                    };
+                    // 安全退出
+                    headerMenu['exit'] = function () {
+
+                        dialog.confirm({
+                            content: '是否确定退出系统 ?',
+                            drag: true
+                        }, function (r, e) {
+                            if (r) {
+                                common.ajax({
+                                    url: '/User/Signout',
+                                    callback: function (r) {
+                                        common.tip(r.Message);
+                                        common.reload();
+                                    }
+                                });
+                            }
+                        });
+
+
+                    };
+                }
+
+            };
+
+            var timer = setTimeout(function () {
+                new Dialog().window({
+                    id: 'sys-notice',
+                    content: '<h3>Qizero</h3><ul><li><a href="javascript:void(0)" style="color: #149b70">1. Qizero v1.0 版本上线</a></li><li><a href="javascript:void(0)" style="color: #149b70">2. Qizero GPS v1.0 系统说明</a></li></ul>',
+                    title: '系统公告',
+                    pos: 'bottom',
+                    mask:false,
+                    drag: true,
+                    timer: 3
+                });
+
+                clearTimeout(timer);
+            }, 500);
+
+        })(window);
+
+    </script>
+
+</body>
+
+</html>

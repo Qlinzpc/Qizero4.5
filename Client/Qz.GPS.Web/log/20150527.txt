@@ -1,0 +1,4 @@
+2015/5/27 16:16:21 [Error] Qz.GPS.Web.Controllers.SysLogController http://192.169.55.240:1010/SysLog?&v=1432714580815 msg: d:\Qlin 开发\Architecture ( 架构 )\·NET\Qz\Client\Qz.GPS.Web\Views\SysLog\Index.cshtml(6): error CS0138: using 命名空间指令只能应用于命名空间；“Qz.GPS.Models.SysLog”是一个类型，而不是命名空间
+
+2015/5/27 17:55:34 [Error] Qz.GPS.Web.Controllers.UserController http://192.169.55.240:1010/User/Login msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+

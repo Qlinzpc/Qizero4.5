@@ -1,0 +1,123 @@
+﻿
+General Permissions System ( 通用权限系统 )
+
+1. 支持多系统, 权限设置 . 
+
+2. 角色权限, 用户权限, 组权限 ( 用户--> 角色  用户--> 组 ) . 
+
+3. 菜单权限, 按钮权限, 功能权限, 数据权限 . 
+
+4. 日志 
+	a. 操作日志 ( 增删改查 )
+	b. 访问日志 ( 登录 )
+	c. 系统异常日志 
+
+5. 数据库管理 
+	a. 数据库信息 
+	b. 数据库备份 
+
+6. 数据字典 
+
+
+SET NOCOUNT ON -- 不返回计数，提高执行效率   
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED -- 相当于 ( NOLOCK ) 指定语句不能读取由其它事务修改但尚未提交的数据，允许脏读；
+SET XACT_ABORT ON -- 语句产生运行时错误，整个事务将终止并回滚   
+
+/**
+ * 表 
+ **/
+Applications ( 系统应用表 )  SysLog ( 系统日志表 )  LoginLog ( 登录日志表 ) 
+
+DbBackup ( 数据库备份表 ) 
+
+DataCode ( 数据编码 ) DataCodeType ( 数据编码类型 )
+
+Company ( 公司表 )  Departments ( 部门表 )  Users ( 用户表 )  UserSettings ( 用户设置表 ) 
+
+Roles ( 角色表 )  Permissions ( 权限表 ) 
+
+Modules ( 模块, 菜单表 )  Buttons ( 按钮表 ) 
+
+/**
+ *关联表 
+ **/
+DepartmentRoles ( 部门角色表 )  UserRoles ( 用户角色表 )  UserPermissions ( 用户权限表 ) 
+
+RolePermissions ( 角色权限表 )  RoleModuleMap ( 角色模块映射表 )  RoleModuleButtonMap ( 角色模块按钮映射表 )  
+RoleModuleColumnMap ( 角色模块列映射表 )
+
+ModuleButtonMap ( 模块按钮映射表 )  
+
+
+		权限 [ 包括 ( 模块, 按钮, 列表展示列 ) ]
+
+1.0 用户角色 ( 用户具有那种角色 )
+	
+1.1 用户部门 ( 用户属于那个部门 )
+	
+2.0 角色权限 ( 角色具有哪些权限 )
+	
+2.1 用户权限 ( 用户具有哪些权限 )
+
+
+-- 系统日志 
+SELECT * FROM dbo.SysLog 
+-- 系统应用 
+SELECT * FROM dbo.Applications 
+-- 公司 
+SELECT * FROM dbo.Company 
+-- 部门 
+SELECT * FROM dbo.Departments 
+-- 用户 
+SELECT * FROM dbo.Users 
+-- 角色 
+SELECT * FROM dbo.Roles 
+-- 权限 
+SELECT * FROM dbo.Permissions 
+-- 模块 
+SELECT * FROM dbo.Modules 
+-- 按钮 
+SELECT * FROM dbo.Buttons 
+
+-- 用户角色 
+SELECT * FROM dbo.UserRoles 
+
+-- 模块按钮映射
+SELECT * FROM dbo.ModuleButtonMap 
+
+-- 角色模块映射
+SELECT * FROM dbo.RoleModuleMap 
+-- 角色模块按钮映射
+SELECT * FROM dbo.RoleModuleButtonMap 
+-- 角色模块列映射
+SELECT * FROM dbo.RoleModuleColumnMap 
+
+select * from dbo.Users where account = 'zpc' and password = 'qG3t+eezdX8=' and enabled = 0 and isdelete = 0
+
+select RoleId from dbo.UserRoles where UserId = 1 
+
+-- 角色模块映射
+SELECT * FROM dbo.RoleModuleMap where roleid = 8
+-- 角色模块按钮映射
+SELECT * FROM dbo.RoleModuleButtonMap where roleid = 8
+-- 角色模块列映射
+SELECT * FROM dbo.RoleModuleColumnMap where roleid = 8
+
+
+UI Client 
+	Common 
+		  1. 按钮 
+		  2. 拖动 
+		  3. 弹出层 
+		  4. 页面布局 
+		  5. 树形 
+		  6. 选项卡 
+		  7. 工具栏 
+		  8. 条件搜索 
+		  9. 列表 , 分页  
+		10. Ajax 
+		11. 表单 
+
+1. 登录页面 
+2. 主页面 
+2. 皮肤切换, 主题切换 

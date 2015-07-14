@@ -1,0 +1,136 @@
+2015/5/13 12:27:24 [Debug] Paeg.Request {
+  "BeginTime": "2015-05-13T12:25:54.2265498+08:00",
+  "PageIndex": 1,
+  "PageSize": 10,
+  "SortName": "Id",
+  "Sort": 1,
+  "Filter": {
+    "Type": "System.Func`2[[Qz.Models.House, Qz.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+    "NodeType": 18,
+    "Parameters": [
+      {
+        "Type": "Qz.Models.House, Qz.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "NodeType": 38,
+        "Name": "x",
+        "IsByRef": false,
+        "CanReduce": false
+      }
+    ],
+    "Name": null,
+    "Body": {
+      "NodeType": 6,
+      "Type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "Method": {
+        "Name": "Contains",
+        "AssemblyName": "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "ClassName": "System.String",
+        "Signature": "Boolean Contains(System.String)",
+        "Signature2": "System.Boolean Contains(System.String)",
+        "MemberType": 8,
+        "GenericArguments": null
+      },
+      "Object": {
+        "Type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "Member": {
+          "Name": "HouseName",
+          "AssemblyName": "Qz.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "ClassName": "Qz.Models.House",
+          "Signature": "System.String HouseName",
+          "Signature2": "System.String HouseName",
+          "MemberType": 16,
+          "GenericArguments": null
+        },
+        "Expression": {
+          "Type": "Qz.Models.House, Qz.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "NodeType": 38,
+          "Name": "x",
+          "IsByRef": false,
+          "CanReduce": false
+        },
+        "NodeType": 23,
+        "CanReduce": false
+      },
+      "Arguments": [
+        {
+          "Type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+          "NodeType": 9,
+          "Value": "House",
+          "CanReduce": false
+        }
+      ],
+      "CanReduce": false
+    },
+    "ReturnType": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+    "TailCall": false,
+    "CanReduce": false
+  }
+}
+
+2015/5/13 12:27:29 [Debug] Paeg.Request {
+  "BeginTime": "2015-05-13T12:27:28.7059537+08:00",
+  "PageIndex": 1,
+  "PageSize": 10,
+  "SortName": "Id",
+  "Sort": 1,
+  "Filter": {
+    "Type": "System.Func`2[[Qz.Models.House, Qz.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+    "NodeType": 18,
+    "Parameters": [
+      {
+        "Type": "Qz.Models.House, Qz.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "NodeType": 38,
+        "Name": "x",
+        "IsByRef": false,
+        "CanReduce": false
+      }
+    ],
+    "Name": null,
+    "Body": {
+      "NodeType": 6,
+      "Type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "Method": {
+        "Name": "Contains",
+        "AssemblyName": "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "ClassName": "System.String",
+        "Signature": "Boolean Contains(System.String)",
+        "Signature2": "System.Boolean Contains(System.String)",
+        "MemberType": 8,
+        "GenericArguments": null
+      },
+      "Object": {
+        "Type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "Member": {
+          "Name": "HouseName",
+          "AssemblyName": "Qz.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "ClassName": "Qz.Models.House",
+          "Signature": "System.String HouseName",
+          "Signature2": "System.String HouseName",
+          "MemberType": 16,
+          "GenericArguments": null
+        },
+        "Expression": {
+          "Type": "Qz.Models.House, Qz.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "NodeType": 38,
+          "Name": "x",
+          "IsByRef": false,
+          "CanReduce": false
+        },
+        "NodeType": 23,
+        "CanReduce": false
+      },
+      "Arguments": [
+        {
+          "Type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+          "NodeType": 9,
+          "Value": "House",
+          "CanReduce": false
+        }
+      ],
+      "CanReduce": false
+    },
+    "ReturnType": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+    "TailCall": false,
+    "CanReduce": false
+  }
+}
+

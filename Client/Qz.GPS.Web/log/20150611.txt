@@ -1,0 +1,6 @@
+2015/6/11 16:11:52 [Error] Qz.GPS.Web.Controllers.ButtonController http://localhost:1595/Button/GetButton?v=1434010312155 msg: 对于“Qz.GPS.Web.Controllers.ButtonController”中方法“System.Web.Mvc.JsonResult GetButton(Int32)”的不可以为 null 的类型“System.Int32”的参数“id”，参数字典包含一个 null 项。可选参数必须为引用类型、可以为 null 的类型或声明为可选参数。
+参数名: parameters
+
+2015/6/11 16:13:39 [Error] Qz.GPS.Web.Controllers.ButtonController http://localhost:1595/Button/GetButton?v=1434010418938 msg: 对于“Qz.GPS.Web.Controllers.ButtonController”中方法“System.Web.Mvc.JsonResult GetButton(Int32)”的不可以为 null 的类型“System.Int32”的参数“id”，参数字典包含一个 null 项。可选参数必须为引用类型、可以为 null 的类型或声明为可选参数。
+参数名: parameters
+

@@ -1,0 +1,145 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Translate 翻译</title>
+
+    <style>
+        body {
+            font-family: '微软雅黑';
+        }
+
+        #translate {
+            margin: 0 auto;
+            width: 888px;
+            height: 600px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+            #translate .t-header, #translate .t-content, #translate .t-footer {
+                box-shadow: 0 0 0 10px #dcdcdc;
+                border-radius: 5px;
+                width: 100%;
+                margin-top: 25px;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            #translate .t-header {
+                height: 20%;
+                text-align: center;
+            }
+
+            #translate .t-content {
+                height: 58%;
+                overflow: hidden;
+            }
+
+            #translate .t-footer {
+                height: 20%;
+            }
+
+        .t-left {
+            float: left;
+            width: 49%;
+        }
+
+        .t-right {
+            float: left;
+            width: 49%;
+        }
+
+        .split {
+            float: left;
+            height: 300px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            margin-top: 15px;
+        }
+
+        textarea {
+            border: 0;
+            resize: none;
+            outline: none;
+            width: 100%;
+            height: 300px;
+            overflow: scroll;
+            box-sizing: border-box;
+            padding: 5px 7px;
+            font-size: 14px;
+            font-family: '微软雅黑';
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(20,155,119,.8);
+            border-radius: 10px;
+            -webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.1);
+        }
+
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+        }
+    </style>
+</head>
+<body>
+    <div id="translate">
+
+        <div class="t-header">
+            <h2>Translate 翻译</h2>
+        </div>
+        <div class="t-content">
+            <div class="t-left">
+                <textarea id="txtTranslate" placeholder="请输入待翻译字符"></textarea>
+            </div>
+            <div class="split"></div>
+            <div class="t-right">
+                <textarea id="result"></textarea>
+            </div>
+        </div>
+        <div class="t-footer"></div>
+
+    </div>
+
+    <script src="~/Module/QzUI/base/js/base.js"></script>
+    <script src="~/Module/QzUI/common/js/common.js"></script>
+    <script>
+
+        common.load.complete(function () {
+
+            common.loadJC('/Module/QzUI/lib/Ajax/js/ajax.js')
+
+            var _txt = $api.dom('#txtTranslate');
+
+            $api.addEvt(_txt, 'keyup', function () {
+
+                if ($api.trim($api.val(_txt)) === '') {
+                    $api.val($api.dom('#result'), '');
+                    return;
+                }
+
+                common.translate($api.val(_txt), function (rs) {
+
+                    $api.val($api.dom('#result'), rs);
+                });
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

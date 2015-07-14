@@ -1,0 +1,97 @@
+﻿.menu {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    box-sizing: border-box;
+    overflow:auto;
+}
+
+    .menu .box {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 0;
+        z-index:0;
+    }
+
+    .menu .box-header {
+        border-bottom: 1px solid #ddd;
+    }
+
+
+.menu ul {
+    background: #FAFAFA;
+}
+
+    .menu ul > li {
+        display: block;
+        cursor: pointer;
+        background-color: #FAFAFA;
+        color: #000;
+        border-top: 1px solid #eee;
+    }
+
+    .menu ul > li:first-child {
+        border: 0;
+    }
+
+    .menu ul > li:hover{
+        background-color: #eee;
+    }
+
+    .menu ul i{
+        color:#bbb;
+    }
+
+    .menu ul .active > i {
+        color:#fff !important;
+    }
+
+        .menu ul > li > ul > li {
+            padding-left: 20px;
+        }
+
+.menu .active {
+    color: #fff !important;
+    background: #149b70 !important;
+}
+
+.menu-title {
+    width: 199px;
+    float:left;
+}
+
+.menu .icon{
+    font-size: 16px;
+    padding: 10px 0;
+    width: 40px;
+    text-align: center;
+}
+
+    .icon-home:before{content:"\f015";}
+    .icon-manage:before {content: "\f0c0";}
+    .icon-sys-setting:before{content:"\F085";}
+    .icon-sys-app:before{content:"\f179";}
+    .icon-sys-log:before{content:"\f0ea";}
+    .icon-db-manage:before{content:"\f0c2";}
+    .icon-data-code:before{content:"\f121";}
+
+    .icon-module-manage:before {content: "\f00b";}
+    .icon-company-manage:before {content: "\f0ac";}
+    .icon-dept-manage:before {content: "\f0e8";}
+    .icon-role-manage:before {content: "\f084";}
+    .icon-user-manage:before {content: "\f007";}
+
+    .icon-open {position: relative;}
+    .icon-open:before {content: "\f101";}
+    .icon-sys-menu:before {content: "\f039";}
+
+    .icon-sys-menu {
+        box-sizing: border-box;
+        color: #149b70;
+        padding: 12px 8px 0 0;
+        float:right;
+    }
+

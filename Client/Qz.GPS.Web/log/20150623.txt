@@ -1,0 +1,12 @@
+2015/6/23 17:54:12 [Error] Qz.GPS.Web.Controllers.RoleModuleButtonController http://localhost:1595/RoleModuleButton/Remove msg: 对于“Qz.GPS.Web.Controllers.RoleModuleButtonController”中方法“System.Web.Mvc.JsonResult Remove(Int32, Int32, System.String)”的不可以为 null 的类型“System.Int32”的参数“roleId”，参数字典包含一个 null 项。可选参数必须为引用类型、可以为 null 的类型或声明为可选参数。
+参数名: parameters
+
+2015/6/23 18:02:40 [Error] 违反了 PRIMARY KEY 约束 'PK_RoleModuleButtonMap'。不能在对象 'dbo.RoleModuleButtonMap' 中插入重复键。
+语句已终止。
+
+2015/6/23 18:02:45 [Error] 违反了 PRIMARY KEY 约束 'PK_RoleModuleButtonMap'。不能在对象 'dbo.RoleModuleButtonMap' 中插入重复键。
+语句已终止。
+
+2015/6/23 18:03:02 [Error] 违反了 PRIMARY KEY 约束 'PK_RoleModuleButtonMap'。不能在对象 'dbo.RoleModuleButtonMap' 中插入重复键。
+语句已终止。
+

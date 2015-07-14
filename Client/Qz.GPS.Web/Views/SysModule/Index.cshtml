@@ -1,0 +1,211 @@
+﻿@{
+    ViewBag.Title = "模块管理";
+    Layout = null;
+}
+
+@{
+    int i = 0;
+    string className = "", enable = "", visible = "";
+}
+
+<div id="@ViewBag.PageId">
+    <style>
+        #@ViewBag.PageId{
+            width:100%;
+            height:100%;
+        }
+        #@ViewBag.PageId .icon{
+            color:#149b70;
+            font-size:15px;
+        }
+    </style>
+
+    <h3>数据响应时间: @Model.Times</h3>
+    @Html.Partial("_ToolbarPartial")
+
+    <table class="tbl">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>所属应用</th>
+                <th>模块名称</th>
+                <th>模块URL</th>
+                <th>图标</th>
+                <th>备注</th>
+                <th>是否可用</th>
+                <th>是否显示</th>
+                <th>创建人</th>
+                <th>创建时间</th>
+            </tr>
+        </thead>
+        <tbody class="tbl-oper">
+            @if (Model.Data.Count <= 0)
+            {
+                <tr>
+                    <td colspan="10" style="text-align:center;color:#aaa;font-weight:400;">@Qz.Common.QConst.SYS_DATA_NULL</td>
+                </tr>
+            }
+            @foreach (var item in Model.Data)
+            {
+                className = i % 2 == 0 ? "even" : "odd";
+                i++;
+                <tr class="@className" data-id="@item.Id">
+                    <td>@item.Id</td>
+                    <td></td>
+                    <td>@item.Name</td>
+                    <td>@item.URL</td>
+                    <td><i class="icon icon-@item.Icon"></i></td>
+                    <td>@item.Remark</td>
+                    <td>@if (item.Enabled == 0) { enable = "启用"; } else { enable = "禁用"; } @enable</td>
+                    <td>@if (item.IsVisible == 0) { visible = "显示"; } else { visible = "隐藏"; } @visible</td>
+                    <td>@item.CreateUserName</td>
+                    <td>@item.CreateDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <script>
+        (function (o) {
+
+            /**
+             * Page 类
+            */
+            function Page() {
+                // Page 继承 PageBase 属性 ( prototype )
+                Page.fExtends(o.PageBase);
+            }
+
+            /**
+             * Page 属性
+            */
+            Page.prototype = {
+                dialog: null
+            };
+
+            /**
+             * 初始化 方法
+            */
+            Page.prototype.init = function () {
+                var _this = this;
+
+                // 初始化 PageBase 类之前 
+                this.id = '@ViewBag.PageId';
+                this.name = '@ViewBag.Title';
+
+                // 初始化 PageBase 类, 若初始化失败, 则 return 
+                if (!this.initbase()) { return false; }
+
+                // 属性
+                this.dialog = new o.Dialog();
+                // 按钮 
+                _button.call(this, this);
+                // 表格 
+                _table.call(this, this);
+                
+                return true;
+            };
+
+            /**
+             * 按钮
+            */
+            function _button(_this) {
+                // 新增
+                this.btns.add = function () {
+                    if (!_this.btns.dom.exists('add')) return;
+
+                };
+                // 删除
+                this.btns.remove = function () {
+                    if (!_this.btns.dom.exists('remove')) return;
+
+                    if (!_this.tbl.select.row || _this.tbl.select.row.Id <= 0) {
+                        common.tip('请先选中操作行 ...');
+                        return;
+                    }
+
+                };
+                // 编辑
+                this.btns.edit = function () {
+                    if (!_this.btns.dom.exists('edit')) return;
+
+                    if (!_this.tbl.select.row || _this.tbl.select.row.Id <= 0) {
+                        common.tip('请先选中操作行 ...');
+                        return;
+                    }
+
+                };
+                // 刷新
+                this.btns.reload = function () {
+                    if (!_this.btns.dom.exists('reload')) return;
+                    o.gps.tab.reload(o.gps.tab.current);
+
+                };
+                // 保存
+                this.btns.save = function () {
+                    if (!_this.btns.dom.exists('save')) return;
+
+                };
+                // 查询
+                this.btns.search = function () {
+                    if (!_this.btns.dom.exists('search')) return;
+
+                };
+                // 授权
+                this.btns.CC = function () {
+                    if (!_this.btns.dom.exists('CC')) return;
+
+                    if ($api.dom('#window-module-setting')) return;
+
+                    common.ajax({
+                        url: '/SysModule/Setting',
+                        data: '',
+                        type: 'html',
+                        callback: function (rs) {
+
+                            _this.dialog.window({ id: 'window-module-setting', parent: _this.dom, content: rs.html, title: '权限设置', mask: true, drag: true });
+                        }
+                    });
+                };
+            };
+
+            /**
+             * 表格
+            */
+            function _table(_this) {
+
+                // 行点击事件
+                $api.addEvt($api.domAll(_this.tbl.dom, 'tbody tr'), 'click', function () {
+
+                    var _active = $api.dom(_this.tbl.dom, 'tr.active');
+                    console.log(_active);
+
+                    $api.rmCls(_active, 'active');
+
+                    _this.tbl.select.row = {};
+                    _this.tbl.select.row.Id = $api.data(this, 'id');
+
+                    if (!_this.tbl.select.row.Id) {
+                        common.tip('行 Id 为空, 未初始化或未绑定 data-id !', 5*1000);
+                        return false;
+                    }
+
+                    if (_active && compare(_this.tbl.select.row.Id, $api.data(_active, 'id'))) {
+                        _this.tbl.select.row = null;
+                        return false;
+                    }
+
+                    $api.addCls(this, 'active');
+                });
+            };
+
+            var _module = new Page();
+
+            _module.init();
+
+        })(window);
+    </script>
+
+</div>
+
+

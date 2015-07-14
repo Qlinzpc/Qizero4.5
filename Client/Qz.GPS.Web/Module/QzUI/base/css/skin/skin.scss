@@ -1,0 +1,70 @@
+﻿
+$bgcolor: #4C88C0;
+$color: #fff;
+
+@mixin skin {
+    background: $bgcolor !important;
+    color: $color !important;
+}
+
+.skin {
+    background: $bgcolor !important;
+    color: $color !important;
+}
+
+.menu .active, .tree .active, .tbl-oper tr.active {
+    @extend .skin;
+}
+
+.page-header, .page-footer {
+    @extend .skin;
+}
+
+.btn-b {
+    @extend .skin;
+}
+
+.context-menu li:not([class=disabled]):hover {
+    @extend .skin;
+}
+
+.box-header {
+    @extend .skin;
+    border-bottom: 1px solid $bgcolor;
+}
+
+.box, .btn-b,
+input[type=text]:focus, textarea:focus {
+    border: 1px solid $bgcolor !important;
+}
+
+.tab .icon-tab-close:hover,
+.icon-sys-menu, .tree .icon-cbox-check, .tree .icon-cbox-square {
+    color: $bgcolor !important;
+}
+
+.context-menu li:not([class=disabled]):hover .icon,.tbl-oper tr.active .icon, .menu ul .active > i, .tree ul .active > i {
+    color: $color !important;
+}
+
+.dropdown-menu > :before {
+    border-bottom-color: $bgcolor !important;
+}
+
+::-webkit-scrollbar-thumb,.loading > div{
+    background-color: $bgcolor !important; 
+}
+
+.active-border{
+    border: 1px solid $bgcolor !important;
+    box-shadow: 0 0 7px 0 $bgcolor;
+} 
+
+.menu ul > li:hover {
+    background-color: #eee;
+}
+
+.menu ul i, .tree ul i {
+    color: #bbb;
+}
+

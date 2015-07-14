@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "系统日志";
+    Layout = null;
+}
+
+@{
+    int i = 0;
+    string className = "";
+}
+
+<div id="@ViewBag.PageId">
+    <h3>数据响应时间: @Model.Times <input type="checkbox" id="isTranslate" value="" /><span>是否翻译</span></h3>
+
+    @* 工具栏 Toolbar *@
+    @Html.Partial("_ToolbarPartial")
+
+    <table class="tbl">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>操作人</th>
+                <th>操作位置</th>
+                <th>操作Action</th>
+                <th>操作类型</th>
+                <th>操作时间</th>
+                <th>操作信息</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Data.Count <= 0)
+            {
+                <tr>
+                    <td colspan="7" style="text-align:center;color:#aaa;font-weight:400;">@Qz.Common.QConst.SYS_DATA_NULL</td>
+                </tr>
+            }
+            @foreach (var item in Model.Data)
+            {
+                className = i % 2 == 0 ? "even" : "odd";
+                i++;
+                <tr class="@className">
+                    <td>@item.Id</td>
+                    <td>@item.UserName</td>
+                    <td>@item.Location</td>
+                    <td>@item.Action</td>
+                    <td>@item.Type</td>
+                    <td>@item.CreateDate</td>
+                    <td>@item.Message</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+
+    (function (o) {
+
+        var dom = $api.byId('sysLog');
+        var tbl = $api.dom(dom, '.tbl');
+
+        $api.addEvt($api.domAll(tbl, 'td'), 'click', function () {
+            if (!$api.dom('#isTranslate').checked) { return; }
+
+            var txt = $api.text(this);
+
+            common.translate(txt, function (rs) {
+                // this {"from":"zh","to":"en","trans_result":[{"src":"张鹏程","dst":"Zhang Pengcheng"}]}
+                // common.tip(this);
+
+                common.tip(rs, 1000 * 15);
+            });
+
+        });
+
+        o.gps = o.gps || {};
+
+        o.gps['@ViewBag.PageId']['dom'] = dom;
+        o.gps['@ViewBag.PageId']['tbl'] = tbl;
+
+    })(window);
+
+
+
+</script>
+
+
+

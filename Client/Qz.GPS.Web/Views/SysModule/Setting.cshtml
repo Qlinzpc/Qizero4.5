@@ -1,0 +1,208 @@
+﻿@{
+    Layout = null;
+}
+
+<div id="@ViewBag.PageId">
+
+    <style>
+    #@ViewBag.PageId{
+        width:700px;
+        height: 400px;
+    }
+    #@ViewBag.PageId .setting-left{
+        width: 24%;
+        height: 100%;
+        float: left;
+    }
+    #@ViewBag.PageId .setting-right{
+        width: 75%;
+        height: 100%;
+        float: right;
+    }
+   #@ViewBag.PageId .setting-button{
+        height: 50%;
+    }
+   #@ViewBag.PageId .setting-data{
+        height: 49%;
+    }
+        .setting-button .content .btn{
+            cursor:default !important;
+            margin-top: 5px;
+            padding: 5px 8px;
+        }
+        .setting-button .content .btn:hover{
+            text-decoration: none !important;
+        }
+        .setting-button .icon-close{
+            padding-left: 5px;
+            color:#bbb !important;
+            transition:ease-out 0.4s;
+        }
+        .setting-button .icon-close:hover{
+            transition: ease-in 0.4s;
+            color: #149b70 !important;
+        }
+    </style>
+
+    <div class="setting-left">
+        <p class="hd-title">系统模块</p>
+        <div class="content" style="width:100%;height:100%;"></div>
+    </div>
+    <div class="setting-right">
+        <div class="setting-button pos-r">
+            <p class="hd-title">按钮设置</p>
+            <div class="content"></div>
+            <div class="tools-right-btn">
+                <div class="btn btn-unclick" data-id="button-add">新增</div>
+            </div>
+        </div>
+        <div class="setting-data pos-r">
+            <p class="hd-title">数据设置</p>
+            <div class="content"></div>
+            <div class="tools-right-btn">
+                <div class="btn btn-unclick" data-id="btn-add-data">新增</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function (o) {
+
+            var pageId = "@ViewBag.PageId",
+                    _setting = $api.dom("#" + pageId),
+                    _buttonAdd = $api.dom(_setting, '.btn[data-id=button-add]'),
+                    _dataAdd = $api.dom(_setting, '.btn[data-id=btn-add-data]'),
+                   _treeData = $api.parse('@Qz.Common.QJsonConvert.Serialize(ViewBag.ModuleTree.Data)'.replace(/\&quot;/g, '"')),
+                   _authorized = null,
+                    _tree = null,
+
+                    // 模块 ( 按钮 数据 ) 设置
+                    setting = {
+                        load: function () {
+                            this.bind.event();
+                        },
+                        bind: {
+                            event: function () {
+
+                                $api.addEvt(_buttonAdd, 'click', function () {
+                                    if (/unclick/.test(this.className)) return;
+
+                                    common.ajax({
+                                        url: '/Button/List',
+                                        data: { moduleId: store.get('module-setting-id') },
+                                        type: 'html',
+                                        callback: function (rs) {
+                                            // 保存已授权 buttons
+                                            store.set('authorized-button', _authorized);
+
+                                            new Dialog().window({
+                                                id: 'window-btn-list', parent: '', content: rs.html, title: '按钮列表', drag: true, winCloseCallback: function () {
+                                                    // 刷新
+                                                    setting.bind.data(store.get('authorized-button'), $api.dom(_setting, '.setting-button .content'));
+                                                }
+                                            });
+                                        }
+                                    });
+
+                                });
+
+                                $api.addEvt(_dataAdd, 'click', function () {
+                                    if (/unclick/.test(this.className)) return;
+
+                                    common.tip('add data');
+                                });
+                            },
+
+                            data: function (data, target) {
+                                var _html = [];
+
+                                if ($api.isArray(data)) {
+                                    data.forEach(function (_) {
+                                        _html.push('<div data-id="{Id}" data-value="{Value}" class="btn btn-w"><i class="icon {Icon}"></i>{Name}<i class="icon icon-close"></i></div>'.format(_));
+                                    });
+                                }
+
+                                $api.html(target, _html.join(''));
+
+                                // 保存已授权 buttons
+                                _authorized = data;
+                            }
+                        },
+                        tree: new Tree({
+                            id: pageId + 'Tree',
+                            show: true,
+                            parent: $api.dom(_setting, '.setting-left .content'),
+                            data: _treeDatas(-1),
+                            initCallback: function () { },
+                            createCallback: function () { },
+                            selectCallback: function (_) {
+                                // console.log(_);
+                                // console.log(this);
+                                var children = $api.data(_, 'children'),
+                                     _content = $api.dom(_setting, '.setting-button .content'),
+                                    id = 0;
+
+                                if (children != "0") {
+                                    $api.addRmCls(_buttonAdd, 'btn-b', 'btn-unclick');
+                                    $api.addRmCls(_dataAdd, 'btn-b', 'btn-unclick');
+                                    $api.html(_content, '');
+                                    return;
+                                }
+
+                                $api.addRmCls(_buttonAdd, 'btn-unclick', 'btn-b');
+                                $api.addRmCls(_dataAdd, 'btn-unclick', 'btn-b');
+
+                                id = $api.data(_, 'id');
+                                store.set('module-setting-id', id);
+
+                                common.ajax({
+                                    url: '/Button/GetButton',
+                                    data: { id: id },
+                                    callback: function (rs) {
+
+                                        if (rs.Status != 0) {
+                                            common.tip(rs.Message);
+                                            return;
+                                        }
+
+                                        setting.bind.data(rs.Data, _content);
+                                    }
+                                });
+
+                            },
+                            shrinkCallback: function (_) {
+                                // console.log(_);
+                                // 收缩
+
+                            },
+                            spreadCallback: function (_) {
+                                // console.log(_);
+                                // 展开
+                                if ($api.data(_, 'bind') == '0') {
+                                    var _data = _treeDatas($api.data(_, 'id'));
+                                    this.bind(_, _data);
+                                    $api.data(_, 'bind', '1');
+                                    $api.data(_, 'children', _data.length);
+                                }
+
+                            }
+                        })
+                    };
+
+            // 根据id 获得对应 Module
+            function _treeDatas(value) {
+                var arr = [];
+
+                _treeData.forEach(function (_) {
+                    if (_.ParentId == value) arr.push(_);
+                });
+
+                return arr;
+            };
+
+            // 加载
+            setting.load();
+
+        })(window);
+    </script>
+</div>

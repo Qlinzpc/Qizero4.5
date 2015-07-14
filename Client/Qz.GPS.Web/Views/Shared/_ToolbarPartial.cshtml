@@ -1,0 +1,59 @@
+﻿@* 工具栏 Toolbar *@
+<div class="toolbar">
+    @if (ViewBag.Buttons != null) { 
+        <p>@ViewBag.Buttons.Times</p>
+        foreach (var btn in ViewBag.Buttons.Data)
+        {
+            <div class="btn btn-b" data-value="@btn.Value">@btn.Name</div>
+        }
+    }
+</div>
+
+<p>@ViewBag.PageId</p>
+<script>
+
+    (function (o) {
+
+        var toolbar = $api.dom('#@ViewBag.PageId .toolbar'),
+
+            btns = $api.domAll(toolbar, '.btn'),
+
+            btnVal = null,
+
+            buttons = {};
+
+        buttons['dom'] = btns;
+
+        buttons['dom']['exists'] = function (val) {
+            var _exists = false;
+            buttons.dom.forEach(function (_) {
+                if ($api.data(_, 'value') === val) {
+                    _exists = true;
+
+                    return false;
+                }
+            });
+            return _exists;
+        };
+
+        $api.foreach(btns, function (_) {
+            btnVal = $api.data(_, 'value');
+            buttons[btnVal] = function () { };
+        });
+
+        $api.addEvt(btns, 'click', function () {
+            var e = e || event;
+            console.log(e);
+            btnVal = $api.data(this, 'value');
+
+            common.tip($api.data(this, 'value') + ' ... ');
+            $api.trigger(buttons[btnVal]);
+        });
+
+        o.gps['@ViewBag.PageId'] = o.gps['@ViewBag.PageId'] || {};
+        o.gps['@ViewBag.PageId']['toolbar'] = toolbar;
+        o.gps['@ViewBag.PageId']['buttons'] = buttons;
+
+    })(window);
+
+</script>

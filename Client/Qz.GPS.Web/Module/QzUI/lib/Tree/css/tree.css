@@ -1,0 +1,88 @@
+﻿.tree {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+    .tree .box {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border:0 !important;
+    }
+
+    .tree .box-header {
+        border-bottom: 1px solid #ddd;
+        background: #FAFAFA;
+        color: #333;
+    }
+
+    .tree .box-body {
+        overflow: auto;
+    }
+
+    .tree ul {
+        background: #FAFAFA;
+    }
+
+        .tree ul > li {
+            display: block;
+            cursor: pointer;
+            background-color: #FAFAFA;
+            color: #000;
+            border-top: 1px solid #eee;
+        }
+
+            .tree ul > li:first-child {
+                border: 0;
+            }
+
+        .tree ul > li > ul > li {
+            margin-left: 20px;
+        }
+
+    .tree .icon-open {
+        position: relative;
+        right: -40%;
+    }
+
+        .tree .icon-open:before {
+            content: "\f101";
+        }
+
+    .tree .icon-tree {
+        color: #bbb !important;
+        padding: 0 5px 0 2px;
+    }
+
+        .tree .icon-tree:before {
+            content: "\f0ae";
+        }
+
+    .tree .icon-spread, .tree .icon-shrink, .tree .icon-cbox-un-check, .tree .icon-cbox-check, .tree .icon-cbox-square {
+        font-size: 16px !important;
+        padding: 6px 5px;
+    }
+    .tree .icon-cbox-un-check, .tree .icon-cbox-check, .tree .icon-cbox-square {
+        padding-left: 1px;
+    }
+   
+        .tree .icon-spread:before {
+            content: "\f055";
+        }
+
+        .tree .icon-shrink:before {
+            content: "\f056";
+        }
+
+        .tree .icon-cbox-un-check:before {
+            content: "\f096";
+        }
+        .tree .icon-cbox-square:before {
+            content:"\f0c8";
+        }
+        .tree .icon-cbox-check:before {
+            content: "\f046";
+        }

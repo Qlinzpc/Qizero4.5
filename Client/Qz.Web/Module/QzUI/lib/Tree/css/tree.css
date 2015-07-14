@@ -1,0 +1,97 @@
+﻿.tree {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-x: scroll;
+    box-sizing: border-box;
+}
+
+    .tree .box {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 0;
+    }
+
+    .tree .box-header {
+        border-bottom: 1px solid #ddd;
+    }
+
+
+.tree ul {
+    background: #FAFAFA;
+}
+
+    .tree ul > li {
+        display: block;
+        cursor: pointer;
+        background-color: #FAFAFA;
+        color: #000;
+        border-top: 1px solid #eee;
+    }
+
+    .tree ul > li:first-child {
+        border: 0;
+    }
+
+    .tree ul > li:hover{
+        background-color: #eee;
+    }
+
+    .tree ul i{
+        color:#bbb;
+    }
+
+    .tree ul .active > i {
+        color:#fff !important;
+    }
+
+        .tree ul > li > ul > li {
+            padding-left: 20px;
+        }
+
+.tree .active {
+    color: #fff !important;
+    background: #149b70 !important;
+}
+
+.fa-gps-home,.fa-manage, .fa-sys-setting,.fa-sys-app,.fa-db-manage,.fa-sys-log,.fa-data-code,
+.fa-module-manage, .fa-company-manage,.fa-dept-manage,.fa-role-manage,.fa-user-manage{
+    font-size: 16px;
+    padding: 10px 0;
+    width: 40px;
+    text-align: center;
+}
+    .fa-gps-home:before{content:"\f015";}
+    .fa-manage:before {content: "\f0c0";}
+    .fa-sys-setting:before{content:"\F085";}
+    .fa-sys-app:before{content:"\f179";}
+    .fa-sys-log:before{content:"\f0ea";}
+    .fa-db-manage:before{content:"\f0c2";}
+    .fa-data-code:before{content:"\f121";}
+
+    .fa-module-manage:before {content: "\f00b";}
+    .fa-company-manage:before {content: "\f0ac";}
+    .fa-dept-manage:before {content: "\f0e8";}
+    .fa-role-manage:before {content: "\f084";}
+    .fa-user-manage:before {content: "\f007";}
+
+.fa-open {
+    position: relative;
+    right: -40%;
+}
+
+    .fa-open:before {
+        content: "\f101";
+    }
+
+    .fa-tree {
+    color: #149b70;
+    padding: 0 5px 0 2px;
+}
+
+    .fa-tree:before {
+        content: "\f0ae";
+    }

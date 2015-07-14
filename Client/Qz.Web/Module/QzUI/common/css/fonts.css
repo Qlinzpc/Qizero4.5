@@ -1,0 +1,81 @@
+﻿@font-face { font-family: 'QzIcon'; 
+             src: url('/Module/QzUI/common/fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), 
+                 url('/Module/QzUI/common/fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), 
+                 url('/Module/QzUI/common/fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), 
+                 url('/Module/QzUI/common/fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg'); }
+
+[class^=icon-], [class*=" icon-"] {
+font-family: QzIcon;
+cursor: pointer;
+display: inline-block; 
+font-style: normal;
+font-weight: 400;
+font-variant: normal;
+line-height: 1;
+text-transform: none;
+speak: none;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.fa { 
+    display: inline-block; 
+    font-family: FontAwesome; 
+    font-style: normal; 
+    font-weight: normal; 
+    line-height: 1; 
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
+
+/* ICON 首页图标 */
+.fa-person, .fa-search, .fa-wash, .fa-fav, .fa-search-1, .fa-wash-1, .fa-fav-1, .fa-setting { font-size: 70px; }
+.fa-fav:before { content: "\f08a"; } 
+.fa-fav-1:before { content: "\f004"; } 
+.fa-person:before { content: "\f0c0"; } 
+.fa-search:before { content: "\f083"; } 
+.fa-search-1:before { content: "\f030"; } 
+.fa-setting:before { content: "\F085"; } 
+.fa-wash:before { content: "\f0c0"; } 
+.fa-wash-1:before { content: "\f030"; } 
+
+/* ICON 房子( 首页 ) 返回 关闭 */
+.fa-txt{position:absolute;left:23px;top: 14px;}
+.fa-return{font-size:19px;position:absolute;left:5px;top: 12px;}
+.fa-home:before {content:"\f015";}
+.fa-return:before{content:"\f0a8";}
+.fa-home,.fa-close{font-size:22px;position:absolute;right:5px;top: 10px;color:white;filter: alpha(opacity=1);opacity: 1;}
+.fa-close:before{content:"\F057";}
+.fa-query:hover ,.fa-close:hover {filter: alpha(opacity=50);opacity: 0.5;}
+.fa-query{font-size:16px;color:#149b70;}
+.fa-query:before{content:"\f002";}
+
+/* TOP 置顶 */
+.fa-top {font-size:38px;color:#149b70;}
+.fa-top:before {content:"\f0aa";}
+.fa-tel{font-size:30px;color:#fff;position: absolute;left: 10px;top: 2px;}
+.fa-call{color: #149b70; font-size: 20px; position: absolute; right: 5px; top: 5px;}
+.fa-call:before,.fa-tel:before{content:"\f095";}
+.fa-wifi {color:#ccc;font-size:150px;-moz-transform:rotate(-45deg); -ms-transform:rotate(-45deg); -o-transform:rotate(-45deg); -webkit-transform:rotate(-45deg); transform:rotate(-45deg);padding:10px 0;}
+.fa-wifi:before{content:"\f09e"}
+.fa-null {font-size:18px;color:#ccc;}
+/*.fa-null:before{content:"\f115"}*/
+.fa-null:before{content:"\f07c"}
+.fa-picture{color:#ccc;}
+.fa-picture:before{content:"\f03e"}
+.fa-reload {}
+.fa-reload:before{content:"\f021"}
+.fa-menu{color: #fff; position: absolute; font-size: 20px; top: 11px; }
+.fa-menu{right: 35px; }
+.fa-menu:before{content:"\f0c9"}
+
+.fa-down:before{content:"\f0d7"}
+.fa-sort:before{content:"\f0dc"}
+.fa-filter:before{content:"\f0b0"}
+.fa-down,.fa-sort,.fa-filter{color: #808080;font-size:16px;padding-left:5px;}
+
+.fa-success,.fa-del {color: #149b70;font-size: 20px;position: absolute;right: 5px;}
+.fa-del:before{content:"\f014"}
+.fa-success:before{content:"\f00c"}
+
+.fa-fail{color: #fff; font-size: 2em; position: absolute; right: 5%; top: 5%; padding: 2px 5px; border-radius: 5px; background:rgba(20,155,119,.7); }
+.fa-fail:before{content:"\f119"}
+

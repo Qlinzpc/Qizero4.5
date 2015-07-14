@@ -1,0 +1,33 @@
+﻿.skin, .menu .active, .tree .active, .tbl-oper tr.active, .page-header, .page-footer, .btn-b, .context-menu li:not([class=disabled]):hover, .box-header {
+  background: #4C88C0 !important;
+  color: #fff !important; }
+
+.box-header {
+  border-bottom: 1px solid #4C88C0; }
+
+.box, .btn-b, input[type=text]:focus, textarea:focus {
+  border: 1px solid #4C88C0 !important; }
+
+.tab .icon-tab-close:hover, .icon-sys-menu, .tree .icon-cbox-check, .tree .icon-cbox-square {
+  color: #4C88C0 !important; }
+
+.context-menu li:not([class=disabled]):hover .icon, .tbl-oper tr.active .icon, .menu ul .active > i, .tree ul .active > i {
+  color: #fff !important; }
+
+.dropdown-menu > :before {
+  border-bottom-color: #4C88C0 !important; }
+
+::-webkit-scrollbar-thumb, .loading > div {
+  background-color: #4C88C0 !important; }
+
+.active-border {
+  border: 1px solid #4C88C0 !important;
+  box-shadow: 0 0 7px 0 #4C88C0; }
+
+.menu ul > li:hover {
+  background-color: #eee; }
+
+.menu ul i, .tree ul i {
+  color: #bbb; }
+
+/*# sourceMappingURL=skin.css.map */

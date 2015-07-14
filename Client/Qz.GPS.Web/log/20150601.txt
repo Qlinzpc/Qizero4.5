@@ -1,0 +1,24 @@
+2015/6/1 10:38:29 [Error] Qz.GPS.Web.Controllers.CompanyController http://192.169.55.240:1010/Company?v=1433126309270 msg: “System.Data.Entity.DynamicProxies.Company_68190BEB36186995B49A378C497C8EE6458085F62B39621F4CDC72BF0B57E20C”未包含“R”的定义
+
+2015/6/1 10:42:10 [Error] Qz.GPS.Web.Controllers.DepartmentController http://192.169.55.240:1010/Department?v=1433126530027 msg: “System.Data.Entity.DynamicProxies.Department_AD8F35F706FCC28F5F9E6AD099BF9E8AB5C0079E87ABCAA3B227C1FD9A49050B”未包含“Contact”的定义
+
+2015/6/1 10:47:12 [Error] Qz.GPS.Web.Controllers.RoleController http://192.169.55.240:1010/Role?v=1433126831259 msg: “System.Data.Entity.DynamicProxies.Role_C1CDD8372419176527987FB36EA3AA8D2E5E69B58E5DDB4924B3C23A523F405D”未包含“Enable”的定义
+
+2015/6/1 10:49:03 [Error] Qz.GPS.Web.Controllers.RoleController http://192.169.55.240:1010/Role?v=1433126942557 msg: d:\Qlin 开发\Architecture ( 架构 )\·NET\Qz\Client\Qz.GPS.Web\Views\Role\Index.cshtml(35): error CS0201: 只有 assignment、call、increment、decrement、await 和 new 对象表达式可用作语句
+
+2015/6/1 10:49:27 [Error] Qz.GPS.Web.Controllers.RoleController http://192.169.55.240:1010/Role?v=1433126967037 msg: d:\Qlin 开发\Architecture ( 架构 )\·NET\Qz\Client\Qz.GPS.Web\Views\Role\Index.cshtml(35): error CS1002: 应输入 ;
+
+2015/6/1 10:51:07 [Error] Qz.GPS.Web.Controllers.RoleController http://192.169.55.240:1010/Role?v=1433127066473 msg: d:\Qlin 开发\Architecture ( 架构 )\·NET\Qz\Client\Qz.GPS.Web\Views\Role\Index.cshtml(34): error CS1002: 应输入 ;
+
+2015/6/1 10:51:50 [Error] Qz.GPS.Web.Controllers.RoleController http://192.169.55.240:1010/Role?v=1433127110027 msg: d:\Qlin 开发\Architecture ( 架构 )\·NET\Qz\Client\Qz.GPS.Web\Views\Role\Index.cshtml(34): error CS0201: 只有 assignment、call、increment、decrement、await 和 new 对象表达式可用作语句
+
+2015/6/1 11:46:48 [Error] Qz.GPS.Web.Controllers.SysLogController http://192.169.55.240:1010/SysLog?v=1433130407920 msg: d:\Qlin 开发\Architecture ( 架构 )\·NET\Qz\Client\Qz.GPS.Web\Views\SysLog\Index.cshtml(32): error CS0117: “Qz.Common.Const”并不包含“SYS_DATA_NULL”的定义
+
+2015/6/1 12:45:24 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login?v=1433133868572 msg: Attaching an entity of type 'Qz.GPS.Models.User' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+
+2015/6/1 16:31:56 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login?v=1433147233523 msg: The ObjectStateManager does not contain an ObjectStateEntry with a reference to an object of type 'System.Data.Entity.Infrastructure.DbEntityEntry`1[[Qz.GPS.Models.User, Qz.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+
+2015/6/1 18:09:59 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login?v=1433153345217 msg: The context cannot be used while the model is being created. This exception may be thrown if the context is used inside the OnModelCreating method or if the same context instance is accessed by multiple threads concurrently. Note that instance members of DbContext and related classes are not guaranteed to be thread safe.
+
+2015/6/1 18:10:28 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User/Login?v=1433153327628 msg: An error was reported while committing a database transaction but it could not be determined whether the transaction succeeded or failed on the database server. See the inner exception and http://go.microsoft.com/fwlink/?LinkId=313468 for more information.
+

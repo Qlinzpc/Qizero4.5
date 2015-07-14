@@ -1,0 +1,12 @@
+2015/5/28 10:10:31 [Error] Qz.GPS.Web.Controllers.UserController http://192.169.55.240:1010/User/Login msg: 已添加了具有相同键的项。
+
+2015/5/28 10:10:34 [Error] Qz.GPS.Web.Controllers.UserController http://192.169.55.240:1010/User/Login msg: An error was reported while committing a database transaction but it could not be determined whether the transaction succeeded or failed on the database server. See the inner exception and http://go.microsoft.com/fwlink/?LinkId=313468 for more information.
+
+2015/5/28 14:14:27 [Error] Qz.GPS.Web.Controllers.UserController http://192.169.55.240:1010/User/Login msg: An error occurred while starting a transaction on the provider connection. See the inner exception for details.
+
+2015/5/28 14:14:27 [Error] Qz.GPS.Web.Controllers.UserController http://192.169.55.240:1010/User/Login msg: An error was reported while committing a database transaction but it could not be determined whether the transaction succeeded or failed on the database server. See the inner exception and http://go.microsoft.com/fwlink/?LinkId=313468 for more information.
+
+2015/5/28 17:35:28 [Error] Qz.GPS.Web.Controllers.HomeController http://192.169.55.240:1010/ msg: d:\Qlin 开发\Architecture ( 架构 )\·NET\Qz\Client\Qz.GPS.Web\Views\Home\Index.cshtml(11): error CS0103: 当前上下文中不存在名称“Scripts”
+
+2015/5/28 17:37:57 [Error] Qz.GPS.Web.Controllers.HomeController http://192.169.55.240:1010/ msg: d:\Qlin 开发\Architecture ( 架构 )\·NET\Qz\Client\Qz.GPS.Web\Views\Home\Index.cshtml(11): error CS0103: 当前上下文中不存在名称“Styles”
+

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{90B6B0F6-2B7C-4589-8BE8-317995DF5537}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Qz.GPS.DirectService</RootNamespace>
+    <AssemblyName>Qz.GPS.DirectService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationService.cs" />
+    <Compile Include="ButtonService.cs" />
+    <Compile Include="CompanyService.cs" />
+    <Compile Include="DataCodeService.cs" />
+    <Compile Include="DataCodeTypeService.cs" />
+    <Compile Include="DbBackupService.cs" />
+    <Compile Include="DepartmentRoleService.cs" />
+    <Compile Include="DepartmentService.cs" />
+    <Compile Include="GPSService.cs" />
+    <Compile Include="LoginLogService.cs" />
+    <Compile Include="ModuleButtonMapService.cs" />
+    <Compile Include="ModuleService.cs" />
+    <Compile Include="Parameter\Button.cs" />
+    <Compile Include="Parameter\ModuleButton.cs" />
+    <Compile Include="Parameter\Role.cs" />
+    <Compile Include="Parameter\RoleModule.cs" />
+    <Compile Include="Parameter\RoleModuleButton.cs" />
+    <Compile Include="Parameter\User.cs" />
+    <Compile Include="PermissionService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleModuleButtonMapService.cs" />
+    <Compile Include="RoleModuleColumnMapService.cs" />
+    <Compile Include="RoleModuleMapService.cs" />
+    <Compile Include="RolePermissionService.cs" />
+    <Compile Include="RoleService.cs" />
+    <Compile Include="Parameter\Module.cs" />
+    <Compile Include="SysLogService.cs" />
+    <Compile Include="UserPermissionService.cs" />
+    <Compile Include="UserRoleService.cs" />
+    <Compile Include="UserService.cs" />
+    <Compile Include="UserSettingService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Client\Qz.GPS.ViewModel\Qz.GPS.ViewModel.csproj">
+      <Project>{7ea9935d-3778-487c-bbc7-7e521c33298b}</Project>
+      <Name>Qz.GPS.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Qz.Models\Qz.Models.csproj">
+      <Project>{400b1c07-1c0b-476f-9597-6a4cfdd83935}</Project>
+      <Name>Qz.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Qz.UnitOfWorks\Qz.UnitOfWorks.csproj">
+      <Project>{29e86f44-9967-4874-8c9d-fa4614a9ff76}</Project>
+      <Name>Qz.UnitOfWorks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Qz.Common\Qz.Common.csproj">
+      <Project>{4603d45b-1d33-45ca-af56-60cce3697495}</Project>
+      <Name>Qz.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Qz.Core\Qz.Core.csproj">
+      <Project>{7d3dcad1-f44e-4794-8d8a-6237b6021a27}</Project>
+      <Name>Qz.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

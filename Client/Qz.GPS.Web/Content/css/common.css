@@ -1,0 +1,48 @@
+﻿html,body{font-family:'微软雅黑',Arial,sans-serif;font-size:14px;-webkit-touch-callout:none;-moz-text-size-adjust:none; -ms-text-size-adjust:none; -webkit-text-size-adjust:none; text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0);background-color:#fff}
+html,body,header,section,footer,div,ul,ol,li,img,a,span,em,del,legend,center,strong,var,
+fieldset,form,label,dl,dt,dd,cite,hr,time,mark,code,figcaption,figure,h1,h2,h3,h4,h5,h6,p{margin:0;border:0;padding:0;font-style:normal;}
+nav,article,aside,details,main,header,footer,section,fieldset,figcaption,figure{display:block}
+img,a,button,em,del,strong,var,label,cite,small,time,mark,code,textarea{display:inline-block}
+header,section,footer{position:relative}
+ol,ul{list-style:none}
+span{display:inline-block}
+a:active,a:hover{outline:0}
+a,a:visited{text-decoration:none}
+label{-ms-word-wrap:break-word; word-wrap:break-word;-ms-word-break:break-all; word-break:break-all}
+table{border-collapse:collapse;border-spacing:0}
+select,input,textarea{border:1px solid #ccc;outline:none}
+textarea{resize: none;outline:none}
+input + select + textarea :focus {outline: none;}
+
+.p-d-l-5{padding-left:5px;}
+.pos-r { position: relative; } .pos-a { position: absolute; } .pos-f { position: fixed; } 
+.dn{display:none;} .db{display:block;}
+.tac{text-align:center;}.tar{text-align:right;}.tal{text-align:left;}
+.fwb{font-weight:bold;}
+.cr {color:red;}
+.cg{color:#888;}
+.bcg{background:#f7f7f7;}
+.msg{ font-size:14px; text-align:center; display:block; width:100%; padding:6px 0; }
+.mgl-5 { margin-left: -5px; } 
+
+.top{position: fixed; bottom: 10px; right: 13px; width: auto; height: auto; }
+.tip{ position: fixed; bottom: 10%;width: auto; height: auto; background: rgba(20,155,119,.8); border-radius: 5px; padding:3px 5px; color: #fff; font-size: 13px; left: 30%;display:none;-ms-word-break: break-all; word-break: break-all;max-width:90%;}
+
+.l-mask { position: fixed; left: 0; top: 0; width: 100%; height: 100%;opacity:0.3;filter:alpha(opacity=30);  background: #ccc; display: none; z-index: 110; }
+.l-sub-mask { position: fixed; left: 0; bottom: 0; width: 100%; height: 100%; background: rgba(0,0,0,.1); display: none; z-index: 100; }
+.loading { z-index:110;margin: 0 auto; width: 150px; text-align: center; position: fixed; top: 40%; left: 45%; display:none; }
+.loading > div {z-index:110; width: 30px; height: 30px; background-color: #149b70; border-radius: 100%; display: inline-block; -webkit-animation: loading 1.4s infinite ease-in-out; -moz-animation: loading 1.4s infinite ease-in-out; -o-animation: loading 1.4s infinite ease-in-out; animation: loading 1.4s infinite ease-in-out; -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both; -o-animation-fill-mode: both; animation-fill-mode: both; }
+.loading .loading1 {z-index:110; -webkit-animation-delay: -0.32s; -moz-animation-delay: -0.32s; -o-animation-delay: -0.32s; animation-delay: -0.32s; }
+.loading .loading2 {z-index:110;-webkit-animation-delay: -0.16s; -moz-animation-delay: -0.16s; -o-animation-delay: -0.16s; animation-delay: -0.16s; } 
+@-webkit-keyframes loading { 0%, 80%, 100% { -moz-transform: scale(0.0); -ms-transform: scale(0.0); -o-transform: scale(0.0); -webkit-transform: scale(0.0); transform: scale(0.0); } 40% { -moz-transform: scale(1.0); -ms-transform: scale(1.0); -o-transform: scale(1.0); -webkit-transform: scale(1.0); transform: scale(1.0); } } @-moz-keyframes loading { 0%, 80%, 100% { -moz-transform: scale(0.0); -ms-transform: scale(0.0); -o-transform: scale(0.0); -webkit-transform: scale(0.0); transform: scale(0.0); } 40% { -moz-transform: scale(1.0); -ms-transform: scale(1.0); -o-transform: scale(1.0); -webkit-transform: scale(1.0); transform: scale(1.0); } } @keyframes loading { 0%, 80%, 100% { -moz-transform: scale(0.0); -ms-transform: scale(0.0); -o-transform: scale(0.0); -webkit-transform: scale(0.0); transform: scale(0.0); } 40% { -moz-transform: scale(1.0); -ms-transform: scale(1.0); -o-transform: scale(1.0); -webkit-transform: scale(1.0); transform: scale(1.0); } } 
+
+.btn-w,.btn-b, .btn-c, .btn-unclick { font-size:13px; color: white; background-color: #50B4E6; background-color: #1FAC75; border: 0 none; padding: 2px 5px; cursor: pointer; border-radius: 5px; height: 20px; line-height: 20px; }.btn-w {background-color: #F0F0F0;color: #333;border: 1px solid #ccc;}.btn-unclick { background-color: #999; }  .btn-c { background-color: #FA8919; }  .btn-w:hover,.btn-b:hover, .btn-c:hover { text-decoration: underline; } 
+
+.drag{height: auto; width: auto; position:absolute; background:#fff; z-index:111; top:20%; left:30%; border:1px solid #ccc; padding: 0 0 10px 0;}
+.drag-header {height: 26px;line-height: 23px;width: 100%;background: #149b70;color: #FFF;-moz-user-select: none;-ms-user-select: none;-webkit-user-select: none;user-select: none;}
+.drag-title {width: 88%;display: inline-block;padding-left: 5px;}
+.drag-close {right: 3px;top: -6px;position: absolute;display: inline-block;filter: alpha(opacity=20);opacity: 0.2;cursor: pointer;font: bold 25px 微软雅黑;}
+.drag-close:hover {filter: alpha(opacity=80);opacity: 0.8;}
+
+/* 加载样式 */
+.l-loading { position: absolute; z-index: 100; top: 30px; left: 50%; overflow: hidden; background: url('../img/loading.gif') no-repeat 0px 0px; width: 24px; height: 24px; display: none; } .l-container{ min-height:100px;position:relative; }

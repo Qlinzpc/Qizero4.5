@@ -1,0 +1,28 @@
+2015/6/30 10:47:17 [Error] Qz.GPS.Web.Controllers.RoleController http://localhost:1595/Role/Modify msg: Attaching an entity of type 'Qz.GPS.Models.Role' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+
+2015/6/30 10:49:14 [Error] Qz.GPS.Web.Controllers.RoleController http://localhost:1595/Role/Modify msg: Attaching an entity of type 'Qz.GPS.Models.Role' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+
+2015/6/30 11:09:28 [Error] 参数化查询 '(@Id int,@RoleName nvarchar(4),@Remark nvarchar(14),@SortCode in' 需要参数 '@ModifyDate'，但未提供该参数。
+
+2015/6/30 11:27:25 [Error] Qz.GPS.Web.Controllers.RoleController http://localhost:1595/Role/Modify msg: Attaching an entity of type 'Qz.GPS.Models.Role' failed because another entity of the same type already has the same primary key value. This can happen when using the 'Attach' method or setting the state of an entity to 'Unchanged' or 'Modified' if any entities in the graph have conflicting key values. This may be because some entities are new and have not yet received database-generated key values. In this case use the 'Add' method or the 'Added' entity state to track the graph and then set the state of non-new entities to 'Unchanged' or 'Modified' as appropriate.
+
+2015/6/30 11:35:24 [Error] Qz.GPS.Web.Controllers.RoleController http://localhost:1595/Role/Add msg: 序列不包含任何元素
+
+2015/6/30 11:39:47 [Error] Qz.GPS.Web.Controllers.RoleController http://localhost:1595/Role/Add msg: 序列不包含任何元素
+
+2015/6/30 11:42:15 [Error] 参数化查询 '(@Id int,@RoleName nvarchar(4),@Remark nvarchar(4000),@SortCode ' 需要参数 '@Remark'，但未提供该参数。
+
+2015/6/30 11:42:27 [Error] 参数化查询 '(@Id int,@RoleName nvarchar(4),@Remark nvarchar(4000),@SortCode ' 需要参数 '@Remark'，但未提供该参数。
+
+2015/6/30 11:46:46 [Error] 参数化查询 '(@Id int,@RoleName nvarchar(4),@Remark nvarchar(4000),@SortCode ' 需要参数 '@Remark'，但未提供该参数。
+
+2015/6/30 11:46:47 [Error] 参数化查询 '(@Id int,@RoleName nvarchar(4),@Remark nvarchar(4000),@SortCode ' 需要参数 '@Remark'，但未提供该参数。
+
+2015/6/30 11:46:47 [Error] 参数化查询 '(@Id int,@RoleName nvarchar(4),@Remark nvarchar(4000),@SortCode ' 需要参数 '@Remark'，但未提供该参数。
+
+2015/6/30 13:56:43 [Error] Qz.GPS.Web.Controllers.SysModuleController http://localhost:1595/SysModule msg: 无法对 null 引用执行运行时绑定
+
+2015/6/30 13:57:56 [Error] Qz.GPS.Web.Controllers.DepartmentController http://localhost:1595/Department msg: 无法对 null 引用执行运行时绑定
+
+2015/6/30 13:57:59 [Error] Qz.GPS.Web.Controllers.UserController http://localhost:1595/User msg: 无法对 null 引用执行运行时绑定
+

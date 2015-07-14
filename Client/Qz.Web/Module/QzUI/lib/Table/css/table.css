@@ -1,0 +1,10 @@
+﻿.tbl {overflow:auto;width: 100%; border: 1px solid #ccc;border-collapse:collapse;}
+.tbl thead{background-color:#F1F1F1;}
+.tbl tr { height:28px; line-height: 28px;white-space: nowrap; }
+.tbl .odd{background-color:#EEEDED;}
+.tbl .even{background-color:#FFF;}
+.tbl th{font-weight:normal;}
+.tbl td { font-size:12px;padding:0 0 0 5px; }
+.tbl th,.tbl td{line-height:25px;border: 1px solid #dcdcdc; overflow:hidden;white-space:nowrap;text-overflow:ellipsis;} 
+.tbl-title{background-color:#F1F1F1;border:1px solid #dcdcdc; padding:3px 6px;margin-bottom:-1px;border-collapse:collapse;position:relative;}
+

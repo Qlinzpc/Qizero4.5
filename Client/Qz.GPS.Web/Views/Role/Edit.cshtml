@@ -1,0 +1,156 @@
+﻿@{
+    ViewBag.Title = "新增角色";
+    Layout = null;
+}
+<div id="@ViewBag.PageId">
+
+    <style>
+        #@ViewBag.PageId{
+            width: 300px;
+        }
+        #@ViewBag.PageId p{
+            padding: 5px 0;
+        }
+        #@ViewBag.PageId input[type=text], #@ViewBag.PageId textarea{
+            padding: 3px 5px;
+            border: 1px solid #dcdcdc;
+            width: 230px;
+        }
+    </style>
+
+    <form id="role-edit-form">
+        <p>
+            <label>角色名称: </label>
+            <input type="text" name="RoleName" required />
+        </p>
+        <p>
+            <label>排序编码: </label>
+            <input type="text" name="SortCode" required data-type="int" />
+        </p>
+        <p>
+            <label style="vertical-align:top;">角色备注: </label>
+            <textarea style="height: 70px;" name="Remark"></textarea>
+        </p>
+        <p>
+            <label>是否启用: </label>
+            <input type="checkbox" checked name="Enabled" />
+        </p>
+        <div class="tar">
+            <div class="btn btn-b" data-id="role-add-save" data-func="save">保存</div>
+            <div class="btn btn-b" data-id="role-add-close" data-func="close">关闭</div>
+        </div>
+
+        <input type="hidden" name="Id" value="0" />
+    </form>
+
+    <script>
+
+    (function (o) {
+
+        /**
+         * Page 类
+        */
+        function Page() {
+            // Page 继承 PageBase 属性 ( prototype )
+            Page.fExtends(o.PageBase);
+        }
+
+        /**
+         * Page 属性
+        */
+        Page.prototype = {
+            type: 'Add',
+            data: '@Qz.Common.QJsonConvert.Serialize(ViewBag.Data)',
+            form: null 
+        };
+
+        /**
+         * 初始化 方法
+        */
+        Page.prototype.init = function () {
+            var _this = this;
+
+            // 初始化 PageBase 类之前
+            this.id = '@ViewBag.PageId';
+            this.name = '@ViewBag.Title';
+            this.parentId = this.id.replace('Edit', '');
+
+            // 初始化 PageBase 类, 若初始化失败, 则 return
+            if (!this.initbase()) { return false; }
+
+            // 属性
+            this.form = new Form({ id: '#{0} #{1}'.format(this.id, 'role-edit-form') });
+
+            if (this.data) {
+                this.type = 'Modify';
+                this.data = $api.parse(this.data.replace(/\&quot;/g, '"'));
+
+                if (this.data.Status != 0) {
+                    common.tip(this.data.Message);
+                    return false;
+                }
+                this.form.setdata(this.data.Data);
+
+            }
+
+            // 按钮
+            _button.call(this, this);
+
+            return true;
+        };
+
+        function _button(_this) {
+
+            $api.addEvt($api.domAll(_this.dom, '.btn[data-func]'), 'click', function () {
+                if (/unclick/.test(this.className)) return;
+
+                $api.trigger(_this.btns[$api.data(this, 'func')]);
+            });
+
+            // 保存
+            _this.btns.save = function () {
+                if (!_this.form.validate(function (msg) {
+
+                    common.tip(msg);
+
+                })) return;
+
+                var _data = _this.form.serialize({});
+                common.tip(_data);
+
+                common.ajax({
+                    url: '/Role/{0}'.format( _this.type ),
+                    data: _data,
+                    callback: function (rs) {
+                        if (rs.Status != 0) {
+                            common.tip(rs.Message);
+                            return;
+                        }
+
+                        common.tip('操作成功 !');
+                        _this.form.reset();
+
+                        _this.btns.close();
+                        o.gps.tab.reload(o.gps.tab.current);
+                    }
+                });
+
+            };
+
+            // 关闭
+            _this.btns.close = function () {
+                common.tip('close ... ');
+
+                o.gps[_this.parentId]['dialog']['box'].close();
+            };
+        }
+
+        var _edit = new Page();
+
+        _edit.init()
+
+    })(window);
+
+    </script>
+
+</div>

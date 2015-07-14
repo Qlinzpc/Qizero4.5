@@ -1,0 +1,296 @@
+﻿@{
+    Layout = null;
+}
+
+<div id="@ViewBag.PageId">
+    <style>
+    #@ViewBag.PageId{
+        width:700px;
+        height: 400px;
+    }
+    #@ViewBag.PageId .permissions-module{
+        width: 24%;
+        height: 100%;
+        float: left;
+    }
+    #@ViewBag.PageId .permissions-right{
+        width: 75%;
+        height: 100%;
+        float: right;
+    }
+   #@ViewBag.PageId .permissions-button{
+        height: 50%;
+    }
+   #@ViewBag.PageId .permissions-data{
+        height: 49%;
+    }
+        .permissions-button .content .btn{
+            cursor:default !important;
+            margin-top: 5px;
+            padding: 5px 8px;
+        }
+        .permissions-button .content .btn:hover{
+            text-decoration: none !important;
+        }
+        .permissions-button .icon-close{
+            padding-left: 5px;
+            color:#bbb !important;
+            transition:ease-out 0.4s;
+        }
+        .permissions-button .icon-close:hover{
+            transition: ease-in 0.4s;
+            color: #149b70 !important;
+        }
+    </style>
+
+    <div class="permissions-module pos-r">
+        <p class="hd-title">系统模块</p>
+        <div class="content" style="width:100%;height:100%;"></div>
+        <div class="tools-right-btn" style="right: 0;">
+            <div class="btn btn-unclick" data-id="module-save">保存</div>
+        </div>
+    </div>
+    <div class="permissions-right">
+        <div class="permissions-button pos-r">
+            <p class="hd-title">按钮设置</p>
+            <div class="content"></div>
+            <div class="tools-right-btn">
+                <div class="btn btn-unclick" data-id="button-add">编辑</div>
+            </div>
+        </div>
+        <div class="permissions-data pos-r">
+            <p class="hd-title">数据设置</p>
+            <div class="content"></div>
+            <div class="tools-right-btn">
+                <div class="btn btn-unclick" data-id="btn-add-data">编辑</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function (o) {
+
+            var pageId = "@ViewBag.PageId",
+                    _permissions = $api.dom("#" + pageId),
+                    _moduleSave = $api.dom(_permissions, '.btn[data-id=module-save]'),
+                    _buttonAdd = $api.dom(_permissions, '.btn[data-id=button-add]'),
+                    _dataAdd = $api.dom(_permissions, '.btn[data-id=btn-add-data]'),
+                    _authorized = null,
+                    _checkModuleIds = '',
+                    _roleId = '@ViewBag.Role',
+                    treeModuleData = $api.parse('@Qz.Common.QJsonConvert.Serialize(ViewBag.ModuleTree.Data)'.replace(/\&quot;/g, '"')),
+                    roleModuleData = $api.parse('@Qz.Common.QJsonConvert.Serialize(ViewBag.RoleModule.Data)'.replace(/\&quot;/g, '"')),
+                    treeModule = null,
+
+                    // 权限 ( 模块 按钮 数据 ) 设置
+                    permissions = {
+                        load: function () {
+                            this.bind.event();
+                        },
+                        bind: {
+                            event: function () {
+
+                                $api.addEvt(_buttonAdd, 'click', function () {
+                                    if (/unclick/.test(this.className)) return;
+
+                                    common.ajax({
+                                        url: '/Button/List',
+                                        data: { RoleId: _roleId, ModuleId: store.get('module-permissions-id') },
+                                        type: 'html',
+                                        callback: function (rs) {
+                                            // 保存已授权 buttons
+                                            store.set('authorized-button', _authorized);
+
+                                            new Dialog().window({
+                                                id: 'window-btn-list', parent: '', content: rs.html, title: '按钮列表', drag: true, winCloseCallback: function () {
+                                                    // 刷新
+                                                    permissions.bind.data(store.get('authorized-button'), $api.dom(_permissions, '.permissions-button .content'));
+                                                }
+                                            });
+                                        }
+                                    });
+
+                                });
+
+                                $api.addEvt(_dataAdd, 'click', function () {
+                                    if (/unclick/.test(this.className)) return;
+
+                                    common.tip('add data');
+                                });
+
+                                // 保存 
+                                $api.addEvt(_moduleSave, 'click', function () {
+                                    if (/unclick/.test(this.className)) return;
+
+                                    dialog.confirm({ content: '确定保存该操作吗 ?' }, function (r) {
+                                        if (r) {
+                                            var _id = null,
+                                                _checkModuleIds = '';
+
+                                            permissions.treeModule.allchecks.forEach(function (_) {
+                                                _id = parseInt($api.data(_, 'id'));
+
+                                                if (_id > 0) {
+                                                    _checkModuleIds += '{0},'.format(_id);
+                                                }
+                                            });
+
+                                            common.tip('add data: ' + _checkModuleIds, 5*1000);
+
+                                            common.ajax({
+                                                url: '/RoleModule/Add',
+                                                data: { RoleId: _roleId, ModuleIds: _checkModuleIds },
+                                                callback: function (rs) {
+                                                    if (rs.Status != 0) {
+                                                        common.tip(rs.Message);
+                                                        return;
+                                                    }
+
+                                                    common.tip('保存成功 ....');
+                                                }
+                                            });
+                                        }
+                                    });
+
+                                });
+                            },
+
+                            data: function (data, target) {
+                                var _html = [];
+
+                                if ($api.isArray(data)) {
+                                    data.forEach(function (_) {
+                                        _html.push('<div data-id="{Id}" data-value="{Value}" class="btn btn-w"><i class="icon {Icon}"></i>{Name}<i class="icon icon-close"></i></div>'.format(_));
+                                    });
+                                }
+
+                                $api.html(target, _html.join(''));
+
+                                // 保存已授权 buttons 
+                                _authorized = data;
+                            }
+                        },
+                        treeModule: new Tree({
+                            id: pageId + 'ModuleTree',
+                            show: true,
+                            extend: 'checkbox',
+                            parent: $api.dom(_permissions, '.permissions-module .content'),
+                            data: treeModuleDatas(-1),
+                            initCallback: function () { },
+                            createCallback: function () { },
+                            checkCallback: function (r, e) {
+                                //console.log(r);
+                                //console.log(e);
+
+                                $api.addRmCls(_moduleSave, 'btn-unclick', 'btn-b');
+
+                            },
+                            selectCallback: function (_) {
+                                // console.log(_);
+                                // console.log(this);
+                                var children = $api.data(_, 'sub-count'),
+                                     _content = $api.dom(_permissions, '.permissions-button .content'),
+                                    id = 0;
+
+                                if (children != "0") {
+                                    $api.addRmCls(_buttonAdd, 'btn-b', 'btn-unclick');
+                                    $api.addRmCls(_dataAdd, 'btn-b', 'btn-unclick');
+                                    $api.html(_content, '');
+                                    return;
+                                }
+
+                                $api.addRmCls(_buttonAdd, 'btn-unclick', 'btn-b');
+                                $api.addRmCls(_dataAdd, 'btn-unclick', 'btn-b');
+
+                                id = $api.data(_, 'id');
+                                store.set('module-permissions-id', id);
+
+                                common.ajax({
+                                    url: '/Role/GetButton',
+                                    data: { roleId: _roleId, moduleId: id },
+                                    callback: function (rs) {
+
+                                        if (rs.Status != 0) {
+                                            common.tip(rs.Message);
+                                            return;
+                                        }
+
+                                        permissions.bind.data(rs.Data, _content);
+                                    }
+                                });
+
+                            },
+                            shrinkCallback: function (_) {
+                                // console.log(_);
+                                // 收缩
+
+                            },
+                            spreadCallback: function (_) {
+                                // console.log(_);
+                                // 展开
+                                if ($api.data(_, 'bind') == '0') {
+                                    var _data = treeModuleDatas($api.data(_, 'id'));
+                                    this.bind(_, _data);
+                                    $api.data(_, 'bind', '1');
+                                    $api.data(_, 'children', _data.length);
+                                }
+
+                            }
+                        })
+                    };
+
+            // 递归展开所有 treeModule 子级 
+            function treeModuleSpread() {
+                var _trigger = null, 
+                    _len = permissions.treeModule.arr.length;
+
+                permissions.treeModule.arr[_len - 1]['childrens'].forEach(function (_) {
+
+                    _trigger = $api.dom(_, 'i[data-trigger]');
+
+                    _trigger.click();
+
+                    treeModuleSpread();
+                });
+            }
+
+            // 根据id 获得对应 Module
+            function treeModuleDatas(value) {
+                var arr = [];
+
+                treeModuleData.forEach(function (_) {
+                    if (_.ParentId == value) arr.push(_);
+                });
+
+                return arr;
+            };
+
+            // 加载
+            permissions.load();
+
+            o.gps['role'] = o.gps['role'] || {};
+
+            o.gps['role']['permissions'] = permissions;
+
+            // 展开 treeModule 所有子级 
+            treeModuleSpread();
+
+            // 选中已授权 tree 节点 
+            roleModuleData.forEach(function (_moudle) {
+
+                permissions.treeModule.arr.forEach(function (_) {
+
+                    _.childrens.forEach(function (node) {
+                        if ($api.data(node, 'id') == _moudle.Id) {
+                            permissions.treeModule.check.call($api.dom(node, "i[data-type='checkbox']"), permissions.treeModule);
+                            return false;
+                        }
+
+                    });
+                });
+
+            });
+
+        })(window);
+    </script>
+</div>

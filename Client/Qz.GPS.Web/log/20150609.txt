@@ -1,0 +1,48 @@
+2015/6/9 11:12:42 [Error] Qz.GPS.Web.Controllers.LoginController http://localhost:1595/Login/Index msg: 值不能为 null。
+参数名: source
+
+2015/6/9 11:24:02 [Error] Qz.GPS.Web.Controllers.HomeController http://localhost:1595/ msg: 未将对象引用设置到对象的实例。
+
+2015/6/9 11:27:08 [Error] Qz.GPS.Web.Controllers.HomeController http://localhost:1595/ msg: 未将对象引用设置到对象的实例。
+
+2015/6/9 11:54:11 [Error] Qz.GPS.Web.Controllers.ApplicationController http://localhost:1595/Application?v=1433822050577 msg: 未找到分部视图“ToolsPartial”或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/Application/ToolsPartial.aspx
+~/Views/Application/ToolsPartial.ascx
+~/Views/Shared/ToolsPartial.aspx
+~/Views/Shared/ToolsPartial.ascx
+~/Views/Application/ToolsPartial.cshtml
+~/Views/Application/ToolsPartial.vbhtml
+~/Views/Shared/ToolsPartial.cshtml
+~/Views/Shared/ToolsPartial.vbhtml
+
+2015/6/9 11:56:48 [Error] Qz.GPS.Web.Controllers.ApplicationController http://localhost:1595/Application?v=1433822206847 msg: 未找到分部视图“Tools/ToolsPartial”或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/Application/Tools/ToolsPartial.aspx
+~/Views/Application/Tools/ToolsPartial.ascx
+~/Views/Shared/Tools/ToolsPartial.aspx
+~/Views/Shared/Tools/ToolsPartial.ascx
+~/Views/Application/Tools/ToolsPartial.cshtml
+~/Views/Application/Tools/ToolsPartial.vbhtml
+~/Views/Shared/Tools/ToolsPartial.cshtml
+~/Views/Shared/Tools/ToolsPartial.vbhtml
+
+2015/6/9 11:57:07 [Error] Qz.GPS.Web.Controllers.ApplicationController http://localhost:1595/Application?v=1433822226331 msg: 未找到分部视图“/Tools/ToolsPartial”或没有视图引擎支持搜索的位置。搜索了以下位置: 
+/Tools/ToolsPartial
+
+2015/6/9 12:03:28 [Error] Qz.GPS.Web.Controllers.ApplicationController http://localhost:1595/Application?v=1433822606285 msg: d:\Qlin 开发\Architecture ( 架构 )\·NET\Qz\Client\Qz.GPS.Web\Views\Application\Index.cshtml(23): error CS1928: “System.Web.Mvc.HtmlHelper<dynamic>”不包含“Partial”的定义，并且最佳扩展方法重载“System.Web.Mvc.Html.PartialExtensions.Partial(System.Web.Mvc.HtmlHelper, string, System.Web.Mvc.ViewDataDictionary)”的某些参数无效
+
+2015/6/9 12:05:13 [Error] Qz.GPS.Web.Controllers.ApplicationController http://localhost:1595/Application?v=1433822712334 msg: d:\Qlin 开发\Architecture ( 架构 )\·NET\Qz\Client\Qz.GPS.Web\Views\Application\Index.cshtml(22): error CS1502: 与“System.Web.WebPages.WebPageExecutingBase.Write(System.Web.WebPages.HelperResult)”最匹配的重载方法具有一些无效参数
+
+2015/6/9 12:05:40 [Error] Qz.GPS.Web.Controllers.ApplicationController http://localhost:1595/Application?v=1433822738613 msg: d:\Qlin 开发\Architecture ( 架构 )\·NET\Qz\Client\Qz.GPS.Web\Views\Application\Index.cshtml(22): error CS1502: 与“System.Web.WebPages.WebPageExecutingBase.Write(System.Web.WebPages.HelperResult)”最匹配的重载方法具有一些无效参数
+
+2015/6/9 12:08:10 [Error] Qz.GPS.Web.Controllers.ApplicationController http://localhost:1595/Application?v=1433822888933 msg: d:\Qlin 开发\Architecture ( 架构 )\·NET\Qz\Client\Qz.GPS.Web\Views\Application\Index.cshtml(22): error CS1502: 与“System.Web.WebPages.WebPageExecutingBase.Write(System.Web.WebPages.HelperResult)”最匹配的重载方法具有一些无效参数
+
+2015/6/9 13:47:07 [Error] Qz.GPS.Web.Controllers.ApplicationController http://localhost:1595/Application?v=1433828825119 msg: 未找到分部视图“_ToolsPartial”或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Views/Application/_ToolsPartial.aspx
+~/Views/Application/_ToolsPartial.ascx
+~/Views/Shared/_ToolsPartial.aspx
+~/Views/Shared/_ToolsPartial.ascx
+~/Views/Application/_ToolsPartial.cshtml
+~/Views/Application/_ToolsPartial.vbhtml
+~/Views/Shared/_ToolsPartial.cshtml
+~/Views/Shared/_ToolsPartial.vbhtml
+

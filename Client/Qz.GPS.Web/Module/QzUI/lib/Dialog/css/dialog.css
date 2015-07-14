@@ -1,0 +1,22 @@
+﻿.dialog-content {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+    margin: 0 auto;
+    padding: 10px 8px;
+    vertical-align: top;
+}
+
+.dialog-footer {
+    background: #fff;
+    width: 100%;
+    margin: 0 auto;
+    border-top: 0 solid #149b70;
+    padding-right: 8px;
+    text-align: right;
+}
+
+.dialog-footer [class*=btn]{
+    margin-right: 7px;
+}

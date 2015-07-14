@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "数据字典";
+    Layout = null;
+}
+
+@{
+    int i = 0;
+    string className = "";
+}
+
+<div id="@ViewBag.PageId">
+    <h3>数据响应时间: @Model.Times</h3>
+    @* 工具栏 Toolbar *@
+    @Html.Partial("_ToolbarPartial")
+
+    <table class="tbl">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>公司名称</th>
+                <th>简拼</th>
+                <th>联系人</th>
+                <th>联系电话</th>
+                <th>公司备注</th>
+                <th>创建人</th>
+                <th>创建时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Data.Count <= 0)
+            {
+                <tr>
+                    <td colspan="8" style="text-align:center;color:#aaa;font-weight:400;">@Qz.Common.QConst.SYS_DATA_NULL</td>
+                </tr>
+            }
+            @foreach (var item in Model.Data)
+            {
+                className = i % 2 == 0 ? "even" : "odd";
+                i++;
+                <tr class="@className">
+                    <td>@item.Id</td>
+                    <td>@item.FullName</td>
+                    <td>@item.ShortName</td>
+                    <td>@item.Contact</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Remark</td>
+                    <td>@item.CreateUserName</td>
+                    <td>@item.CreateDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

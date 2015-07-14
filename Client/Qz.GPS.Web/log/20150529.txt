@@ -1,0 +1,10 @@
+2015/5/29 11:48:41 [Error] Qz.GPS.Web.Controllers.UserController http://192.169.55.240:1010/User/Login?v=1432871186941 msg: The underlying provider failed on Open.
+
+2015/5/29 11:48:46 [Error] Qz.GPS.Web.Controllers.UserController http://192.169.55.240:1010/User/Login?v=1432871215189 msg: An error occurred while starting a transaction on the provider connection. See the inner exception for details.
+
+2015/5/29 17:04:10 [Error] Qz.GPS.Web.Controllers.UserController http://192.169.55.240:1010/User/Login?v=1432890249463 msg: 密文不得为空
+
+2015/5/29 17:04:50 [Error] Qz.GPS.Web.Controllers.UserController http://192.169.55.240:1010/User/Login?v=1432890290617 msg: 密文不得为空
+
+2015/5/29 17:07:58 [Error] Qz.GPS.Web.Controllers.UserController http://192.169.55.240:1010/User/Login?v=1432890478631 msg: 密文不得为空
+

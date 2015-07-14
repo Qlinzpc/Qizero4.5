@@ -1,0 +1,17 @@
+2015/6/12 15:59:10 [Error] Qz.GPS.Web.Controllers.SysModuleButtonController http://localhost:1595/SysModuleButton/Remove?v=1434095949911 msg: 索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+
+2015/6/12 16:08:07 [Error] Qz.GPS.Web.Controllers.SysModuleButtonController http://localhost:1595/SysModuleButton/Remove?v=1434096486007 msg: The underlying provider failed on Rollback.
+
+2015/6/12 16:11:38 [Error] Qz.GPS.Web.Controllers.SysModuleButtonController http://localhost:1595/SysModuleButton/Remove?v=1434096635709 msg: The underlying provider failed on Rollback.
+
+2015/6/12 16:29:17 [Error] '2' 附近有语法错误。
+
+2015/6/12 16:30:18 [Error] '2' 附近有语法错误。
+
+2015/6/12 17:25:31 [Error] 违反了 PRIMARY KEY 约束 'PK_ModuleButtonMap'。不能在对象 'dbo.ModuleButtonMap' 中插入重复键。
+语句已终止。
+
+2015/6/12 18:05:31 [Error] 违反了 PRIMARY KEY 约束 'PK_ModuleButtonMap'。不能在对象 'dbo.ModuleButtonMap' 中插入重复键。
+语句已终止。
+
