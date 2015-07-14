@@ -26,6 +26,11 @@ namespace Qz.GPS.Web.App_Start
 
             bundles.Add(new ScriptBundle("~/Qz/jQuery").Include("~/Scripts/jquery-1.10.2.js"));
 
+            bundles.Add(new ScriptBundle("~/Qz/commonjs").Include(
+                "~/Module/QzUI/base/js/base.js",
+                "~/Module/QzUI/common/js/common.js"
+                ));
+
             //bundles.Add(new ScriptBundle("~/Qz/data/home").Include("~/Scripts/data/home.js"));
             //bundles.Add(new ScriptBundle("~/Qz/common").Include("~/Scripts/common.js"));
             //bundles.Add(new ScriptBundle("~/Qz/api").Include("~/Scripts/api.js"));
@@ -54,6 +59,13 @@ namespace Qz.GPS.Web.App_Start
                 "~/Module/QzUI/lib/Tree/css/tree.css",
                 "~/Module/QzUI/lib/Form/css/form.css",
                 "~/Module/QzUI/lib/Table/css/table.css"
+                ));
+
+            bundles.Add(new StyleBundle("~/Qz/commoncss").Include(
+                "~/Module/QzUI/base/css/skin/default.css",
+                "~/Module/QzUI/common/css/common.css",
+                "~/Module/QzUI/common/css/animate.css",
+                "~/Module/QzUI/common/css/fonts.css"
                 ));
 
             //bundles.Add(new StyleBundle("~/Content/common").Include("~/Content/css/common.css"));

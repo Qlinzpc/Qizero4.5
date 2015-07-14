@@ -1,0 +1,49 @@
+﻿@{Layout = null;}<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Qizero</title>
+    @System.Web.Optimization.Styles.Render("~/Qz/css")
+
+</head>
+<body>
+
+    @* 页面容器 *@
+    <div class="page-container" id="page">
+
+        @* 页面头部 *@
+        <div class="page-header"></div>
+
+        @* 页面任务栏 *@
+        <div class="page-taskbar">
+
+            @* 页面选项卡 *@
+            <div class="page-tab"></div>
+        </div>
+
+        @* 页面内容 *@
+        <div class="page-content">
+
+            @* 页面导航 *@
+            <div class="page-nav"></div>
+            @* 页面主内容 *@
+            <div class="page-main"></div>
+
+        </div>
+
+        @* 页面底部 *@
+        <div class="page-footer">
+            <div class="tac">©2015 Qizero</div>
+        </div>
+
+    </div>
+
+    @System.Web.Optimization.Scripts.Render("~/Qz/jQuery")
+    @System.Web.Optimization.Scripts.Render("~/Qz/js")
+    <script>
+
+    </script>
+
+</body>
+
+</html>

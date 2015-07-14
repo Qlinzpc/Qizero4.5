@@ -59,6 +59,7 @@
         };
 
         this.config = $api.extend({}, DEFAULTS, opt);
+
         this.config.css['width'] = 'auto';
         this.config.css['min-width'] = '250px';
 

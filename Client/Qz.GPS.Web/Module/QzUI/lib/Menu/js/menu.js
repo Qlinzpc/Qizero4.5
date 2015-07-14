@@ -181,7 +181,10 @@
 
         if (data && $api.isArray(data)) {
             data.forEach(function (_) {
-                html.push('<li data-id="' + _.Id + '" data-open="0" data-sub-menu="' + _.SubMenu + '" data-url="' + _.URL + '"><i class="icon icon-' + _.Icon + '"></i><span class="title">' + _.Name + '</span>' + (_.SubMenu > 0 ? '<i class="icon icon-open"></i><span class="badge">' + _.SubMenu + '<span>' : "") + '</li>');
+
+                _.Badge = (_.SubMenu > 0 ? '<i class="icon icon-open"></i><span class="badge">' + _.SubMenu + '<span>' : "");
+
+                html.push('<li data-id="{Id}" data-open="0" data-sub-menu="{SubMenu}" data-url="{URL}"><i class="icon icon-{Icon}"></i><span class="title">{Name}</span>{Badge}</li>'.format(_));
             });
         }
 

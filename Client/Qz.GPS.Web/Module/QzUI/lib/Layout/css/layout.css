@@ -12,6 +12,8 @@
 .page-footer {
     height: 30px;
     line-height: 30px;
+    bottom:0;
+    position:fixed;
 }
 
 .page-header .logo {
@@ -57,7 +59,6 @@
 }
 
 .page-content {
-    height: 571px;
 }
 
 .page-nav {

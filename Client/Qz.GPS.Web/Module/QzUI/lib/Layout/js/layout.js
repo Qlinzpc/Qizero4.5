@@ -9,7 +9,7 @@
 
     "use strict";
 
-    // 默认配置测试 
+    // 默认配置 
     var DEFAULTS = {
         id: '.page-container',
         main: '',

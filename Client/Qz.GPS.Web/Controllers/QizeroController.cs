@@ -36,5 +36,10 @@ namespace Qz.GPS.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Win7()
+        {
+            return View();
+        }
     }
 }

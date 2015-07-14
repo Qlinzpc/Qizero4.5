@@ -392,7 +392,7 @@ Array.prototype.forEach = function (callback) {
 
             obj = this[i];
 
-            rs = callback(obj);
+            rs = callback(obj, i);
 
             if (rs !== undefined && !rs) return;
         }
@@ -414,7 +414,7 @@ NodeList.prototype.forEach = function (callback) {
 
             obj = this[i];
 
-            rs = callback(obj);
+            rs = callback(obj, i);
 
             if (rs !== undefined && !rs) return;
         }
