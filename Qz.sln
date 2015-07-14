@@ -92,6 +92,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qz.GPS.ViewModel", "Client\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qz.Console", "Client\Qz.Console\Qz.Console.csproj", "{7526FFC3-C6A0-4216-A46F-31CCFE530F37}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E8FA0003-446B-4EFF-A566-3195366A9E8C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
