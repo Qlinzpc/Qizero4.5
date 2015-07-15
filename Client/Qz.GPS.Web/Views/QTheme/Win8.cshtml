@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Win7";
+    ViewBag.Title = "Win8";
     Layout = null;
 }
 <!DOCTYPE html>
@@ -9,149 +9,83 @@
     @System.Web.Optimization.Styles.Render("~/Qz/css")
 
     <style>
+        
         .page-container {
             min-height: 100px;
         }
 
-        .menu-win7 {
-            -webkit-user-select: none;
+        .page-header{
+            padding: 0 100px 0 50px;
+            background: transparent !important;
+            line-height: 60px;
         }
-
-            .menu-win7 li {
-                text-align: center;
-                width: 80px;
-                height: auto;
-                margin: 15px;
-                overflow: hidden;
-                cursor: pointer;
-                position: absolute;
-            }
-
-            .menu-win7 .icon {
-                font-size: 28px;
-                padding: 5px;
-                color: #149b70;
-            }
-
-            .menu-win7 .title {
-                color: #fff;
-                background: #149b70;
-                border-radius: 5px;
-            }
-        .icon-home:before { content: "\f015"; }  .icon-manage:before { content: "\f0c0"; }  .icon-sys-setting:before { content: "\F085"; }  .icon-sys-app:before { content: "\f179"; }  .icon-sys-log:before { content: "\f0ea"; }  .icon-db-manage:before { content: "\f0c2"; }  .icon-data-code:before { content: "\f121"; }  .icon-module-manage:before { content: "\f00b"; }  .icon-company-manage:before { content: "\f0ac"; }  .icon-dept-manage:before { content: "\f0e8"; }  .icon-role-manage:before { content: "\f084"; }  .icon-user-manage:before { content: "\f007"; }  .icon-open { position: relative; }  .icon-open:before { content: "\f101"; }  .icon-sys-menu:before { content: "\f039"; }  .icon-sys-menu { padding: 12px 8px 0 0; float: right; } 
-        .page-taskbar {
-            height: 38px;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            background: #149b70;
-            -webkit-user-select: none;
+        
+        .page-header .nav, .page-header .top-info{
         }
+        .page-header .nav{
+            float:left;
+        }
+        .page-header .top-info{
+            float:right;
 
-            .page-taskbar .win {
-                width: 55px;
-                height: 100%;
-                text-align: center;
-            }
-
-            .page-taskbar li {
-                float: left;
-            }
-
-            .page-taskbar .win > div {
-                padding-top: 3px;
-            }
-
-            .page-taskbar .icon-win {
-                color: #fff;
-                font-size: 25px;
-            }
-
-                .page-taskbar .icon-win:before {
-                    content: "\f17a";
-                }
-
-                .page-start-menu{
-                    width: 330px;
-                    height: 500px;
-                    position: fixed;
-                    bottom: 38px;
-                    border: 1px solid #149b70;
-                    box-shadow: 0 0 10px 0 #149b70;
-                    border-top-right-radius: 7px;
-                    background: #fafafa;
-                    display: none;
-                }
-                
-            .page-start-menu .user-info {
-                height: 50px;
-                line-height: 50px;
-                border-bottom: 1px solid #ededed;
-            }
-
-            .page-start-menu .box{
-                background-color: transparent !important;
-            }
-            .page-start-menu .nav-menu, .page-start-menu .quick-menu{
-                height: 445px;
-                float:left;
-            }
-            
-            .page-start-menu .nav-menu {
-                width: 60%;
-            }
-            .page-start-menu .quick-menu {
-                width: 40%;
-                text-align: center;
-                color: #333;
-                border-left: 1px solid #ededed;
-            }
-
-            .page-start-menu .quick-menu li{
-                padding: 5px 15px 15px 15px;
-                cursor: pointer;
-                background: transparent;
-                border-radius: 5px;
-            }
-                .page-start-menu .quick-menu li:hover {
-                    opacity: 0.8;
-                }
-                 .page-start-menu .quick-menu .icon{
-                     font-size: 28px;
-                     color: #bbb;
-                 }
-        .page-setting {
-            position: fixed;
+        }
+        .page-header .icon-backup{
+            left: 20px;
+        }
+        .page-header .icon-user{
+            right: 60px;
+        }
+        .page-header .icon-setting{
             right: 20px;
-            top: 20px;
-            width: 50px;
-            height: 45px;
-            border: 1px solid #dcdcdc;
-            border-radius: 5px;
-            padding-top: 7px;
-            text-align: center;
-            -webkit-user-select: none;
         }
-
-            .page-setting .icon-setting {
-                color: #149b70;
-                font-size: 30px;
-            }
-
-                .page-setting .icon-setting:before {
-                    content: "\F085";
-                }
-
-        .backimg {
-            background-image: url('/Content/images/3.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
+        .page-header .icon-backup:before{
+            content: "\f0a8";
         }
+        .page-header .icon-user:before{
+            content: "\f007";
+        }
+        .page-header .icon-setting:before{
+            content: "\f085";
+        }
+        .page-header .icon {
+            font-size: 28px;
+            color: #fff;
+            position:absolute;
+            top: 18px;
+        }
+        .page-content{
+            position:relative;
+        }
+        .menu-win7 { -webkit-user-select: none; }  .menu-win7 li {background:#149b70; width: 290px;height: 120px;text-align: center; overflow: hidden; cursor: pointer; position: absolute; }  .menu-win7 .icon { font-size: 28px; padding: 5px; color: #fff; }  .menu-win7 .title { color: #fff; background: #149b70; border-radius: 5px; }
+
+        .icon-home:before { content: "\f015"; }  .icon-manage:before { content: "\f0c0"; }  .icon-sys-setting:before { content: "\F085"; }  .icon-sys-app:before { content: "\f179"; }  .icon-sys-log:before { content: "\f0ea"; }  .icon-db-manage:before { content: "\f0c2"; }  .icon-data-code:before { content: "\f121"; }  .icon-module-manage:before { content: "\f00b"; }  .icon-company-manage:before { content: "\f0ac"; }  .icon-dept-manage:before { content: "\f0e8"; }  .icon-role-manage:before { content: "\f084"; }  .icon-user-manage:before { content: "\f007"; }  .icon-open { position: relative; }  .icon-open:before { content: "\f101"; }  .icon-sys-menu:before { content: "\f039"; }  .icon-sys-menu { padding: 12px 8px 0 0; float: right; }
+
+        .page-taskbar { height: 38px; width: 100%; position: fixed; bottom: 0; background: #149b70; -webkit-user-select: none; }  .page-taskbar .win { width: 55px; height: 100%; text-align: center; }  .page-taskbar li { float: left; }  .page-taskbar .win > div { padding-top: 3px; }  .page-taskbar .icon-win { color: #fff; font-size: 25px; }  .page-taskbar .icon-win:before { content: "\f17a"; }
+
+        .page-start-menu { width: 330px; height: 500px; position: fixed; bottom: 38px; border: 1px solid #149b70; box-shadow: 0 0 10px 0 #149b70; border-top-right-radius: 7px; background: #fafafa; display: none; }  .page-start-menu .user-info { height: 50px; line-height: 50px; border-bottom: 1px solid #ededed; }  .page-start-menu .box { background-color: transparent !important; }  .page-start-menu .nav-menu, .page-start-menu .quick-menu { height: 445px; float: left; }  .page-start-menu .nav-menu { width: 60%; }  .page-start-menu .quick-menu { width: 40%; text-align: center; color: #333; border-left: 1px solid #ededed; }  .page-start-menu .quick-menu li { padding: 5px 15px 15px 15px; cursor: pointer; background: transparent; border-radius: 5px; }  .page-start-menu .quick-menu li:hover { opacity: 0.8; }  .page-start-menu .quick-menu .icon { font-size: 28px; color: #bbb; }
+
+        .page-setting {display:none; position: fixed; right: 20px; top: 70px; width: 50px; height: 45px; border: 1px solid #dcdcdc; border-radius: 5px; padding-top: 7px; text-align: center; -webkit-user-select: none; }  .page-setting .icon-setting { color: #149b70; font-size: 30px; }  .page-setting .icon-setting:before { content: "\F085"; }
+
+        .backimg { background-image: url('/Content/images/3.jpg'); background-repeat: no-repeat; background-size: cover; }
     </style>
 </head>
 <body class="backimg">
 
     <div class="page-container">
+
+        <div class="page-header">
+            <div class="nav">
+                <a class="backup"><i class="icon icon-backup"></i></a>
+                <span>导航菜单</span>
+                <ul></ul>
+            </div>
+            <div class="top-info">
+                <span>Qz (系统管理员)</span>
+                <i class="icon icon-user"></i>
+                <hr />
+                <i class="icon icon-setting"></i>
+            </div>
+        </div>
 
         <div class="page-content"></div>
 
@@ -220,7 +154,9 @@
 
             var _module = $api.parse('@ViewBag.Module'.replace(/\&quot;/g, '"')),
 
+                    _page_header = $api.dom('.page-header'),
                     _page_content = $api.dom('.page-content'),
+                    _page_taskbar = $api.dom('.page-taskbar'),
 
                     _url = '', _title = '', _id = '',
 
@@ -250,9 +186,9 @@
                         var _html = [],
                             _top = 0,
                             _left = 0,
-                            contentH = $(window).height() - _page_taskbar.offsetHeight - _page_header.offsetHeight,
-                            WIDTH = 95,
-                            HEIGHT = 75,
+                            contentH = $(window).height() - _page_taskbar.offsetHeight - _page_header.offsetHeight ,
+                            WIDTH = 300,
+                            HEIGHT = 130,
                             columns = parseInt(contentH / HEIGHT);
 
                         if (columns <= 0) return;
@@ -261,10 +197,10 @@
 
                         _module.forEach(function (_, index) {
 
-                            _top = parseInt(index % columns) * HEIGHT;
+                            _top = parseInt(index % columns) * HEIGHT ;
                             _left = parseInt(index / columns) * WIDTH;
 
-                            _.css = "top: {0}px;left: {1}px;".format(_top, _left);
+                            _.css = "top: {0}px;left: {1}px;".format(_top + 10, _left + 50);
 
                             _html.push('<li style="{css}"><div class="item" data-id="{Id}" data-url="{URL}" data-title="{Name}"><div><i class="icon icon-{Icon}"></i></div><div class="title">{Name}</div></div></li>'.format(_));
 
@@ -337,7 +273,7 @@
                             title: {
                                 txt: '{0} {1}'.format('@Qz.GPS.Web.Core.SessionUser.Data.UserName', '(@Qz.GPS.Web.Core.SessionUser.Data.RoleName)'),
                                 icon: 'icon-user',
-                                dom: _user_info 
+                                dom: _user_info
                             },
                             setting: {
                                 theme: 'windows',

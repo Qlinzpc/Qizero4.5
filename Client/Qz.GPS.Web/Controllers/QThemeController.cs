@@ -23,13 +23,15 @@ namespace Qz.GPS.Web.Controllers
         public ActionResult Win7()
         {
             ViewBag.Module = QJsonConvert.Serialize(SessionModule.ListData.Where(x => x.SubMenu.Equals(0)).ToList());
+            ViewBag.ModuleAll = SessionModule.JsonData;
 
             return View();
         }
 
         public ActionResult Win8()
         {
-            ViewBag.Module = SessionModule.JsonData;
+            ViewBag.Module = QJsonConvert.Serialize(SessionModule.ListData.Where(x => x.SubMenu.Equals(0)).ToList());
+            ViewBag.ModuleAll = SessionModule.JsonData;
 
             return View();
         }

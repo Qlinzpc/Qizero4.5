@@ -101,6 +101,7 @@
 
         switch (this.config.setting.theme) {
             case 'windows':
+                $api.prepend(this.config.title.dom, '<div class="menu-title"><i class="icon {icon}"></i><span>{txt}</span></div>'.format(this.config.title));
 
                 break;
             case 'accordion':
@@ -202,7 +203,7 @@
         $(target).bind('click', function () {
 
             // 阻止事件冒泡前， 触发页面全局事件 
-            _menu.page.global.click();
+            // _menu.page.global.click();
 
             // 阻止事件冒泡
             $api.stop.event();

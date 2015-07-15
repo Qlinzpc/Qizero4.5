@@ -664,6 +664,9 @@
         }
     };
     u.parse = function (str) {
+
+        if (!str) return {};
+
         if (typeof json === 'object') return str;
         if (typeof str === 'string') {
             if (JSON) {

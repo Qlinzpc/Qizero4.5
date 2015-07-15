@@ -179,6 +179,9 @@
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\common.css" />
     <Content Include="Content\css\fonts.css" />
+    <Content Include="Content\images\1.jpg" />
+    <Content Include="Content\images\2.jpg" />
+    <Content Include="Content\images\3.jpg" />
     <Content Include="Content\images\404\bg.jpg" />
     <Content Include="Content\images\404\bg1.png" />
     <Content Include="Content\images\404\logo.png" />
@@ -539,6 +542,7 @@
     <Content Include="Views\Qizero\Theme.cshtml" />
     <Content Include="Views\Qizero\Win7.cshtml" />
     <Content Include="Views\QTheme\Win7.cshtml" />
+    <Content Include="Views\QTheme\Win8.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
