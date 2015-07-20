@@ -224,6 +224,7 @@
 
                     _url = '', _title = '', _id = '',
 
+                    _page_taskbar = $api.dom('.page-taskbar'),
                     _start_menu = $api.dom('.page-start-menu'),
                     _nav_menu = $api.dom(_start_menu, '.nav-menu'),
                     _quick_menu = $api.dom(_start_menu, '.quick-menu'),
@@ -250,7 +251,7 @@
                         var _html = [],
                             _top = 0,
                             _left = 0,
-                            contentH = $(window).height() - _page_taskbar.offsetHeight - _page_header.offsetHeight,
+                            contentH = $(window).height() - _page_taskbar.offsetHeight,
                             WIDTH = 95,
                             HEIGHT = 75,
                             columns = parseInt(contentH / HEIGHT);

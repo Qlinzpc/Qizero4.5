@@ -159,10 +159,11 @@
         return this;
     };
     // 关闭 
-    Box.prototype.close = function () {
-
-        // 阻止事件冒泡
-        $api.stop.event();
+    Box.prototype.close = function (stop) {
+        if( arguments.length == 0 || stop ){
+            // 阻止事件冒泡 
+            $api.stop.event();
+        }
 
         var _this = this;
 

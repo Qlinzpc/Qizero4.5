@@ -93,7 +93,7 @@ table {
 .db {
     display: block;
 }
-
+.fl{float:left;} .fr{float:right;}
 .tac {
     text-align: center;
 }
@@ -217,6 +217,7 @@ table {
         -moz-animation-fill-mode: both;
         -o-animation-fill-mode: both;
         animation-fill-mode: both;
+        background-color: #149b70;
     }
 
     .loading .loading1 {
@@ -295,6 +296,7 @@ table {
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.1);
+    background-color: #149b70;
 }
 
 ::-webkit-scrollbar-track {

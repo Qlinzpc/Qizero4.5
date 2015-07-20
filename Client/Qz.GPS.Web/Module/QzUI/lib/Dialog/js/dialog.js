@@ -84,7 +84,7 @@
 
             var timer = setTimeout(function () {
                 // 关闭 
-                _this.box.close();
+                _this.box.close(false);
                 // 清除定时器 
                 clearTimeout(timer);
             }, this.config.timer * 1000);
