@@ -4,7 +4,7 @@
         <p>@ViewBag.Buttons.Times</p>
         foreach (var btn in ViewBag.Buttons.Data)
         {
-            <div class="btn btn-b" data-value="@btn.Value">@btn.Name</div>
+            <div class="btn btn-b" data-value="@btn.Value" tooltip="button tooltip ... ">@btn.Name</div>
         }
     }
 </div>
@@ -41,18 +41,20 @@
             buttons[btnVal] = function () { };
         });
 
-        $api.addEvt(btns, 'click', function () {
-            var e = e || event;
+        $api.addEvt(btns, 'click', function (e) {
+            e = e || event;
             console.log(e);
             btnVal = $api.data(this, 'value');
 
-            common.tip($api.data(this, 'value') + ' ... ');
+            // common.tip($api.data(this, 'value') + ' ... ');
             $api.trigger(buttons[btnVal]);
         });
 
         o.gps['@ViewBag.PageId'] = o.gps['@ViewBag.PageId'] || {};
         o.gps['@ViewBag.PageId']['toolbar'] = toolbar;
         o.gps['@ViewBag.PageId']['buttons'] = buttons;
+
+        tooltip.init(toolbar);
 
     })(window);
 

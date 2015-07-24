@@ -7,6 +7,7 @@
 
 .page-header {
     height: 60px;
+    overflow: hidden;
 }
 
 .page-footer {
@@ -56,6 +57,7 @@
     overflow: hidden;
     height: 38px;
     line-height: 38px;
+    position: relative;
 }
 
 .page-content {
@@ -79,6 +81,7 @@
 
 .page-tab {
     float: left;
+    overflow: hidden;
 }
 
 .icon-nav, .icon-user {

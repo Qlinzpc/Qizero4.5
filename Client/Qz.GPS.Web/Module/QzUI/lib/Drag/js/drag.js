@@ -38,7 +38,7 @@
 
                 _this.target.css('z-index', (++o.Index));
 
-                if (_this.config.proxy) {
+                if (_this.config.proxy && $api.browser() === $api._browser.chrome) {
                     _div = $('<div></div>');
                     var _t = _this.target.get(0);
 

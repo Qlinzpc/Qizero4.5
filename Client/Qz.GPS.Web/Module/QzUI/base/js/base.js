@@ -187,10 +187,34 @@
             }
         }
     };
+
+    u.browser = function() {
+        var ua = navigator.userAgent;
+        if (/chrome/gi.test(ua)) {
+            return 'chrome';
+        }
+
+        if (/firefox/gi.test(ua)) {
+            return 'firefox';
+        }
+
+        if (/explorer/gi.test(navigator.appName)) {
+            return 'ie';
+        }
+
+        return ua;
+    };
+
+    u._browser = {
+        chrome: 'chrome',
+        firefox: 'firefox',
+        ie: 'explorer'
+    };
+
     u.stop = {
-        event: function () {
+        event: function (e) {
             try {
-                var e = window.event || arguments.callee.caller.arguments[0];
+                e = e || window.event;
                 
                 //如果提供了事件对象，则这是一个非IE浏览器 
                 if (e && e.stopPropagation) {
@@ -200,8 +224,8 @@
                     //否则，我们需要使用IE的方式来取消事件冒泡 
                     window.event.cancelBubble = true;
                 }
-            } catch (e) {
-                console.log(e);
+            } catch (er) {
+                console.log(er);
             }
             
         }
@@ -737,9 +761,7 @@
             return /element/i.test(str);
         }
     };
-    u.type = function (o) {
-        return 
-    };
+    
     //u.extend = function (des, src, override) {
     //    if (src instanceof Array) {
     //        for (var i = 0, len = src.length; i < len; i++)

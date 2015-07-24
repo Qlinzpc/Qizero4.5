@@ -125,32 +125,45 @@ namespace Qz.GPS.DirectService
 
         public Response<List<ViewModel.Tree>> GetModuleTree(Request<ViewModel.Tree> request)
         {
-            var list = new List<ViewModel.Tree>();
-
             var applications = db.All<Application>().OrderBy(x=>x.SortCode).ToList();
 
-            foreach (var item in applications)
+            var list = applications.Select(item => new ViewModel.Tree()
             {
-                list.Add(new ViewModel.Tree()
-                {
-                    Id = item.Id,
-                    Name = item.Name,
-                    ParentId = -1
-                });
-            }
+                Id = item.Id, Name = item.Name, ParentId = -1, Code = item.Code
+            }).ToList();
+
+            //foreach (var item in applications)
+            //{
+            //    list.Add(new ViewModel.Tree()
+            //    {
+            //        Id = item.Id,
+            //        Name = item.Name,
+            //        ParentId = -1
+            //    });
+            //}
 
             var modules = db.Where<Module>(x =>x.IsDelete.Equals(0)).OrderBy(x=>x.SortCode).ToList();
 
-            foreach (var item in modules)
+            list.AddRange(modules.Select(item => new ViewModel.Tree()
             {
-                list.Add(new ViewModel.Tree()
-                {
-                    Id = item.Id,
-                    Name = item.Name,
-                    ParentId = item.ParentId,
-                    SubCount = db.Where<Module>(x => x.IsDelete.Equals(0) && x.ParentId.Equals(item.Id)).Count()
-                });
-            }
+                Id = item.Id, 
+                Name = item.Name, 
+                ParentId = item.ParentId, 
+                SubCount = db.Where<Module>(x => x.IsDelete.Equals(0) && x.ParentId.Equals(item.Id)).Count(),
+                Code = item.Code
+            }));
+
+
+            //foreach (var item in modules)
+            //{
+            //    list.Add(new ViewModel.Tree()
+            //    {
+            //        Id = item.Id,
+            //        Name = item.Name,
+            //        ParentId = item.ParentId,
+            //        SubCount = db.Where<Module>(x => x.IsDelete.Equals(0) && x.ParentId.Equals(item.Id)).Count()
+            //    });
+            //}
 
             var response = new Response<List<ViewModel.Tree>>()
             {

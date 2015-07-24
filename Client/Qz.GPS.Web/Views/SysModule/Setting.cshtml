@@ -72,8 +72,8 @@
                     _setting = $api.dom("#" + pageId),
                     _buttonAdd = $api.dom(_setting, '.btn[data-id=button-add]'),
                     _dataAdd = $api.dom(_setting, '.btn[data-id=btn-add-data]'),
-                   _treeData = $api.parse('@Qz.Common.QJsonConvert.Serialize(ViewBag.ModuleTree.Data)'.replace(/\&quot;/g, '"')),
-                   _authorized = null,
+                    _treeData = $api.parse('@Qz.Common.QJsonConvert.Serialize(ViewBag.ModuleTree.Data)'.replace(/\&quot;/g, '"')),
+                    _authorized = null,
                     _tree = null,
 
                     // 模块 ( 按钮 数据 ) 设置
@@ -109,7 +109,7 @@
                                 $api.addEvt(_dataAdd, 'click', function () {
                                     if (/unclick/.test(this.className)) return;
 
-                                    common.tip('add data');
+                                    // common.tip('add data');
                                 });
                             },
 
@@ -179,7 +179,7 @@
                                 // console.log(_);
                                 // 展开
                                 if ($api.data(_, 'bind') == '0') {
-                                    var _data = _treeDatas($api.data(_, 'id'));
+                                    var _data = _treeDatas($api.data(_, 'code'));
                                     this.bind(_, _data);
                                     $api.data(_, 'bind', '1');
                                     $api.data(_, 'children', _data.length);
@@ -191,10 +191,15 @@
 
             // 根据id 获得对应 Module
             function _treeDatas(value) {
-                var arr = [];
+                var arr = [],
+                    reg = new RegExp("^{0}".format(value));
 
                 _treeData.forEach(function (_) {
-                    if (_.ParentId == value) arr.push(_);
+                    if (value === -1 && _.ParentId == value) {
+                        arr.push(_);
+                    } else if (reg.test(_.Code) && _.Code.length === (value.length + 5)) {
+                        arr.push(_);
+                    }
                 });
 
                 return arr;

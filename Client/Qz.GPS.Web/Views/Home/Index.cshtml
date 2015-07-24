@@ -18,37 +18,37 @@
             </div>
             <div class="header-menu">
                 <ul>
-                    <li data-type="sql">
+                    <li data-type="sql" tooltip="Sql 跟踪记录">
                         <p>
                             <i class="icon icon-sql"></i>
                         </p>
                         <p>SQL跟踪</p>
                     </li>
-                    <li data-type="theme">
+                    <li data-type="theme" tooltip="系统主题, 经典版, Win7版, Win8版, Win10版">
                         <p>
                             <i class="icon icon-theme"></i>
                         </p>
                         <p>切换主题</p>
                     </li>
-                    <li data-type="skin">
+                    <li data-type="skin" tooltip="系统18 款皮肤">
                         <p>
                             <i class="icon icon-skin"></i>
                         </p>
                         <p>切换皮肤</p>
                     </li>
-                    <li data-type="system">
+                    <li data-type="system" tooltip="系统访问切换">
                         <p>
                             <i class="icon icon-system"></i>
                         </p>
                         <p>系统切换</p>
                     </li>
-                    <li data-type="pc">
+                    <li data-type="pc" tooltip="个人中心, 个人设置">
                         <p>
                             <i class="icon icon-pc"></i>
                         </p>
                         <p>个人中心</p>
                     </li>
-                    <li data-type="exit">
+                    <li data-type="exit" tooltip="退出系统, 重新登录">
                         <p>
                             <i class="icon icon-exit"></i>
                         </p>
@@ -86,6 +86,7 @@
 
     @System.Web.Optimization.Scripts.Render("~/Qz/jQuery")
     @System.Web.Optimization.Scripts.Render("~/Qz/js")
+    <script src="~/Module/QzUI/lib/Tooltip/js/tooltip.js"></script>
     <script>
 
         (function (o) {
@@ -100,7 +101,8 @@
                 // 布局
                 o.gps.home = new Layout({
                     id: ".page-container",
-                    initCallback: function (_p) {
+                    initCallback: function (_this) {
+                        this._tab.width(this._taskbar.outerWidth() - 180 - 50);
                     }
                 });
 
@@ -139,13 +141,15 @@
                             click: function () {
                                 var _nav = $api.dom('.page-nav');
 
-                                if ($api.data(_nav, 'show') == '1') {
+                                if ($api.data(_nav, 'show') === '1') {
                                     $api.show(_nav);
+                                    // $(_nav).animate({ 'width': '180px' });
                                     $api.data(_nav, 'show', '0');
                                     return;
                                 }
 
                                 $api.hide(_nav);
+                                // $(_nav).animate({ 'width': '0' });
                                 $api.data(_nav, 'show', '1');
                             }
                         },
@@ -157,6 +161,12 @@
                                 id: 'tab',
                                 parent: o.gps.home.tab().get(0),
                                 page: o.gps.home,
+                                setting: {
+                                    max:{
+                                        count: 0,
+                                        msg: '选项卡已超过系统限制, 请先其他关闭选项卡'
+                                    }
+                                },
                                 initCallback: function () {
                                 },
 
@@ -364,6 +374,8 @@
 
                 clearTimeout(timer);
             }, 500);
+
+            tooltip.init();
 
         })(window);
 

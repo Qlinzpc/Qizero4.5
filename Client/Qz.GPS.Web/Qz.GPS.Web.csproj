@@ -206,6 +206,7 @@
     <Content Include="Content\QzUI\QzUI.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Module\QzUI\base\css\base.css" />
     <Content Include="Module\QzUI\base\css\skin\1.css" />
     <Content Include="Module\QzUI\base\css\skin\10.css" />
     <Content Include="Module\QzUI\base\css\skin\11.css" />
@@ -258,6 +259,8 @@
     <Content Include="Module\QzUI\lib\Tab\js\tab.js" />
     <Content Include="Module\QzUI\lib\Tools\css\tools.css" />
     <Content Include="Module\QzUI\lib\Tools\js\tools.js" />
+    <Content Include="Module\QzUI\lib\Tooltip\css\tooltip.css" />
+    <Content Include="Module\QzUI\lib\Tooltip\js\tooltip.js" />
     <Content Include="Module\QzUI\lib\Tree\css\tree.css" />
     <Content Include="Module\QzUI\lib\Tree\js\tree.js" />
     <Content Include="Module\QzUI\QzUI.css" />
@@ -543,6 +546,8 @@
     <Content Include="Views\Qizero\Win7.cshtml" />
     <Content Include="Views\QTheme\Win7.cshtml" />
     <Content Include="Views\QTheme\Win8.cshtml" />
+    <Content Include="Views\QTheme\MJH.cshtml" />
+    <Content Include="Views\QTheme\MJHAbout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

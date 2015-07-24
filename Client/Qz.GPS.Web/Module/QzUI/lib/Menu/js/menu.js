@@ -147,15 +147,13 @@
 
         var _menu = this;
 
-
-
-        $(target).click(function () {
+        $(target).click(function (e) {
 
             // 阻止事件冒泡前， 触发页面全局事件 
             // _menu.page.global.click();
 
             // 阻止事件冒泡
-            $api.stop.event();
+            $api.stop.event(e);
 
             var _this = $(this),
                 subMenu = _this.data('sub-menu');

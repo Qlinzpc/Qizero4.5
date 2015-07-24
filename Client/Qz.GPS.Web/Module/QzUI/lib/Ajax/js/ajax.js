@@ -9,7 +9,7 @@
 (function (o)
 {
 
-    "use strict";
+    'use strict';
 
     // 默认配置 
     var DEFAULTS = {
@@ -21,80 +21,67 @@
         type: "json",
         timeout: 15000,
         cache: true,
-        success: function () { },
-        error: function () { },
-        before: function () { },
-        complete: function () { }
-    },
+        success: function() {},
+        error: function() {},
+        before: function() {},
+        complete: function() {}
+    };
 
     // url 参数 append 
-    append = function (url, param)
-    {
+    var append = function(url, param) {
         // 不存在 '?' 字符 
-        if (!/\?/.test(url))
-        {
+        if (!/\?/.test(url)) {
             return url + "?" + param;
-        }
-        else
-        {
+        } else {
             // 最后一个字符为 '&'  
-            if (url.lastIndexOf('&') == url.length - 1)
-            {
+            if (url.lastIndexOf("&") === url.length - 1) {
                 return url + param;
-            }
-            else
-            {
+            } else {
                 return url + "&" + param;
             }
         }
-    },
+    };
 
     // 解析 
-    parse = function (obj)
-    {
+    var parse = function(obj) {
         if (typeof obj === 'string') return obj;
 
         var arr = [],
             i,
             j;
 
-        if (obj instanceof Array)
-        {
-            for (i = 0; i < obj.length; i++)
-            {
+        if (obj instanceof Array) {
+            for (i = 0; i < obj.length; i++) {
                 arr.push((obj[i].name || i) + "=" + obj[i]);
             }
-        }
-        else
-        {
-            for (j in obj)
-            {
-                arr.push(j + "=" + obj[j]);
+        } else {
+            for (j in obj) {
+                if (obj.hasOwnProperty(j)) {
+                    arr.push(j + "=" + obj[j]);
+                }
             }
         }
 
         return arr.join("&");
-    },
+    };
 
     // 合并配置 
-    extend = function (rs, dft, src)
-    {
-        for (var i in dft)
-        {
-            if (i in src)
-            {
-                rs[i] = src[i];
-                continue;
-            }
+    var extend = function(rs, dft, src) {
+        for (var i in dft) {
+            if (dft.hasOwnProperty(i)) {
+                if (i in src) {
+                    rs[i] = src[i];
+                    continue;
+                }
 
-            rs[i] = dft[i];
+                rs[i] = dft[i];
+            }
         }
         return rs;
-    },
-    
+    };
+
     // Ajax Error 
-    AjaxError = function (msg)
-    {
+    var AjaxError = function(msg) {
         this.name = "AJAX 错误";
         this.message = msg || "未知错误";
     };
@@ -114,18 +101,18 @@
     // 创建 
     Ajax.prototype.create = function ()
     {
-        if (!window.XMLHttpRequest)
-        {
+        if (!window.XMLHttpRequest) {
+            var xhr = this.xhr;
             window.XMLHttpRequest = function ()
             {
                 if (window.ActiveXObject)
                 {
                     try
                     {
-                        this.xhr = new ActiveXObject("Msxml2.XMLHTTP");
+                        xhr = new ActiveXObject("Msxml2.XMLHTTP");
                     } catch (e)
                     {
-                        this.xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                        xhr = new ActiveXObject("Microsoft.XMLHTTP");
                     }
                 }
             };
@@ -139,14 +126,12 @@
     {
         this.config.data = parse(this.config.data);
 
-        if ("get" === this.config.method.toLocaleLowerCase())
-        {
-            this.config.url = append(this.config.url, this.config.data );
+        if ("get" === this.config.method.toLocaleLowerCase()) {
+            this.config.url = append(this.config.url, this.config.data);
         }
 
-        if (!this.config.cache)
-        {
-            this.config.url = append(this.config.url, "v=" + (new Date).getTime())
+        if (!this.config.cache) {
+            this.config.url = append(this.config.url, "v=" + (new Date).getTime());
         }
 
     };
@@ -181,16 +166,15 @@
     {
         try
         {
-            return !this.xhr.status && location.protocol == "file:" || this.xhr.status >= 200 && this.xhr.status < 300 || this.xhr.status == 304 || navigator.userAgent.indexOf("Safari") >= 0 && this.xhr.status == undef;
+            return !this.xhr.status && location.protocol === "file:" || this.xhr.status >= 200 && this.xhr.status < 300 || this.xhr.status === 304 || navigator.userAgent.indexOf("Safari") >= 0 && this.xhr.status === undef;
         } catch (e)
         {
         }
-        return !1;
+        return false;
     };
     Ajax.prototype._data = function ()
     {
-        var response = this.xhr.getResponseHeader("Content-Type"),
-            _type;
+        var response = this.xhr.getResponseHeader("Content-Type");
 
         if (/xml/i.test(response))
         {
@@ -212,14 +196,14 @@
             response = "json";
         }
 
-        _type = this.config.type || response;
+        var type = this.config.type || response;
 
-        if (_type != response)
+        if (type !== response)
         {
             return new AjaxError("数据类型错误, 请重新操作 !");
         }
 
-        switch (_type)
+        switch (type)
         {
             case "xml":
                 return this.xhr.responseXML.documentElement;
@@ -259,7 +243,7 @@
 
             this.xhr.onreadystatechange = function ()
             {
-                if (_this.xhr.readyState == 4 && !_timeout)
+                if (_this.xhr.readyState === 4 && !_timeout)
                 {
                     try
                     {
@@ -267,27 +251,27 @@
                         {
                             var data = _this._data.call(_this);
 
-                            if (data.message && data.message.indexOf('请重新操作') != -1)
+                            if (data.message && data.message.indexOf('请重新操作') !== -1)
                             {
-                                if (typeof _this.config.error === 'function') _this.config.error(data);
+                                if (typeof _this.config.error === "function") _this.config.error(data);
                                 return;
                             }
 
-                            if (typeof _this.config.success === 'function') _this.config.success(data);
+                            if (typeof _this.config.success === "function") _this.config.success(data);
                         }
                         else
                         {
-                            if (typeof _this.config.error === 'function') _this.config.error(new AjaxError("请求失败, 请联系管理员!"));
+                            if (typeof _this.config.error === "function") _this.config.error(new AjaxError("请求失败, 请联系管理员!"));
                         }
 
                     } catch (er)
                     {
                         console.log(er.stack);
-                        if (typeof _this.config.error === 'function') _this.config.error(new AjaxError(er.message));
+                        if (typeof _this.config.error === "function") _this.config.error(new AjaxError(er.message));
 
                     } finally
                     {
-                        if (typeof _this.config.complete === 'function') _this.config.complete();
+                        if (typeof _this.config.complete === "function") _this.config.complete();
 
                         _this.xhr = null;
 

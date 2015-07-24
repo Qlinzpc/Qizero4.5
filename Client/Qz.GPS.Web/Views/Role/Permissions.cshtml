@@ -115,7 +115,7 @@
                                 $api.addEvt(_dataAdd, 'click', function () {
                                     if (/unclick/.test(this.className)) return;
 
-                                    common.tip('add data');
+                                    // common.tip('add data');
                                 });
 
                                 // 保存 
@@ -135,7 +135,7 @@
                                                 }
                                             });
 
-                                            common.tip('add data: ' + _checkModuleIds, 5*1000);
+                                            // common.tip('add data: ' + _checkModuleIds, 5*1000);
 
                                             common.ajax({
                                                 url: '/RoleModule/Add',
@@ -229,7 +229,7 @@
                                 // console.log(_);
                                 // 展开
                                 if ($api.data(_, 'bind') == '0') {
-                                    var _data = treeModuleDatas($api.data(_, 'id'));
+                                    var _data = treeModuleDatas($api.data(_, 'code'));
                                     this.bind(_, _data);
                                     $api.data(_, 'bind', '1');
                                     $api.data(_, 'children', _data.length);
@@ -256,13 +256,25 @@
 
             // 根据id 获得对应 Module
             function treeModuleDatas(value) {
-                var arr = [];
+                var arr = [],
+                    reg = new RegExp("^{0}".format(value));
 
                 treeModuleData.forEach(function (_) {
-                    if (_.ParentId == value) arr.push(_);
+                    if (value === -1 && _.ParentId == value) {
+                        arr.push(_);
+                    } else if (reg.test(_.Code) && _.Code.length === (value.length + 5)) {
+                        arr.push(_);
+                    }
                 });
 
                 return arr;
+                //var arr = [];
+
+                //treeModuleData.forEach(function (_) {
+                //    if (_.ParentId == value) arr.push(_);
+                //});
+
+                //return arr;
             };
 
             // 加载

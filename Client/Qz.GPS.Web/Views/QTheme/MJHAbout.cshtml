@@ -1,0 +1,474 @@
+﻿@{
+    ViewBag.Title = "Win7";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @System.Web.Optimization.Styles.Render("~/Qz/css")
+
+    <style>
+        .page-container {
+            min-height: 100px;
+        }
+
+        .menu-win7 {
+            -webkit-user-select: none;
+        }
+
+            .menu-win7 li {
+                text-align: center;
+                width: 80px;
+                height: auto;
+                margin: 15px;
+                overflow: hidden;
+                cursor: pointer;
+                position: absolute;
+            }
+
+            .menu-win7 .icon {
+                font-size: 28px;
+                padding: 5px;
+                color: #149b70;
+            }
+
+            .menu-win7 .title {
+                color: #fff;
+                background: #149b70;
+                border-radius: 5px;
+            }
+
+        .icon-home:before {
+            content: "\f015";
+        }
+
+        .icon-manage:before {
+            content: "\f0c0";
+        }
+
+        .icon-sys-setting:before {
+            content: "\F085";
+        }
+
+        .icon-sys-app:before {
+            content: "\f179";
+        }
+
+        .icon-sys-log:before {
+            content: "\f0ea";
+        }
+
+        .icon-db-manage:before {
+            content: "\f0c2";
+        }
+
+        .icon-data-code:before {
+            content: "\f121";
+        }
+
+        .icon-module-manage:before {
+            content: "\f00b";
+        }
+
+        .icon-company-manage:before {
+            content: "\f0ac";
+        }
+
+        .icon-dept-manage:before {
+            content: "\f0e8";
+        }
+
+        .icon-role-manage:before {
+            content: "\f084";
+        }
+
+        .icon-user-manage:before {
+            content: "\f007";
+        }
+
+        .icon-open {
+            position: relative;
+        }
+
+            .icon-open:before {
+                content: "\f101";
+            }
+
+        .icon-sys-menu:before {
+            content: "\f039";
+        }
+
+        .icon-sys-menu {
+            padding: 12px 8px 0 0;
+            float: right;
+        }
+
+        .page-taskbar {
+            height: 38px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            background: #149b70;
+            -webkit-user-select: none;
+        }
+
+            .page-taskbar .win {
+                width: 55px;
+                height: 100%;
+                text-align: center;
+            }
+
+            .page-taskbar li {
+                float: left;
+            }
+
+            .page-taskbar .win > div {
+                padding-top: 3px;
+            }
+
+            .page-taskbar .icon-win {
+                color: #fff;
+                font-size: 25px;
+            }
+
+                .page-taskbar .icon-win:before {
+                    content: "\f17a";
+                }
+
+        .page-start-menu {
+            width: 330px;
+            height: 500px;
+            position: fixed;
+            bottom: 38px;
+            border: 1px solid #149b70;
+            box-shadow: 0 0 10px 0 #149b70;
+            border-top-right-radius: 7px;
+            background: #fafafa;
+            display: none;
+        }
+
+            .page-start-menu .user-info {
+                height: 50px;
+                line-height: 50px;
+                border-bottom: 1px solid #ededed;
+            }
+
+            .page-start-menu .box {
+                background-color: transparent !important;
+            }
+
+            .page-start-menu .nav-menu, .page-start-menu .quick-menu {
+                height: 445px;
+                float: left;
+            }
+
+            .page-start-menu .nav-menu {
+                width: 60%;
+            }
+
+            .page-start-menu .quick-menu {
+                width: 40%;
+                text-align: center;
+                color: #333;
+                border-left: 1px solid #ededed;
+            }
+
+                .page-start-menu .quick-menu li {
+                    padding: 5px 15px 15px 15px;
+                    cursor: pointer;
+                    background: transparent;
+                    border-radius: 5px;
+                }
+
+                    .page-start-menu .quick-menu li:hover {
+                        opacity: 0.8;
+                    }
+
+                .page-start-menu .quick-menu .icon {
+                    font-size: 28px;
+                    color: #bbb;
+                }
+
+        .page-setting {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            width: 50px;
+            height: 45px;
+            border: 1px solid #dcdcdc;
+            border-radius: 5px;
+            padding-top: 7px;
+            text-align: center;
+            -webkit-user-select: none;
+        }
+
+            .page-setting .icon-setting {
+                color: #149b70;
+                font-size: 30px;
+            }
+
+                .page-setting .icon-setting:before {
+                    content: "\F085";
+                }
+
+        .backimg {
+            background-image: url('/Content/images/3.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="backimg">
+
+    <div class="page-container">
+
+        <div class="page-content"></div>
+
+        <div class="page-taskbar">
+            <ul>
+                <li class="win"><div><i class="icon icon-win"></i></div></li>
+                <li class="taskbar"></li>
+            </ul>
+        </div>
+
+        <div class="page-setting"><i class="icon icon-setting"></i></div>
+
+        <div class="page-start-menu">
+            <div class="user-info"></div>
+            <div class="nav-menu"></div>
+            <div class="quick-menu">
+                <ul>
+                    <li data-type="sql">
+                        <p>
+                            <i class="icon icon-sql"></i>
+                        </p>
+                        <p>SQL跟踪</p>
+                    </li>
+                    <li data-type="theme">
+                        <p>
+                            <i class="icon icon-theme"></i>
+                        </p>
+                        <p>切换主题</p>
+                    </li>
+                    <li data-type="skin">
+                        <p>
+                            <i class="icon icon-skin"></i>
+                        </p>
+                        <p>切换皮肤</p>
+                    </li>
+                    <li data-type="system">
+                        <p>
+                            <i class="icon icon-system"></i>
+                        </p>
+                        <p>系统切换</p>
+                    </li>
+                    <li data-type="pc">
+                        <p>
+                            <i class="icon icon-pc"></i>
+                        </p>
+                        <p>个人中心</p>
+                    </li>
+                    <li data-type="exit">
+                        <p>
+                            <i class="icon icon-exit"></i>
+                        </p>
+                        <p>安全退出</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    @System.Web.Optimization.Scripts.Render("~/Qz/jQuery")
+    @System.Web.Optimization.Scripts.Render("~/Qz/js")
+
+    <script>
+
+        (function (o) {
+
+            var _module = $api.parse('@ViewBag.Module'.replace(/\&quot;/g, '"')),
+
+                    _page_content = $api.dom('.page-content'),
+
+                    _url = '', _title = '', _id = '',
+
+                    _page_taskbar = $api.dom('.page-taskbar'),
+                    _start_menu = $api.dom('.page-start-menu'),
+                    _nav_menu = $api.dom(_start_menu, '.nav-menu'),
+                    _quick_menu = $api.dom(_start_menu, '.quick-menu'),
+                    _user_info = $api.dom(_start_menu, '.user-info'),
+
+                    _overlay,
+
+                    _module_all = $api.parse('@ViewBag.ModuleAll'.replace(/\&quot;/g, '"')),
+
+                    // 根据id 获得对应 Module
+                    _modules = function (value) {
+                        var arr = [];
+
+                        _module_all.forEach(function (_) {
+                            if (_.ParentId == value) arr.push(_);
+                        });
+
+                        return arr;
+                    },
+
+                    // 初始化
+                    init = function () {
+
+                        var _html = [],
+                            _top = 0,
+                            _left = 0,
+                            contentH = $(window).height() - _page_taskbar.offsetHeight,
+                            WIDTH = 95,
+                            HEIGHT = 75,
+                            columns = parseInt(contentH / HEIGHT);
+
+                        if (columns <= 0) return;
+
+                        $api.css(_page_content, 'height: {0}px'.format(contentH));
+
+                        _module.forEach(function (_, index) {
+
+                            _top = parseInt(index % columns) * HEIGHT;
+                            _left = parseInt(index / columns) * WIDTH;
+
+                            _.css = "top: {0}px;left: {1}px;".format(_top, _left);
+
+                            _html.push('<li style="{css}"><div class="item" data-id="{Id}" data-url="{URL}" data-title="{Name}"><div><i class="icon icon-{Icon}"></i></div><div class="title">{Name}</div></div></li>'.format(_));
+
+                        });
+
+                        $api.html(_page_content, '<ul class="{0}">{1}</ul>'.format('menu-win7', _html.join('')))
+
+                    };
+
+
+            common.load.complete(function () {
+
+                o.gps = {};
+
+                init();
+
+                $api.addEvt($api.domAll(_page_content, '.item'), 'click', function () {
+
+                    _id = $api.data(this, 'id');
+                    _url = $api.data(this, 'url');
+                    _title = $api.data(this, 'title');
+                    common.tip(_url);
+
+                    common.ajax({
+                        url: _url,
+                        type: 'html',
+                        callback: function (rs) {
+
+                            new Dialog().window({
+                                id: 'window-' + _id,
+                                content: rs.html,
+                                title: _title,
+                                drag: true,
+                                mask: false
+                            });
+
+                        }
+                    });
+
+                });
+
+                $api.addEvt($api.dom('.page-taskbar .icon-win'), 'click', function () {
+
+                    if ($api.data(_start_menu, 'show') == '0') {
+                        $api.hide(_start_menu);
+                        $api.data(_start_menu, 'show', '1');
+                        return;
+                    }
+
+                    $api.show(_start_menu);
+                    $api.data(_start_menu, 'show', '0');
+
+                    $api.append($api.dom('body'), '<div class="overlay" style="display:block;" data-box-id="page-start-menu"></div>');
+                    _overlay = $api.dom('.overlay');
+                    $api.css(_overlay, 'z-index:' + (++o.Index));
+                    $api.css(_start_menu, 'z-index:' + (o.Index + 1));
+
+                    $api.addEvt(_overlay, 'click', function () {
+                        $api.hide(_start_menu);
+                        $api.data(_start_menu, 'show', '1');
+                        $api.remove(_overlay);
+                    });
+                    if (!o.gps.menu) {
+                        o.gps.menu = new Menu({
+                            id: 'nav-menu',
+                            show: true,
+                            data: _modules(0),
+                            parent: _nav_menu,
+                            page: o.gps.home,
+                            title: {
+                                txt: '{0} {1}'.format('@Qz.GPS.Web.Core.SessionUser.Data.UserName', '(@Qz.GPS.Web.Core.SessionUser.Data.RoleName)'),
+                                icon: 'icon-user',
+                                dom: _user_info
+                            },
+                            setting: {
+                                theme: 'windows',
+                                multiple: true
+                            },
+                            toggle: {
+                                click: function () {
+                                    var _nav = $api.dom('.page-nav');
+
+                                    if ($api.data(_nav, 'show') == '1') {
+                                        $api.show(_nav);
+                                        $api.data(_nav, 'show', '0');
+                                        return;
+                                    }
+
+                                    $api.hide(_nav);
+                                    $api.data(_nav, 'show', '1');
+                                }
+                            },
+                            callback: function (e) { },
+                            initCallback: function (e) {
+
+                            },
+                            createCallback: function (e) { },
+                            shrinkCallback: function (e, t) { },
+                            spreadCallback: function (e, t) {
+                                // 展开
+                                if (!$api.data(t, 'bind')) e.bind(t, _modules($api.data(t, 'id')));
+
+                            },
+                            selectCallback: function (e, t) {
+                                var _html = t.html(),
+                                    _url = t.data('url'),
+                                    _type = 'ajax',
+                                    _content = { url: _url, data: '' };
+
+                                if (_url == '/') {
+                                    _type = 'content';
+                                    _content = _html;
+                                }
+
+                                console.log('{0} {1} {2}'.format(_html, _content, _type));
+                                // o.gps.tab.add(_html, _content, _type);
+                            }
+                        });
+                    }
+                });
+
+                //new Drag({
+                //    drag: $api.dom('.page-setting'),
+                //    target: $api.dom('.page-setting'),
+                //    proxy: true
+                //});
+
+                window.onresize = init;
+
+            });
+
+        })(window);
+
+    </script>
+</body>
+</html>

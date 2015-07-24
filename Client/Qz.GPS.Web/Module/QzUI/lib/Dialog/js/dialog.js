@@ -74,6 +74,8 @@
         // $api.html(_body, '<div class="dialog-content">' + this.config.content + '</div>');
         $(_body).html('<div class="dialog-content">' + this.config.content + '</div>');
 
+        this.config.css['width'] = $api.offset(this.dom).w;
+
         // 假设显示 footer 
         if (this.config.footer) {
             $api.html(_footer, '<div class="dialog-footer">' + this.config.footer + '</div>');

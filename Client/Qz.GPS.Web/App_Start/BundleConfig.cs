@@ -12,6 +12,7 @@ namespace Qz.GPS.Web.App_Start
             bundles.Add(new ScriptBundle("~/Qz/js").Include(
                 "~/Module/QzUI/base/js/base.js",
                 "~/Module/QzUI/common/js/common.js",
+                "~/Module/QzUI/lib/Tooltip/js/tooltip.js",
                 "~/Module/QzUI/lib/Store/js/store.js",
                 "~/Module/QzUI/lib/Layout/js/layout.js",
                 "~/Module/QzUI/lib/Box/js/box.js",
@@ -46,9 +47,11 @@ namespace Qz.GPS.Web.App_Start
             #region CSS
             bundles.Add(new StyleBundle("~/Qz/css").Include(
                 "~/Module/QzUI/base/css/skin/default.css",
+                "~/Module/QzUI/base/css/base.css",
                 "~/Module/QzUI/common/css/common.css",
                 "~/Module/QzUI/common/css/animate.css",
                 "~/Module/QzUI/common/css/fonts.css",
+                "~/Module/QzUI/lib/Tooltip/css/tooltip.css",
                 "~/Module/QzUI/lib/ContextMenu/css/contextMenu.css",
                 "~/Module/QzUI/lib/Layout/css/layout.css",
                 "~/Module/QzUI/lib/Box/css/box.css",
@@ -63,6 +66,7 @@ namespace Qz.GPS.Web.App_Start
 
             bundles.Add(new StyleBundle("~/Qz/commoncss").Include(
                 "~/Module/QzUI/base/css/skin/default.css",
+                "~/Module/QzUI/base/css/base.css",
                 "~/Module/QzUI/common/css/common.css",
                 "~/Module/QzUI/common/css/animate.css",
                 "~/Module/QzUI/common/css/fonts.css"

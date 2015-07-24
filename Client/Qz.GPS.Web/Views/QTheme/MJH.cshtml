@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Win7";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @System.Web.Optimization.Styles.Render("~/Qz/commoncss")
+
+    <style>
+
+        .page-container {
+            min-width: 1024px;
+        }
+        .page-header, .page-context, .page-footer {
+            width: 100%;
+        }
+         .page-header {
+            height: 60px;
+            background: #fff;
+        }
+        .page-footer {
+            height: 120px;
+            background: #f8f8f8;
+        }
+
+        .page-context .screen{
+            min-height: 600px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+
+        <div class="page-header">
+
+        </div>
+
+        <div class="page-context">
+
+            <div class="screen"></div>
+            <div class="screen"></div>
+            <div class="screen"></div>
+            <div class="screen"></div>
+            <div class="screen"></div>
+            <div class="screen"></div>
+
+        </div>
+        
+        <div class="page-footer">
+
+        </div>
+
+    </div>
+
+    @System.Web.Optimization.Scripts.Render("~/Qz/jQuery")
+    @System.Web.Optimization.Scripts.Render("~/Qz/js")
+
+    <script>
+
+        (function (o) {
+
+            
+
+        })(window);
+
+    </script>
+</body>
+</html>

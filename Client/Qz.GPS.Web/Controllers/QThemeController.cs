@@ -35,5 +35,15 @@ namespace Qz.GPS.Web.Controllers
 
             return View();
         }
+
+        public ActionResult MJH()
+        {
+            return View();
+        }
+
+        public ActionResult MJHAbout()
+        {
+            return View();
+        }
     }
 }

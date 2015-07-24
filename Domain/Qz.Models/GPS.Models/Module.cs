@@ -39,6 +39,8 @@ namespace Qz.GPS.Models
         
         [JsonConverter(typeof(DateTimeConverter))] // 日期转换 ( yyyy-MM-dd hh:mm:ss )
         public Nullable<System.DateTime> ModifyDate { get; set; }
+
+        public string Code { get; set; }
         
         //[JsonIgnore] // 忽略 JsonConvert 序列化 
         //public virtual Application Application { get; set; }

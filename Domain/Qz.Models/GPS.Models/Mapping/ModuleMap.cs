@@ -33,6 +33,10 @@ namespace Qz.GPS.Models.Mapping
             this.Property(t => t.ModifyUserName)
                 .HasMaxLength(50);
 
+            this.Property(t => t.Code)
+                .IsRequired()
+                .HasMaxLength(200);
+
             // Table & Column Mappings
             this.ToTable("Modules");
             this.Property(t => t.Id).HasColumnName("Id");
@@ -53,6 +57,7 @@ namespace Qz.GPS.Models.Mapping
             this.Property(t => t.ModifyUserId).HasColumnName("ModifyUserId");
             this.Property(t => t.ModifyUserName).HasColumnName("ModifyUserName");
             this.Property(t => t.ModifyDate).HasColumnName("ModifyDate");
+            this.Property(t => t.Code).HasColumnName("Code");
 
             // Relationships
             //this.HasRequired(t => t.Application);

@@ -16,7 +16,7 @@ namespace Qz.GPS.Web.Controllers
     [SysAuthorize]
     public class SysModuleController : BaseController
     {
-        private ModuleService moduleService = new ModuleService();
+        private readonly ModuleService moduleService = new ModuleService();
 
         //
         // GET: /Module/

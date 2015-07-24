@@ -96,7 +96,7 @@
 
         this._content.height(_height - this._header.outerHeight() - this._taskbar.outerHeight() - this._footer.outerHeight());
 
-        if (typeof this.config.initCallback === 'function') this.config.initCallback(this);
+        $api.trigger(this.config.initCallback, null, this);
     };
 
     // 获取或设置 页面内容 Content Dom 
