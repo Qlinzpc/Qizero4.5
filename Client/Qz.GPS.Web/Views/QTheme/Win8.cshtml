@@ -56,20 +56,47 @@
         .page-content{
             position:relative;
         }
-        .menu-win7 { -webkit-user-select: none; }  .menu-win7 li {background:#149b70; width: 290px;height: 120px;text-align: center; overflow: hidden; cursor: pointer; position: absolute; }  .menu-win7 .icon { font-size: 28px; padding: 5px; color: #fff; }  .menu-win7 .title { color: #fff; background: #149b70; border-radius: 5px; }
+        .menu-win7 { -webkit-user-select: none; }
+            .menu-win7 li {
+                background: rgba(20, 155, 112, 0.2);
+                width: 290px;
+                height: 120px;
+                text-align: center;
+                overflow: hidden;
+                cursor: pointer;
+                position: absolute;
+            }  .menu-win7 .icon { font-size: 28px; padding: 5px; color: #fff; }  .menu-win7 .title { 
+                                                                                     color: #fff; border-radius: 5px; } .menu-win7 .item {padding-top: 30px;}
 
         .icon-home:before { content: "\f015"; }  .icon-manage:before { content: "\f0c0"; }  .icon-sys-setting:before { content: "\F085"; }  .icon-sys-app:before { content: "\f179"; }  .icon-sys-log:before { content: "\f0ea"; }  .icon-db-manage:before { content: "\f0c2"; }  .icon-data-code:before { content: "\f121"; }  .icon-module-manage:before { content: "\f00b"; }  .icon-company-manage:before { content: "\f0ac"; }  .icon-dept-manage:before { content: "\f0e8"; }  .icon-role-manage:before { content: "\f084"; }  .icon-user-manage:before { content: "\f007"; }  .icon-open { position: relative; }  .icon-open:before { content: "\f101"; }  .icon-sys-menu:before { content: "\f039"; }  .icon-sys-menu { padding: 12px 8px 0 0; float: right; }
 
-        .page-taskbar { height: 38px; width: 100%; position: fixed; bottom: 0; background: #149b70; -webkit-user-select: none; }  .page-taskbar .win { width: 55px; height: 100%; text-align: center; }  .page-taskbar li { float: left; }  .page-taskbar .win > div { padding-top: 3px; }  .page-taskbar .icon-win { color: #fff; font-size: 25px; }  .page-taskbar .icon-win:before { content: "\f17a"; }
+        .page-taskbar {
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            height: 38px;
+            width: 100%;
+            /*position: fixed;*/
+            /*background: rgba(20, 155, 112, 0.45);*/
+            background: rgba(5, 5, 5, 0.70);
+            bottom: 0;
+            -webkit-user-select: none;
+        }  .page-taskbar .win { width: 55px; height: 100%; text-align: center; }  .page-taskbar li { float: left; }  .page-taskbar .win > div { padding-top: 3px; }  .page-taskbar .icon-win { color: #fff; font-size: 25px; }  .page-taskbar .icon-win:before { content: "\f17a"; }
 
-        .page-start-menu { width: 330px; height: 500px; position: fixed; bottom: 38px; border: 1px solid #149b70; box-shadow: 0 0 10px 0 #149b70; border-top-right-radius: 7px; background: #fafafa; display: none; }  .page-start-menu .user-info { height: 50px; line-height: 50px; border-bottom: 1px solid #ededed; }  .page-start-menu .box { background-color: transparent !important; }  .page-start-menu .nav-menu, .page-start-menu .quick-menu { height: 445px; float: left; }  .page-start-menu .nav-menu { width: 60%; }  .page-start-menu .quick-menu { width: 40%; text-align: center; color: #333; border-left: 1px solid #ededed; }  .page-start-menu .quick-menu li { padding: 5px 15px 15px 15px; cursor: pointer; background: transparent; border-radius: 5px; }  .page-start-menu .quick-menu li:hover { opacity: 0.8; }  .page-start-menu .quick-menu .icon { font-size: 28px; color: #bbb; }
+        .page-start-menu { width: 330px; height: 500px; position: fixed; bottom: 38px; border: 1px solid #fff; box-shadow: 0 0 10px 0 #149b70; border-top-right-radius: 7px; background: #fafafa; display: none; }  .page-start-menu .user-info { height: 50px; line-height: 50px; border-bottom: 1px solid #ededed; }  .page-start-menu .box { background-color: transparent !important; }  .page-start-menu .nav-menu, .page-start-menu .quick-menu { height: 445px; float: left; }  .page-start-menu .nav-menu { width: 60%; }  .page-start-menu .quick-menu { width: 40%; text-align: center; color: #333; border-left: 1px solid #ededed; }  .page-start-menu .quick-menu li { padding: 5px 15px 15px 15px; cursor: pointer; background: transparent; border-radius: 5px; }  .page-start-menu .quick-menu li:hover { opacity: 0.8; }  .page-start-menu .quick-menu .icon { font-size: 28px; color: #bbb; }
 
         .page-setting {display:none; position: fixed; right: 20px; top: 70px; width: 50px; height: 45px; border: 1px solid #dcdcdc; border-radius: 5px; padding-top: 7px; text-align: center; -webkit-user-select: none; }  .page-setting .icon-setting { color: #149b70; font-size: 30px; }  .page-setting .icon-setting:before { content: "\F085"; }
 
-        .backimg { background-image: url('/Content/images/3.jpg'); background-repeat: no-repeat; background-size: cover; }
+        .bgimg { background-image: url('/Content/images/0.jpg'); background-repeat: no-repeat; background-size: cover; }
+        
     </style>
 </head>
-<body class="backimg">
+<body class="bgimg">
+
+    <div class="spinner">
+        <section class="loadding-logo"></section>
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
 
     <div class="page-container">
 

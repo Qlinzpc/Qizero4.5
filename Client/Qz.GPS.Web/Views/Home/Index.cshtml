@@ -4,7 +4,12 @@
     <meta name="viewport" content="width=device-width" />
     <title>Qizero</title>
     @System.Web.Optimization.Styles.Render("~/Qz/css")
-
+    <style>
+        .spinner {
+            background-color: rgba(0, 0, 0, 0.6);
+            display:none;
+        }
+    </style>
 </head>
 <body>
 
@@ -82,6 +87,13 @@
             <div class="tac">©2015 Qizero</div>
         </div>
 
+    </div>
+
+    <div class="spinner">
+        <section class="loadding-logo"></section>
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
     </div>
 
     @System.Web.Optimization.Scripts.Render("~/Qz/jQuery")
