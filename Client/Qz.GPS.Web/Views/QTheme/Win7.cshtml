@@ -11,6 +11,7 @@
     <style>
         .page-container {
             min-height: 100px;
+            overflow: hidden;
         }
 
         .page-header {
@@ -61,9 +62,11 @@
                 position: absolute;
                 top: 18px;
             }
-        .page-content{
-            position:relative;
+
+        .page-content {
+            position: relative;
         }
+
         .menu-win7 {
             -webkit-user-select: none;
         }
@@ -91,9 +94,74 @@
                 border-radius: 5px;
                 padding: 2px 0;
                 max-height: 40px;
-                overflow:hidden;
+                overflow: hidden;
             }
-        .icon-home:before { content: "\f015"; }  .icon-manage:before { content: "\f0c0"; }  .icon-sys-setting:before { content: "\F085"; }  .icon-sys-app:before { content: "\f179"; }  .icon-sys-log:before { content: "\f0ea"; }  .icon-db-manage:before { content: "\f0c2"; }  .icon-data-code:before { content: "\f121"; }  .icon-module-manage:before { content: "\f00b"; }  .icon-company-manage:before { content: "\f0ac"; }  .icon-dept-manage:before { content: "\f0e8"; }  .icon-role-manage:before { content: "\f084"; }  .icon-user-manage:before { content: "\f007"; }  .icon-open { position: relative; }  .icon-open:before { content: "\f101"; }  .icon-sys-menu:before { content: "\f039"; }  .icon-sys-menu { padding: 12px 8px 0 0; float: right; }
+
+        .icon-home:before {
+            content: "\f109";
+        }
+
+        .icon-manage:before {
+            content: "\f0c0";
+        }
+
+        .icon-sys-setting:before {
+            content: "\F085";
+        }
+
+        .icon-sys-app:before {
+            content: "\f179";
+        }
+
+        .icon-sys-log:before {
+            content: "\f0ea";
+        }
+
+        .icon-db-manage:before {
+            content: "\f0c2";
+        }
+
+        .icon-data-code:before {
+            content: "\f121";
+        }
+
+        .icon-module-manage:before {
+            content: "\f00b";
+        }
+
+        .icon-company-manage:before {
+            content: "\f0ac";
+        }
+
+        .icon-dept-manage:before {
+            content: "\f0e8";
+        }
+
+        .icon-role-manage:before {
+            content: "\f084";
+        }
+
+        .icon-user-manage:before {
+            content: "\f007";
+        }
+
+        .icon-open {
+            position: relative;
+        }
+
+            .icon-open:before {
+                content: "\f101";
+            }
+
+        .icon-sys-menu:before {
+            content: "\f039";
+        }
+
+        .icon-sys-menu {
+            padding: 12px 8px 0 0;
+            float: right;
+        }
+
         .page-taskbar {
             border-top: 1px solid rgba(255, 255, 255, 0.5);
             height: 38px;
@@ -103,60 +171,81 @@
             background: rgba(5, 5, 5, 0.70);
             bottom: 0;
             -webkit-user-select: none;
+            opacity: 0;
+            transform: translate(0,100%);
+            transition: all .8s;
+            transition-delay: .5s;
         }
 
-            .page-taskbar .win {
-                width: 55px;
-                height: 100%;
-                text-align: center;
+        .page-taskbar-open {
+            opacity: 1;
+            transform: translate(0,0);
+        }
+
+        .page-taskbar .win {
+            width: 55px;
+            height: 100%;
+            text-align: center;
+        }
+
+        .page-taskbar ul > li {
+            float: left;
+        }
+
+        .page-taskbar .win > div {
+            padding-top: 3px;
+        }
+
+        .page-taskbar .icon-win {
+            color: #fff;
+            font-size: 25px;
+        }
+
+            .page-taskbar .icon-win:before {
+                content: "\f17a";
             }
 
-            .page-taskbar li {
-                float: left;
-            }
+        .page-taskbar .taskbar {
+        }
 
-            .page-taskbar .win > div {
-                padding-top: 3px;
-            }
-
-            .page-taskbar .icon-win {
+            .page-taskbar .taskbar .icon {
                 color: #fff;
-                font-size: 25px;
+                font-size: 26px;
+                padding-top: 7px;
+                margin-left: 20px;
             }
 
-                .page-taskbar .icon-win:before {
-                    content: "\f17a";
-                }
+        .page-start-menu {
+            width: 330px;
+            height: 500px;
+            position: fixed;
+            bottom: 38px;
+            border: 1px solid #fff;
+            box-shadow: 0 0 10px 0 #149b70;
+            border-top-right-radius: 7px;
+            background: #fafafa;
+            display: none;
+        }
 
-                .page-start-menu{
-                    width: 330px;
-                    height: 500px;
-                    position: fixed;
-                    bottom: 38px;
-                    border: 1px solid #fff;
-                    box-shadow: 0 0 10px 0 #149b70;
-                    border-top-right-radius: 7px;
-                    background: #fafafa;
-                    display: none;
-                }
-                
             .page-start-menu .user-info {
                 height: 50px;
                 line-height: 50px;
                 border-bottom: 1px solid #ededed;
             }
 
-            .page-start-menu .box{
+            .page-start-menu .box {
                 background-color: transparent !important;
             }
-            .page-start-menu .nav-menu, .page-start-menu .quick-menu{
+
+            .page-start-menu .nav-menu, .page-start-menu .quick-menu {
                 height: 445px;
-                float:left;
+                float: left;
             }
-            
+
             .page-start-menu .nav-menu {
                 width: 60%;
             }
+
             .page-start-menu .quick-menu {
                 width: 40%;
                 text-align: center;
@@ -164,19 +253,22 @@
                 border-left: 1px solid #ededed;
             }
 
-            .page-start-menu .quick-menu li{
-                padding: 5px 15px 15px 15px;
-                cursor: pointer;
-                background: transparent;
-                border-radius: 5px;
-            }
-                .page-start-menu .quick-menu li:hover {
-                    opacity: 0.8;
+                .page-start-menu .quick-menu li {
+                    padding: 5px 15px 15px 15px;
+                    cursor: pointer;
+                    background: transparent;
+                    border-radius: 5px;
                 }
-                 .page-start-menu .quick-menu .icon{
-                     font-size: 28px;
-                     color: #bbb;
-                 }
+
+                    .page-start-menu .quick-menu li:hover {
+                        opacity: 0.8;
+                    }
+
+                .page-start-menu .quick-menu .icon {
+                    font-size: 28px;
+                    color: #bbb;
+                }
+
         .page-setting {
             position: absolute;
             right: 20px;
@@ -188,7 +280,7 @@
             padding-top: 7px;
             text-align: center;
             -webkit-user-select: none;
-            display:none;
+            display: none;
         }
 
             .page-setting .icon-setting {
@@ -226,9 +318,9 @@
             </div>
             <div class="top-info">
                 <span>Qz (系统管理员)</span>
-                <i class="icon icon-user"></i>
+                <i class="icon icon-user" tooltip="个人中心"></i>
                 <hr />
-                <i class="icon icon-setting"></i>
+                <i class="icon icon-setting" tooltip="系统设置"></i>
             </div>
         </div>
 
@@ -303,7 +395,7 @@
                     _page_header = $api.dom('.page-header'),
                     _page_content = $api.dom('.page-content'),
 
-                    _url = '', _title = '', _id = '',
+                    _obj = {}, _url = '', _title = '', _icon = '', _id = '',
 
                     _page_taskbar = $api.dom('.page-taskbar'),
                     _start_menu = $api.dom('.page-start-menu'),
@@ -330,6 +422,7 @@
                     init = function () {
 
                         var _html = [],
+                            _taskHtml = [],
                             _top = 0,
                             _left = 0,
                             contentH = $(window).height() - _page_taskbar.offsetHeight - _page_header.offsetHeight,
@@ -347,14 +440,17 @@
                             _left = parseInt(index / columns) * WIDTH;
 
                             _.css = "top: {0}px;left: {1}px;".format(_top, _left);
+                            _.obj = '{' + encodeURIComponent('"id": "{Id}", "url": "{URL}", "icon": "{Icon}", "title": "{Name}"'.format(_)) + '}';
 
-                            _html.push('<li style="{css}"><div class="item" data-id="{Id}" data-url="{URL}" data-title="{Name}"><div><i class="icon icon-{Icon}"></i></div><div class="title">{Name}</div></div></li>'.format(_));
-
+                            _html.push('<li style="{css}"><div class="item" data-obj="{obj}" data-id="{Id}" data-url="{URL}" data-title="{Name}"><div><i class="icon icon-{Icon}"></i></div><div class="title">{Name}</div></div></li>'.format(_));
+                            _taskHtml.push('<i class="icon icon-{0}"></i>'.format(_.Icon));
                         });
 
-                        $api.append(_page_content, '<ul class="{0}">{1}</ul>'.format('menu-win7', _html.join('')));
+                        $api.html(_page_content, '<ul class="{0}">{1}</ul>'.format('menu-win7', _html.join('')));
+                        $api.html($api.dom(_page_taskbar, '.taskbar'), '{0}'.format(_taskHtml.join('')));
 
-                        // $api.html(_page_content, '<ul class="{0}">{1}</ul>'.format('menu-win7', _html.join('')));
+                        // 列表加载完毕，显示任务栏
+                        $api.addCls(_page_taskbar, 'page-taskbar-open');
                     };
 
 
@@ -366,9 +462,12 @@
 
                 $api.addEvt($api.domAll(_page_content, '.item'), 'click', function () {
 
-                    _id = $api.data(this, 'id');
-                    _url = $api.data(this, 'url');
-                    _title = $api.data(this, 'title');
+                    _obj = $api.parse(decodeURIComponent($api.data(this, 'obj')));
+
+                    _id = _obj.id;
+                    _url = _obj.url;
+                    _icon = _obj.icon;
+                    _title = _obj.title;
                     common.tip(_url);
 
                     common.ajax({
@@ -376,9 +475,16 @@
                         type: 'html',
                         callback: function (rs) {
 
+
+
                             new Dialog().window({
                                 id: 'window-' + _id,
                                 content: rs.html,
+                                icon: 'icon-{0}'.format(_icon),
+                                lock: true,
+                                min: true,
+                                max: true,
+                                parent: _page_content,
                                 title: _title,
                                 drag: true,
                                 mask: false
@@ -420,7 +526,7 @@
                             title: {
                                 txt: '{0} {1}'.format('@Qz.GPS.Web.Core.SessionUser.Data.UserName', '(@Qz.GPS.Web.Core.SessionUser.Data.RoleName)'),
                                 icon: 'icon-user',
-                                dom: _user_info 
+                                dom: _user_info
                             },
                             setting: {
                                 theme: 'windows',
@@ -477,6 +583,7 @@
 
                 window.onresize = init;
 
+                tooltip.init();
             });
 
         })(window);

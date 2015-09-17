@@ -7,9 +7,10 @@
     <style>
         .spinner {
             background-color: rgba(0, 0, 0, 0.6);
-            display:none;
+            display: none;
         }
     </style>
+    
 </head>
 <body>
 
@@ -101,6 +102,20 @@
     <script src="~/Module/QzUI/lib/Tooltip/js/tooltip.js"></script>
     <script>
 
+        (function () {
+
+            var _skin_link = $api.dom('link[href*="/skin/"]'),
+            _skin_link_href = _skin_link.href.split('skin/')[0],
+            _config = $api.parse('@ViewBag.Config'.replace(/\&quot;/g, '"'));
+            
+            console.log(_config);
+            _skin_link.href = _skin_link_href + "skin/{0}.css".format(_config.skin);
+
+        })();
+
+    </script>
+    <script>
+
         (function (o) {
             common.load.complete(function () {
 
@@ -174,7 +189,7 @@
                                 parent: o.gps.home.tab().get(0),
                                 page: o.gps.home,
                                 setting: {
-                                    max:{
+                                    max: {
                                         count: 0,
                                         msg: '选项卡已超过系统限制, 请先其他关闭选项卡'
                                     }
@@ -251,7 +266,7 @@
                     /**
                      * 头部菜单
                     */
-                    // sql 
+                    // sql
                     headerMenu['sql'] = function () {
                         common.tip('sql ... ');
 
@@ -263,7 +278,7 @@
                         });
 
                     };
-                    // 切换主题 
+                    // 切换主题
                     headerMenu['theme'] = function () {
                         common.tip('theme ... ');
 
@@ -379,7 +394,7 @@
                     content: '<h3>Qizero</h3><ul><li><a href="javascript:void(0)" style="color: #149b70">1. Qizero v1.0 版本上线</a></li><li><a href="javascript:void(0)" style="color: #149b70">2. Qizero GPS v1.0 系统说明</a></li></ul>',
                     title: '系统公告',
                     pos: 'bottom',
-                    mask:false,
+                    mask: false,
                     drag: true,
                     timer: 3
                 });

@@ -22,6 +22,8 @@ namespace Qz.GPS.Web.Controllers
         {
             ViewBag.Module = SessionModule.JsonData;
 
+            ViewBag.Config = SessionUser.Data.Config;
+
             return View();
         }
 

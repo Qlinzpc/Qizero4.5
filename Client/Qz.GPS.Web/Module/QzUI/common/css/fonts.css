@@ -4,7 +4,7 @@
                  url('/Module/QzUI/common/fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), 
                  url('/Module/QzUI/common/fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg'); }
 
-[class^=icon-], [class*=" icon-"] {
+[class^=icon-], [class*="icon-"] {
     font-family: Qzero-icon;
     cursor: pointer;
     display: inline-block; 

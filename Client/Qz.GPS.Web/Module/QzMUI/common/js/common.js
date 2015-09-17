@@ -342,7 +342,7 @@ function compare(a, b) {
 }
 
 /**
- * 数组 Array indexOf 函数 , is 默认为like ( is 不为0, 代表全等 )
+ * 数组 Array indexOf 函数 
  * Desc: 获得指定元素位置   
  */
 Array.prototype.indexOf = function (val, is) {

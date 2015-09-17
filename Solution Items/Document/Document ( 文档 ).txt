@@ -1,4 +1,8 @@
-﻿
+﻿ftp01.site4future.com
+
+http://qizero-001-site1.site4future.com/
+
+
 		Architecture ( 架构 )
 
 0. Solution Items

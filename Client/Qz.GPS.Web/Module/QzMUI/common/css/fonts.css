@@ -1,0 +1,19 @@
+﻿@font-face { font-family: 'Qizero-icon'; 
+             src:url('../fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), 
+                 url('../fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), 
+                 url('../fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), 
+                 url('../fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg'); }
+
+[class^=icon-], [class*=" icon-"] {
+    font-family: Qizero-icon;
+    cursor: pointer;
+    display: inline-block; 
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    line-height: 1;
+    text-transform: none;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

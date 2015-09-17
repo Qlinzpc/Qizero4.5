@@ -15,8 +15,12 @@
         id: 'dialog-' + new Date().getTime(),
         title: '系统提示',
         content: '',
+        icon: 'icon-win',
         show: false,
         mask: true,
+        lock: false,
+        min: false,
+        max: false,
         parent: '',
         drag: false,
         timer: 0,
@@ -27,13 +31,13 @@
         callback: function () { }
     },
 
-    btns = {
-        yes: '<a class="btn btn-b p-3-13" data-id="yes">是</a>',
-        no: '<a class="btn btn-b p-3-13" data-id="no">否</a>',
-        ok: '<a class="btn btn-b" data-id="ok">确   定</a>',
-        cancel: '<a class="btn btn-b" data-id="cancel">取  消</a>',
-        submit: '<a class="btn btn-b" data-id="submit">提  交</a>'
-    };
+        btns = {
+            yes: '<a class="btn btn-b p-3-13" data-id="yes">是</a>',
+            no: '<a class="btn btn-b p-3-13" data-id="no">否</a>',
+            ok: '<a class="btn btn-b" data-id="ok">确   定</a>',
+            cancel: '<a class="btn btn-b" data-id="cancel">取  消</a>',
+            submit: '<a class="btn btn-b" data-id="submit">提  交</a>'
+        };
 
     /**
      * Dialog 对话框 
@@ -65,6 +69,7 @@
 
         // Box 
         this.box = new Box(this.config);
+        
         this.dom = this.box.dom;
 
         var _body = $api.dom(this.box.dom, '.box-body'),
@@ -104,7 +109,7 @@
                 proxy: true
             });
 
-            this.box.init();
+            this.box.initdrag();
         }
 
         return this;
@@ -175,9 +180,13 @@
 
     // 窗口  
     Dialog.prototype.window = function (opt) {
+
         opt.footer = '';
         opt.show = true;
-        
+
+        opt.css = opt.css || {};
+        opt.css['transform'] = 'scale(1, 1)';
+
         this._create(opt);
 
         return this;

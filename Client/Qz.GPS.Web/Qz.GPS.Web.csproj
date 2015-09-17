@@ -44,9 +44,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime">
-      <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -199,6 +196,7 @@
     <Content Include="Content\images\load.gif" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\logo-mjh.png" />
+    <Content Include="Content\images\logo-wap.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\Qzero.png" />
     <Content Include="Content\images\tishi.png" />
@@ -216,6 +214,18 @@
     <Content Include="Content\QzUI\QzUI.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Module\QzMUI\base\css\base.css" />
+    <Content Include="Module\QzMUI\base\js\base.js" />
+    <Content Include="Module\QzMUI\common\css\animate.css" />
+    <Content Include="Module\QzMUI\common\css\common.css" />
+    <Content Include="Module\QzMUI\common\css\fonts.css" />
+    <Content Include="Module\QzMUI\common\fonts\fontawesome-webfont.svg" />
+    <Content Include="Module\QzMUI\common\img\logo-wap.png" />
+    <Content Include="Module\QzMUI\common\js\common.js" />
+    <Content Include="Module\QzMUI\lib\layout\css\layout.css" />
+    <Content Include="Module\QzMUI\lib\layout\js\layout.js" />
+    <Content Include="Module\QzMUI\lib\menu\css\menu.css" />
+    <Content Include="Module\QzMUI\lib\menu\js\menu.js" />
     <Content Include="Module\QzUI\base\css\base.css" />
     <Content Include="Module\QzUI\base\css\skin\1.css" />
     <Content Include="Module\QzUI\base\css\skin\10.css" />
@@ -461,6 +471,10 @@
     <Content Include="Scripts\echarts\src\util\mapData\rawData\geoJson\xi_zang_geo.json" />
     <Content Include="Scripts\echarts\src\util\mapData\rawData\geoJson\yun_nan_geo.json" />
     <Content Include="Scripts\echarts\src\util\mapData\rawData\geoJson\zhe_jiang_geo.json" />
+    <Content Include="Module\QzMUI\common\fonts\fontawesome-webfont.eot" />
+    <Content Include="Module\QzMUI\common\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Module\QzMUI\common\fonts\fontawesome-webfont.woff" />
+    <Content Include="Module\QzMUI\common\fonts\FontAwesome.otf" />
     <None Include="Service References\Service\Service1.wsdl" />
     <None Include="Service References\Service\Service1.xsd" />
     <None Include="Service References\TestService\Service1.disco" />
@@ -537,7 +551,9 @@
     <Content Include="Scripts\zrender\tool\util.js" />
     <Content Include="Scripts\zrender\tool\vector.js" />
     <Content Include="Scripts\zrender\zrender.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -558,6 +574,7 @@
     <Content Include="Views\QTheme\Win8.cshtml" />
     <Content Include="Views\QTheme\MJH.cshtml" />
     <Content Include="Views\QTheme\MJHAbout.cshtml" />
+    <Content Include="Views\QTheme\Win10.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

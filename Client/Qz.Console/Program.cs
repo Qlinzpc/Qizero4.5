@@ -18,6 +18,16 @@ namespace Qz.Console
         static void Main(string[] args)
         {
 
+            string str = "2年15年09月06日";
+
+            System.Console.WriteLine(str.IndexOf('年', 3));
+            System.Console.WriteLine(str.IndexOf('月', 7));
+            System.Console.WriteLine(str.IndexOf('日', 9));
+            System.Console.WriteLine("12345678".IndexOf("3", 2, 1, StringComparison.CurrentCulture));
+
+            System.Console.Read();
+
+
             var user = new User()
             {
                 UserName = "",

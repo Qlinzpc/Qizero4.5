@@ -36,6 +36,14 @@ namespace Qz.GPS.Web.Controllers
             return View();
         }
 
+        public ActionResult Win10()
+        {
+            ViewBag.Module = QJsonConvert.Serialize(SessionModule.ListData.Where(x => x.SubMenu.Equals(0)).ToList());
+            ViewBag.ModuleAll = SessionModule.JsonData;
+
+            return View();
+        }
+
         public ActionResult MJH()
         {
             return View();

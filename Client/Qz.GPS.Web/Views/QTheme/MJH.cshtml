@@ -1,69 +1,91 @@
 ﻿@{
-    ViewBag.Title = "Win7";
+    ViewBag.Title = "米江湖";
     Layout = null;
 }
 <!DOCTYPE html>
 <html>
 <head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
     <title>@ViewBag.Title</title>
-    @System.Web.Optimization.Styles.Render("~/Qz/commoncss")
 
-    <style>
+    <link href="~/Module/QzMUI/common/css/common.css" rel="stylesheet" />
+    <link href="~/Module/QzMUI/common/css/fonts.css" rel="stylesheet" />
+    <link href="~/Module/QzMUI/lib/layout/css/layout.css" rel="stylesheet" />
+    <link href="~/Module/QzMUI/lib/menu/css/menu.css" rel="stylesheet" />
 
-        .page-container {
-            min-width: 1024px;
-        }
-        .page-header, .page-context, .page-footer {
-            width: 100%;
-        }
-         .page-header {
-            height: 60px;
-            background: #fff;
-        }
-        .page-footer {
-            height: 120px;
-            background: #f8f8f8;
-        }
-
-        .page-context .screen{
-            min-height: 600px;
-        }
-
-    </style>
 </head>
 <body>
 
     <div class="page-container">
 
         <div class="page-header">
-
+            <nav>
+                <ul>
+                    <li><i class="icon icon-menu"></i></li>
+                    <li><img src="/Module/QzMUI/common/img/logo-wap.png" /></li>
+                    <li class="pos-r"><i class="icon icon-cart"></i><span class="cart-num">0</span></li>
+                </ul>
+            </nav>
         </div>
 
         <div class="page-context">
-
-            <div class="screen"></div>
-            <div class="screen"></div>
-            <div class="screen"></div>
-            <div class="screen"></div>
-            <div class="screen"></div>
-            <div class="screen"></div>
-
-        </div>
-        
-        <div class="page-footer">
-
+            <div class="menu">
+                <ul>
+                    <li><a href="/User/Login"><i class="icon icon-user"></i>登录</a></li>
+                    <li><a href="/User/MyOrder"><i class="icon icon-order"></i>我的订单</a></li>
+                    <li class="split"></li>
+                    <li class="active"><a href="/"><i class="icon icon-home"></i>江湖本色</a></li>
+                    <li><a href="/Rice/List"><i class="icon icon-rice"></i>江湖好米</a></li>
+                    <li><a href="/"><i class="icon icon-add-user"></i>加入我们</a></li>
+                </ul>
+            </div>
         </div>
 
     </div>
 
-    @System.Web.Optimization.Scripts.Render("~/Qz/jQuery")
-    @System.Web.Optimization.Scripts.Render("~/Qz/js")
+    <script src="~/Module/QzMUI/base/js/base.js"></script>
+    <script src="~/Module/QzMUI/common/js/common.js"></script>
+    <script src="~/Module/QzMUI/lib/layout/js/layout.js"></script>
+    <script src="~/Module/QzMUI/lib/menu/js/menu.js"></script>
 
     <script>
 
         (function (o) {
 
-            
+            var
+                page = null,
+                menu = null;
+
+            page = new Layout();
+
+            page.init();
+
+            $api.addEvt('.icon-cart', 'click', function () {
+                window.location.href = "http://wx.mijianghu.com/cart.htm";
+            });
+
+            menu = new Menu({
+                id: '.menu',
+                pid: '.page-context',
+                position: 'menu-left',
+                trigger: '.icon-menu'
+            });
+
+            menu.init({
+                menu: [
+                    { name: '登录', url: 'http://wx.mijianghu.com/login.htm', icon: 'user' },
+                    { name: '我的订单', url: 'http://wx.mijianghu.com/order1.html', icon: 'order' },
+                    { split: true },
+                    { name: '江湖本色', url: 'http://wx.mijianghu.com', icon: 'home', active: true },
+                    { name: '江湖好米', url: 'http://wx.mijianghu.com/pro_list2.html', icon: 'rice' },
+                    { name: '加入我们', url: 'http://wx.mijianghu.com/about.html', icon: 'add-user' },
+                    { name: '安全退出', url: 'http://wx.mijianghu.com/pro_list.html', icon: 'exit' }
+                ]
+            });
 
         })(window);
 

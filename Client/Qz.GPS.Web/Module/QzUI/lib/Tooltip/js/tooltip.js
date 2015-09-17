@@ -45,6 +45,11 @@
         $(this.all).hover(function () {
             $api.append(_this.config.parent, '<div class="tooltip"></div>');
             _this.dom = $api.dom('.tooltip');
+            if (!_this.dom) {
+                _this.config.parent = 'body';
+                $api.append(_this.config.parent, '<div class="tooltip"></div>');
+                _this.dom = $api.dom('.tooltip');
+            }
 
             pos = $api.offset(this);
 
