@@ -38,7 +38,7 @@
 
                 _this.target.css('z-index', (++o.Index));
 
-                if (_this.config.proxy && $api.browser() === $api._browser.chrome) {
+                if (_this.config.proxy &&( $api.browser().indexOf('WebKit') != -1 || $api.browser() === $api._browser.chrome)) {
                     _div = $('<div></div>');
                     var _t = _this.target.get(0);
 
@@ -124,8 +124,8 @@
                     var _d = _div.get(0);
 
                     (_this.target).css({
-                        'left': _d.offsetLeft ,
-                        'top': _d.offsetTop ,
+                        'left': _d.offsetLeft,
+                        'top': _d.offsetTop,
                         'transition': '0.8s'
                     });
 
