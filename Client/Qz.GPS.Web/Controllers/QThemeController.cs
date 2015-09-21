@@ -24,6 +24,7 @@ namespace Qz.GPS.Web.Controllers
         {
             ViewBag.Module = QJsonConvert.Serialize(SessionModule.ListData.Where(x => x.SubMenu.Equals(0)).ToList());
             ViewBag.ModuleAll = SessionModule.JsonData;
+            ViewBag.Config = SessionUser.Data.Config;
 
             return View();
         }
@@ -32,6 +33,7 @@ namespace Qz.GPS.Web.Controllers
         {
             ViewBag.Module = QJsonConvert.Serialize(SessionModule.ListData.Where(x => x.SubMenu.Equals(0)).ToList());
             ViewBag.ModuleAll = SessionModule.JsonData;
+            ViewBag.Config = SessionUser.Data.Config;
 
             return View();
         }
@@ -40,6 +42,7 @@ namespace Qz.GPS.Web.Controllers
         {
             ViewBag.Module = QJsonConvert.Serialize(SessionModule.ListData.Where(x => x.SubMenu.Equals(0)).ToList());
             ViewBag.ModuleAll = SessionModule.JsonData;
+            ViewBag.Config = SessionUser.Data.Config;
 
             return View();
         }

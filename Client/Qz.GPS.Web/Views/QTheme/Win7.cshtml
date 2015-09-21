@@ -7,6 +7,7 @@
 <head>
     <title>@ViewBag.Title</title>
     @System.Web.Optimization.Styles.Render("~/Qz/css")
+    <link href="~/Module/QzUI/base/css/skin/default.css" rel="stylesheet" />
 
     <style>
         .page-container {
@@ -300,16 +301,13 @@
     </style>
 </head>
 <body class="bgimg">
-
     <div class="spinner">
         <section class="loadding-logo"></section>
         <div class="bounce1"></div>
         <div class="bounce2"></div>
         <div class="bounce3"></div>
     </div>
-
     <div class="page-container">
-
         <div class="page-header">
             <div class="nav">
                 <a class="backup"><i class="icon icon-backup"></i></a>
@@ -323,19 +321,15 @@
                 <i class="icon icon-setting" tooltip="系统设置"></i>
             </div>
         </div>
-
         <div class="page-content">
             <div class="page-setting"><i class="icon icon-setting"></i></div>
-
         </div>
-
         <div class="page-taskbar">
             <ul>
                 <li class="win"><div><i class="icon icon-win"></i></div></li>
                 <li class="taskbar"></li>
             </ul>
         </div>
-
         <div class="page-start-menu">
             <div class="user-info"></div>
             <div class="nav-menu"></div>
@@ -380,13 +374,31 @@
                 </ul>
             </div>
         </div>
-
     </div>
-
     @System.Web.Optimization.Scripts.Render("~/Qz/jQuery")
     @System.Web.Optimization.Scripts.Render("~/Qz/js")
 
     <script>
+
+        (function () {
+
+            var _skin_link = $api.dom('link[href*="/skin/"]');
+
+            if (!_skin_link) {
+                _skin_link = document.createElement('link');
+                _skin_link.href = "/Module/QzUI/base/css/skin/default.css";
+                _skin_link.rel = "stylesheet";
+
+                $api.append($api.dom('head'), _skin_link);
+            }
+
+            var _skin_link_href = _skin_link.href.split('skin/')[0],
+            _config = $api.parse('@ViewBag.Config'.replace(/\&quot;/g, '"'));
+
+            console.log(_config);
+            _skin_link.href = _skin_link_href + "skin/{0}.css".format(_config.skin);
+
+        })();
 
         (function (o) {
 
@@ -460,6 +472,11 @@
 
                 init();
 
+                $api.addEvt($api.domAll(_quick_menu, 'li[data-type]'), 'click', function () {
+
+                    $api.trigger(_this[$api.data(this, 'type')], null, this);
+                });
+
                 $api.addEvt($api.domAll(_page_content, '.item'), 'click', function () {
 
                     _obj = $api.parse(decodeURIComponent($api.data(this, 'obj')));
@@ -474,8 +491,6 @@
                         url: _url,
                         type: 'html',
                         callback: function (rs) {
-
-
 
                             new Dialog().window({
                                 id: 'window-' + _id,

@@ -4,13 +4,15 @@
     <meta name="viewport" content="width=device-width" />
     <title>Qizero</title>
     @System.Web.Optimization.Styles.Render("~/Qz/css")
+    <link href="~/Module/QzUI/base/css/skin/default.css" rel="stylesheet"/>
+
     <style>
         .spinner {
             background-color: rgba(0, 0, 0, 0.6);
             display: none;
         }
     </style>
-    
+
 </head>
 <body>
 
@@ -20,7 +22,7 @@
         @* 页面头部 *@
         <div class="page-header">
             <div class="logo">
-                <h2><i class="icon icon-logo"></i>Qizero GPS ( 通用权限系统 ) </h2>
+                <h2><i class="icon icon-logo"></i>Qizero PMS ( 通用权限系统 ) </h2>
             </div>
             <div class="header-menu">
                 <ul>
@@ -99,15 +101,24 @@
 
     @System.Web.Optimization.Scripts.Render("~/Qz/jQuery")
     @System.Web.Optimization.Scripts.Render("~/Qz/js")
-    <script src="~/Module/QzUI/lib/Tooltip/js/tooltip.js"></script>
+
     <script>
 
         (function () {
 
-            var _skin_link = $api.dom('link[href*="/skin/"]'),
-            _skin_link_href = _skin_link.href.split('skin/')[0],
+            var _skin_link = $api.dom('link[href*="/skin/"]');
+
+            if (!_skin_link) {
+                _skin_link = document.createElement('link');
+                _skin_link.href = "/Module/QzUI/base/css/skin/default.css";
+                _skin_link.rel = "stylesheet";
+
+                $api.append($api.dom('head'), _skin_link);
+            }
+
+            var _skin_link_href = _skin_link.href.split('skin/')[0],
             _config = $api.parse('@ViewBag.Config'.replace(/\&quot;/g, '"'));
-            
+
             console.log(_config);
             _skin_link.href = _skin_link_href + "skin/{0}.css".format(_config.skin);
 
@@ -190,7 +201,7 @@
                                 page: o.gps.home,
                                 setting: {
                                     max: {
-                                        count: 0,
+                                        count: 5,
                                         msg: '选项卡已超过系统限制, 请先其他关闭选项卡'
                                     }
                                 },

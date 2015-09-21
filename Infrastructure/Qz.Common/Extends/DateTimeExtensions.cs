@@ -16,7 +16,7 @@ namespace Qz.Common
         /// <returns>间隔的秒数</returns>
         public static string Interval(this DateTime dt)
         {
-            return (DateTime.Now.Subtract(dt).TotalMilliseconds / 1000.0) + " s";
+            return (DateTime.Now.Subtract(dt).TotalMilliseconds / 1000.0).ToString("F3") + " s";
         }
 
     }

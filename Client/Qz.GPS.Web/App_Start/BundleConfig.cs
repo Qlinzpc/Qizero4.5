@@ -22,6 +22,7 @@ namespace Qz.GPS.Web.App_Start
                 "~/Module/QzUI/lib/Dialog/js/dialog.js",
                 "~/Module/QzUI/lib/Tree/js/tree.js",
                 "~/Module/QzUI/lib/Form/js/form.js",
+                "~/Module/QzUI/lib/Tooltip/js/tooltip.js",
                 "~/Module/QzUI/lib/Drag/js/drag.js"
                 ));
 
@@ -46,7 +47,6 @@ namespace Qz.GPS.Web.App_Start
 
             #region CSS
             bundles.Add(new StyleBundle("~/Qz/css").Include(
-                "~/Module/QzUI/base/css/skin/default.css",
                 "~/Module/QzUI/base/css/base.css",
                 "~/Module/QzUI/common/css/common.css",
                 "~/Module/QzUI/common/css/animate.css",

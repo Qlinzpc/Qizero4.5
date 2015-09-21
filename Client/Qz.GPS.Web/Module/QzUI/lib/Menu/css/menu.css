@@ -20,13 +20,13 @@
 
 
 .menu ul {
-    background: #FAFAFA;
+    background: #F5F5F5;
 }
 
     .menu ul > li {
         display: block;
         cursor: pointer;
-        background-color: #FAFAFA;
+        background-color: #F5F5F5;
         color: #000;
         border-top: 1px solid #eee;
         position: relative;

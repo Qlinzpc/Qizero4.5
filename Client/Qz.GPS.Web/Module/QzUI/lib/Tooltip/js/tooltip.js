@@ -37,14 +37,14 @@
 
         this.all = this.getTips();
 
-        
         //$api.addEvt(this.all, 'mouseenter', function () {
         //    console.log(this);
         //});
 
         $(this.all).hover(function () {
-            $api.append(_this.config.parent, '<div class="tooltip"></div>');
+
             _this.dom = $api.dom('.tooltip');
+
             if (!_this.dom) {
                 _this.config.parent = 'body';
                 $api.append(_this.config.parent, '<div class="tooltip"></div>');
@@ -53,7 +53,7 @@
 
             pos = $api.offset(this);
 
-            $api.css(_this.dom, 'top: {0}px;left: {1}px;'.format(pos.t + pos.h , pos.l));
+            $api.css(_this.dom, 'top: {0}px;left: {1}px;z-index: {2}'.format(pos.t + pos.h , pos.l, o.Index + 1));
             $api.html(_this.dom, $api.attr(this, 'tooltip'));
             $(_this.dom).show().animate({ 'top': '{0}px'.format(pos.t + pos.h + 5), 'left': '{0}px'.format(pos.l + 5) });
 

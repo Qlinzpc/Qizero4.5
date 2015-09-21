@@ -23,8 +23,8 @@
         overflow: auto;
     }
 
-    .tree ul {
-        background: #FAFAFA;
+    .tree .box-body > ul {
+        padding-bottom: 30px;
     }
 
         .tree ul > li {

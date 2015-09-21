@@ -44,13 +44,15 @@
 
         this.creaet();
 
+        this.init();
+
         // 判断是否已初始化
-        if (containers.indexOf(this.config.id, 1) === -1) {
-            this.init();
-            containers.push(this.config.id);
-        } else {
-            this.min();
-        }
+        //if (containers.indexOf(this.config.id, 1) === -1) {
+        //    this.init();
+        //    containers.push(this.config.id);
+        //} else {
+        //    this.min();
+        //}
     }
 
     // 属性 
