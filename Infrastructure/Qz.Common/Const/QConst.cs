@@ -105,6 +105,10 @@ namespace Qz.Common
         /// 登录 URL 
         /// </summary>
         public const string LOGIN_URL = "/Login/Index";
+        /// <summary>
+        /// 首页 URL 
+        /// </summary>
+        public const string HOME_URL = "/Qz";
 
         /// <summary>
         /// GPS 应用程序 Id 

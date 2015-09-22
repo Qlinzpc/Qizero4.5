@@ -132,6 +132,7 @@
     <Compile Include="Areas\Mobile\MobileAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HouseController.cs" />
+    <Compile Include="Core\Authorize\SsoAuthorize.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -303,6 +304,10 @@
       <Project>{fc7e37dd-1e66-4e49-a9ad-c9373d09f945}</Project>
       <Name>Qz.DirectService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Qz.Common\Qz.Common.csproj">
+      <Project>{4603d45b-1d33-45ca-af56-60cce3697495}</Project>
+      <Name>Qz.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Qz.Core\Qz.Core.csproj">
       <Project>{7d3dcad1-f44e-4794-8d8a-6237b6021a27}</Project>
       <Name>Qz.Core</Name>
@@ -365,6 +370,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\Qz.pubxml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

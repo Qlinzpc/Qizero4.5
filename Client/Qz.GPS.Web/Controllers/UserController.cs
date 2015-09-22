@@ -1,4 +1,6 @@
 ﻿
+using Qz.GPS.Web.SsoService;
+
 namespace Qz.GPS.Web.Controllers
 {
     using System;
@@ -30,47 +32,63 @@ namespace Qz.GPS.Web.Controllers
             return View(response);
         }
 
+        //[AllowAnonymous]
+        //[HttpPost]
+        //public JsonResult Login(Qz.GPS.DirectService.Parameter.User.Login user)
+        //{
+        //    UserService service = new UserService();
+
+        //    var response = service.Login(new Qz.Core.Entity.Request<Qz.GPS.DirectService.Parameter.User.Login>()
+        //    {
+        //        Obj = user
+        //    }, new LoginLog()
+        //    {
+        //        HostName = Request.UserHostName,
+        //        HostIP = Request.UserHostAddress,
+        //        LoginMsg = Request.UserAgent + " " + Request.UrlReferrer
+        //    });
+
+        //    if (response.Status == 0)
+        //    {
+        //        // 保存 Session 状态 
+        //        SessionUser.Value(response.Data);
+
+        //        var moduleResponse = new ModuleService().GetModuleByUser(new Qz.Core.Entity.Request<DirectService.Parameter.Module.ByUser>()
+        //        {
+        //            Obj = new DirectService.Parameter.Module.ByUser()
+        //            {
+        //                ApplicationId = QConst.GPS_APPLICATION_ID,
+        //                ParentId = 0,
+        //                UserId = response.Data.Id
+        //            }
+        //        });
+
+        //        SessionModule.ListValue(moduleResponse.Data);
+        //        SessionModule.JsonValue(Qz.Common.QJsonConvert.Serialize(moduleResponse.Data));
+        //    }
+
+        //    return Json(
+        //        new Qz.Core.Entity.Response()
+        //        {
+        //            Message = response.Message,
+        //            Times = response.Times,
+        //            Status = response.Status
+        //        }
+        //    );
+        //}
+
         [AllowAnonymous]
         [HttpPost]
         public JsonResult Login(Qz.GPS.DirectService.Parameter.User.Login user)
         {
-            UserService service = new UserService();
+            SsoService.AuthServiceClient auth = new AuthServiceClient();
 
-            var response = service.Login(new Qz.Core.Entity.Request<Qz.GPS.DirectService.Parameter.User.Login>()
-            {
-                Obj = user
-            }, new LoginLog()
-            {
-                HostName = Request.UserHostName,
-                HostIP = Request.UserHostAddress,
-                LoginMsg = Request.UserAgent + " " + Request.UrlReferrer
-            });
-
-            if (response.Status == 0)
-            {
-                // 保存 Session 状态 
-                SessionUser.Value(response.Data);
-
-                var moduleResponse = new ModuleService().GetModuleByUser(new Qz.Core.Entity.Request<DirectService.Parameter.Module.ByUser>()
-                {
-                    Obj = new DirectService.Parameter.Module.ByUser()
-                    {
-                        ApplicationId = QConst.GPS_APPLICATION_ID,
-                        ParentId = 0,
-                        UserId = response.Data.Id
-                    }
-                });
-
-                SessionModule.ListValue(moduleResponse.Data);
-                SessionModule.JsonValue(Qz.Common.QJsonConvert.Serialize(moduleResponse.Data));
-            }
+            var token = auth.Login(user.Account, user.Password);
 
             return Json(
                 new Qz.Core.Entity.Response()
                 {
-                    Message = response.Message,
-                    Times = response.Times,
-                    Status = response.Status
+                    Message = token
                 }
             );
         }

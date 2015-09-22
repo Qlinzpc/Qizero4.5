@@ -138,6 +138,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Areas\Es\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Es\EsAreaRegistration.cs" />
+    <Compile Include="Areas\Hr\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Hr\HrAreaRegistration.cs" />
+    <Compile Include="Areas\Pms\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Pms\PmsAreaRegistration.cs" />
+    <Compile Include="Areas\Qz\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Qz\QzAreaRegistration.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\ButtonController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
@@ -157,8 +165,10 @@
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SysLogController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Core\Authorize\SsoAuthorize.cs" />
     <Compile Include="Core\Authorize\SysAuthorize.cs" />
     <Compile Include="Core\Controller\BaseController.cs" />
+    <Compile Include="Core\Controller\SsoController.cs" />
     <Compile Include="Core\Session\SessionModule.cs" />
     <Compile Include="Core\Session\SessionUser.cs" />
     <Compile Include="Global.asax.cs">
@@ -166,6 +176,11 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\Service\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SsoService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -475,8 +490,32 @@
     <Content Include="Module\QzMUI\common\fonts\fontawesome-webfont.ttf" />
     <Content Include="Module\QzMUI\common\fonts\fontawesome-webfont.woff" />
     <Content Include="Module\QzMUI\common\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Es\Views\Web.config" />
+    <Content Include="Areas\Es\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Hr\Views\Web.config" />
+    <Content Include="Areas\Hr\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Pms\Views\Web.config" />
+    <Content Include="Areas\Pms\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Qz\Views\Web.config" />
+    <Content Include="Areas\Qz\Views\Home\Index.cshtml" />
     <None Include="Service References\Service\Service1.wsdl" />
     <None Include="Service References\Service\Service1.xsd" />
+    <None Include="Service References\SsoService\AuthService.wsdl" />
+    <None Include="Service References\SsoService\AuthService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SsoService\AuthService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SsoService\AuthService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SsoService\AuthService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SsoService\Qz.GPS.Web.SsoService.SsoToken.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\TestService\Service1.disco" />
     <None Include="Service References\TestService\configuration91.svcinfo" />
     <None Include="Service References\TestService\configuration.svcinfo" />
@@ -551,6 +590,13 @@
     <Content Include="Scripts\zrender\tool\util.js" />
     <Content Include="Scripts\zrender\tool\vector.js" />
     <Content Include="Scripts\zrender\zrender.js" />
+    <None Include="Service References\SsoService\AuthService.disco" />
+    <None Include="Service References\SsoService\configuration91.svcinfo" />
+    <None Include="Service References\SsoService\configuration.svcinfo" />
+    <None Include="Service References\SsoService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -578,6 +624,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Es\Models\" />
+    <Folder Include="Areas\Es\Views\Shared\" />
+    <Folder Include="Areas\Hr\Models\" />
+    <Folder Include="Areas\Hr\Views\Shared\" />
+    <Folder Include="Areas\Pms\Models\" />
+    <Folder Include="Areas\Pms\Views\Shared\" />
+    <Folder Include="Areas\Qz\Models\" />
+    <Folder Include="Areas\Qz\Views\Shared\" />
     <Folder Include="Module\QzUI\lib\Store\css\" />
     <Folder Include="Module\QzUI\lib\Timeline\" />
   </ItemGroup>
@@ -712,6 +766,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Service\" />
+    <WCFMetadataStorage Include="Service References\SsoService\" />
     <WCFMetadataStorage Include="Service References\TestService\" />
   </ItemGroup>
   <PropertyGroup>

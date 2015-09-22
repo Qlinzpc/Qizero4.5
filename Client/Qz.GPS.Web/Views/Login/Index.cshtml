@@ -79,6 +79,8 @@
             return this;
         };
 
+        var req = common.request();
+
         common.load.complete(function () {
 
             common.loadJC('/Module/QzUI/lib/Ajax/js/ajax.js');
@@ -115,15 +117,20 @@
                         data: eval('(' + data + ')'),
                         callback: function (rs) {
 
-                            common.tip(rs.Times);
+                            //common.tip(rs.Times);
 
-                            if (rs.Status != 0) {
+                            //if (rs.Status != 0) {
 
-                                msg.show(rs.Message);
-                                return;
-                            }
+                            //    msg.show(rs.Message);
+                            //    return;
+                            //}
 
-                            window.location.href = "/";
+                            //window.location.href = "/";
+
+                            common.tip(rs.Message);
+                            req.returnUrl = req.returnUrl || "/Qz";
+
+                            window.location.href = decodeURIComponent(req.returnUrl) + "?token=" + rs.Message;
                         }
                     });
                 };

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Qz.SSO.Service.AuthService" CodeBehind="AuthService.svc.cs" %>

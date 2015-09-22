@@ -62,6 +62,7 @@
     <Compile Include="Infrastructure\Interface\Repository\IRepository.cs" />
     <Compile Include="Infrastructure\Interface\Service\IBaseService.cs" />
     <Compile Include="Infrastructure\Interface\UnitOfWorks\IUnitOfWorks.cs" />
+    <Compile Include="Page\PageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +70,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Qz.Caching\Qz.Caching.csproj">
+      <Project>{24e63ec8-61d1-45f1-afb2-d49c72be6d78}</Project>
+      <Name>Qz.Caching</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Qz.Common\Qz.Common.csproj">
       <Project>{4603d45b-1d33-45ca-af56-60cce3697495}</Project>
       <Name>Qz.Common</Name>

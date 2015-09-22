@@ -27,10 +27,10 @@
         // 请求参数
         this.request = function () {
             var href = decodeURI(window.location.href).split('#')[0];
-            if (href.indexOf('?') == -1) return "";
+            if (href.indexOf('?') == -1) return {};
 
             var params = href.split('?')[1];
-            if (params === "") return "";
+            if (params === "") return {};
 
             return common.parse(params);
         };
